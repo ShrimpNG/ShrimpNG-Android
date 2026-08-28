@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Fixed, not day/night-aware on purpose — the regular (non-Material-You) launcher icon is
+         a static brand image like any app icon and must not shift with the system theme; only
+         the separate monochrome layer is meant to react to anything (the OS's own re-tinting).
+         Matches the original concept artwork's own palette (not the app's teal Material You
+         theme), per explicit request. -->
+    <color name="ic_launcher_background">#FFFDE4DF</color>
+</resources>

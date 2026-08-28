@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.button.MaterialButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.Material3Expressive.Button.TonalButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/padding_spacing_dp8"
+    android:checkable="true"
+    android:insetTop="0dp"
+    android:insetBottom="0dp"
+    android:minHeight="48dp"
+    android:paddingHorizontal="@dimen/padding_spacing_dp16"
+    android:textAppearance="?attr/textAppearanceLabelLarge"
+    app:cornerRadius="24dp" />

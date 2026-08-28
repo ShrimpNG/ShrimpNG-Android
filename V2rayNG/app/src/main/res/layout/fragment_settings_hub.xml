@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingVertical="@dimen/padding_spacing_dp8">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/padding_spacing_dp16"
+            android:paddingTop="@dimen/padding_spacing_dp16">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/padding_spacing_dp8"
+            android:paddingTop="@dimen/padding_spacing_dp8"
+            android:paddingBottom="@dimen/padding_spacing_dp8"
+            android:text="@string/settings_hub_group_app"
+            android:textAllCaps="true"
+            android:textAppearance="?attr/textAppearanceLabelMedium"
+            android:textColor="?attr/colorPrimary" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.ShrimpNG.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/padding_spacing_dp8">
+        <LinearLayout
+            android:id="@+id/row_app_settings"
+            style="@style/Widget.ShrimpNG.SettingsHubRow">
+
+
+            <ImageView
+                style="@style/Widget.ShrimpNG.SettingsHubRowIcon"
+                android:backgroundTint="#A1C9FD"
+                android:tint="#0343A5"
+                app:srcCompat="@drawable/ic_settings_24dp" />
+
+            <TextView
+                style="@style/Widget.ShrimpNG.SettingsHubRowText"
+                android:text="@string/settings_hub_app_settings" />
+
+
+        </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/padding_spacing_dp8"
+            android:paddingTop="@dimen/padding_spacing_dp8"
+            android:paddingBottom="@dimen/padding_spacing_dp8"
+            android:text="@string/settings_hub_group_network"
+            android:textAllCaps="true"
+            android:textAppearance="?attr/textAppearanceLabelMedium"
+            android:textColor="?attr/colorPrimary" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.ShrimpNG.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/padding_spacing_dp8"
+                app:cardUseCompatPadding="false">
+
+                <LinearLayout
+                    android:id="@+id/row_per_app_proxy"
+                    style="@style/Widget.ShrimpNG.SettingsHubRow">
+
+                    <ImageView
+                        style="@style/Widget.ShrimpNG.SettingsHubRowIcon"
+                        android:backgroundTint="#FEAEE3"
+                        android:tint="#890251"
+                        app:srcCompat="@drawable/ic_per_apps_24dp" />
+
+                    <TextView
+                        style="@style/Widget.ShrimpNG.SettingsHubRowText"
+                        android:text="@string/settings_hub_per_app_proxy" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.ShrimpNG.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/padding_spacing_dp8">
+        <LinearLayout
+            android:id="@+id/row_user_assets"
+            style="@style/Widget.ShrimpNG.SettingsHubRow">
+
+            <ImageView
+                style="@style/Widget.ShrimpNG.SettingsHubRowIcon"
+                android:backgroundTint="#FCBC02"
+                android:tint="#743404"
+                app:srcCompat="@drawable/ic_file_24dp" />
+
+            <TextView
+                style="@style/Widget.ShrimpNG.SettingsHubRowText"
+                android:text="@string/settings_hub_user_assets" />
+
+        </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/padding_spacing_dp8"
+            android:paddingTop="@dimen/padding_spacing_dp8"
+            android:paddingBottom="@dimen/padding_spacing_dp8"
+            android:text="@string/settings_hub_group_data"
+            android:textAllCaps="true"
+            android:textAppearance="?attr/textAppearanceLabelMedium"
+            android:textColor="?attr/colorPrimary" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.ShrimpNG.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/padding_spacing_dp8">
+        <LinearLayout
+            android:id="@+id/row_backup_restore"
+            style="@style/Widget.ShrimpNG.SettingsHubRow">
+
+            <ImageView
+                style="@style/Widget.ShrimpNG.SettingsHubRowIcon"
+                android:backgroundTint="#81DD88"
+                android:tint="#00522C"
+                app:srcCompat="@drawable/ic_restore_24dp" />
+
+            <TextView
+                style="@style/Widget.ShrimpNG.SettingsHubRowText"
+                android:text="@string/settings_hub_backup_restore" />
+        </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/padding_spacing_dp8"
+            android:paddingTop="@dimen/padding_spacing_dp8"
+            android:paddingBottom="@dimen/padding_spacing_dp8"
+            android:text="@string/settings_hub_group_about"
+            android:textAllCaps="true"
+            android:textAppearance="?attr/textAppearanceLabelMedium"
+            android:textColor="?attr/colorPrimary" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.ShrimpNG.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/padding_spacing_dp8">
+
+            <LinearLayout
+            android:id="@+id/row_check_update"
+            style="@style/Widget.ShrimpNG.SettingsHubRow"
+            android:alpha="0.5">
+
+            <ImageView
+                style="@style/Widget.ShrimpNG.SettingsHubRowIcon"
+                android:backgroundTint="#A1C9FD"
+                android:tint="#0343A5"
+                app:srcCompat="@drawable/ic_check_update_24dp" />
+
+            <TextView
+                style="@style/Widget.ShrimpNG.SettingsHubRowText"
+                android:text="@string/settings_hub_check_update" />
+        </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.ShrimpNG.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/padding_spacing_dp8">
+        <LinearLayout
+            android:id="@+id/row_logcat"
+            style="@style/Widget.ShrimpNG.SettingsHubRow">
+
+            <ImageView
+                style="@style/Widget.ShrimpNG.SettingsHubRowIcon"
+                android:backgroundTint="#FFB581"
+                android:tint="#743404"
+                app:srcCompat="@drawable/ic_logcat_24dp" />
+
+            <TextView
+                style="@style/Widget.ShrimpNG.SettingsHubRowText"
+                android:text="@string/settings_hub_logcat" />
+        </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.ShrimpNG.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/padding_spacing_dp8">
+        <LinearLayout
+            android:id="@+id/row_about"
+            style="@style/Widget.ShrimpNG.SettingsHubRow">
+
+            <ImageView
+                style="@style/Widget.ShrimpNG.SettingsHubRowIcon"
+                android:backgroundTint="#FEAEE3"
+                android:tint="#890251"
+                app:srcCompat="@drawable/ic_about_24dp" />
+
+            <TextView
+                style="@style/Widget.ShrimpNG.SettingsHubRowText"
+                android:text="@string/settings_hub_about" />
+        </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

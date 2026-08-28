@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">ShrimpNG</string>
+    <string name="app_widget_name">Switch</string>
+    <string name="app_tile_name">Switch</string>
+    <string name="app_tile_first_use">First use of this feature, please use the app to add server</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="migration_success">Data migration success!</string>
+    <string name="action_stop_service">Stop service</string>
+    <string name="migration_fail">Data migration failed!</string>
+    <string name="pull_down_to_refresh">Please pull down to refresh!</string>
+
+    <!-- Notifications -->
+    <string name="notification_action_stop_v2ray">Stop</string>
+    <string name="toast_permission_denied">Unable to obtain the permission</string>
+    <string name="toast_permission_denied_notification">Unable to obtain the notification permission</string>
+    <string name="notification_action_more">Click for more</string>
+    <string name="toast_services_start">Start Services</string>
+    <string name="toast_services_stop">Stop Services</string>
+    <string name="toast_services_success">Start Services Success</string>
+    <string name="toast_services_failure">Start Services Failure</string>
+
+    <!--ServerActivity-->
+    <string name="title_server">Config</string>
+    <string name="menu_item_add_config">Add config</string>
+    <string name="menu_item_save_config">Save config</string>
+    <string name="menu_item_edit_config">Edit config</string>
+    <string name="menu_item_del_config">Delete config</string>
+    <string name="menu_item_import_config_qrcode">Import from QRcode</string>
+    <string name="menu_item_import_config_clipboard">Import from Clipboard</string>
+    <string name="menu_item_import_config_local">Import from locally</string>
+    <string name="menu_item_import_config_policy_group">Add [Policy group]</string>
+    <string name="menu_item_import_config_proxy_chain">Add [Proxy chain]</string>
+    <string name="menu_item_import_config_manually_vmess">Add [VMess]</string>
+    <string name="menu_item_import_config_manually_vless">Add [VLESS]</string>
+    <string name="menu_item_import_config_manually_ss">Add [Shadowsocks]</string>
+    <string name="menu_item_import_config_manually_socks">Add [SOCKS]</string>
+    <string name="menu_item_import_config_manually_http">Add [HTTP]</string>
+    <string name="menu_item_import_config_manually_trojan">Add [Trojan]</string>
+    <string name="menu_item_import_config_manually_wireguard">Add [Wireguard]</string>
+    <string name="menu_item_import_config_manually_hysteria2">Add [Hysteria2]</string>
+    <string name="del_config_comfirm">Confirm delete ?</string>
+    <string name="del_invalid_config_comfirm">Please test before deleting! Confirm delete ?</string>
+    <string name="server_lab_remarks">remarks</string>
+    <string name="server_lab_address">address</string>
+    <string name="server_lab_port">port</string>
+    <string name="server_lab_id">id</string>
+    <string name="server_lab_alterid">alterId</string>
+    <string name="server_lab_security">security</string>
+    <string name="server_lab_network">Network</string>
+    <string name="server_lab_more_function">Transport</string>
+    <string name="server_lab_head_type">head type</string>
+    <string name="server_lab_mode_type">gRPC mode</string>
+    <string name="server_lab_request_host">host</string>
+    <string name="server_lab_request_host_http">http host</string>
+    <string name="server_lab_request_host_ws">ws host</string>
+    <string name="server_lab_request_host_httpupgrade">httpupgrade host</string>
+    <string name="server_lab_request_host_xhttp">xhttp host</string>
+    <string name="server_lab_request_host_h2">h2 host</string>
+    <string name="server_lab_request_host_quic">QUIC security</string>
+    <string name="server_lab_request_host_grpc">gRPC Authority</string>
+    <string name="server_lab_path">path</string>
+    <string name="server_lab_path_ws">ws path</string>
+    <string name="server_lab_path_httpupgrade">httpupgrade path</string>
+    <string name="server_lab_path_xhttp">xhttp path</string>
+    <string name="server_lab_path_h2">h2 path</string>
+    <string name="server_lab_path_quic">QUIC key</string>
+    <string name="server_lab_path_kcp">kcp seed</string>
+    <string name="server_lab_path_grpc">gRPC serviceName</string>
+    <string name="server_lab_stream_security">TLS</string>
+    <string name="server_lab_stream_fingerprint">Fingerprint</string>
+    <string name="server_lab_stream_alpn">Alpn</string>
+    <string name="server_lab_allow_insecure">allowInsecure</string>
+    <string name="server_lab_sni">SNI</string>
+    <string name="server_lab_address3">address</string>
+    <string name="server_lab_port3">port</string>
+    <string name="server_lab_id3">password</string>
+    <string name="server_lab_security3">security</string>
+    <string name="server_lab_id4">Password(Optional)</string>
+    <string name="server_lab_security4">User(Optional)</string>
+    <string name="server_lab_encryption">encryption</string>
+    <string name="server_lab_flow">flow</string>
+    <string name="server_lab_public_key">PublicKey</string>
+    <string name="server_lab_preshared_key">PreSharedKey(optional)</string>
+    <string name="server_lab_short_id">ShortId</string>
+    <string name="server_lab_spider_x">SpiderX</string>
+    <string name="server_lab_mldsa65_verify">Mldsa65Verify</string>
+    <string name="server_lab_secret_key">SecretKey</string>
+    <string name="server_lab_reserved">Reserved(Optional, separated by commas)</string>
+    <string name="server_lab_local_address">Local address (optional IPv4/IPv6, separated by commas)</string>
+    <string name="server_lab_local_mtu">Mtu(optional, default 1420)</string>
+    <string name="server_lab_kcp_mtu">mKCP MTU (Optional, core default 1350)</string>
+    <string name="server_lab_kcp_tti">mKCP TTI (Optional, core default 50)</string>
+    <string name="toast_success">Success</string>
+    <string name="toast_failure">Failure</string>
+    <string name="toast_none_data">There is nothing</string>
+    <string name="toast_incorrect_protocol">Incorrect protocol</string>
+    <string name="toast_decoding_failed">Decoding failed</string>
+    <string name="title_file_chooser">Select a config</string>
+    <string name="toast_require_file_manager">Please install a File Manager.</string>
+    <string name="server_customize_config">Customize config</string>
+    <string name="toast_config_file_invalid">Invalid config</string>
+    <string name="server_lab_content">Content</string>
+    <string name="toast_none_data_clipboard">There is no data in the clipboard</string>
+    <string name="toast_invalid_url">Invalid URL</string>
+    <string name="toast_insecure_url_protocol">Please do not use the insecure HTTP protocol subscription address</string>
+    <string name="server_lab_need_inbound">Ensure inbounds port is consistent with the settings</string>
+    <string name="toast_malformed_josn">Config malformed</string>
+    <string name="server_lab_request_host6">Host(SNI)(Optional)</string>
+    <string name="toast_action_not_allowed">Action not allowed</string>
+    <string name="server_obfs_password">Obfs password</string>
+    <string name="server_lab_port_hop">Port Hopping(will override the port)</string>
+    <string name="server_lab_port_hop_interval">Port Hopping Interval</string>
+    <string name="server_lab_bandwidth_down">Bandwidth down (Supported units: k/m/g/t)</string>
+    <string name="server_lab_bandwidth_up">Bandwidth up (Supported units: k/m/g/t)</string>
+    <string name="server_lab_xhttp_mode">XHTTP Mode</string>
+    <string name="server_lab_xhttp_extra">XHTTP Extra raw JSON, format: { XHTTPObject }</string>
+    <string name="server_lab_final_mask">finalMask raw JSON, format: { FinalMaskObject }</string>
+    <string name="server_lab_ech_config_list">EchConfigList</string>
+    <string name="server_lab_verify_peer_cert_by_name">Verify Peer Cert By Name</string>
+    <string name="server_lab_pinned_ca256">Certificate fingerprint (SHA-256)</string>
+    <string name="server_lab_browser_dialer">Enable Browser Dialer</string>
+    <string name="server_lab_browser_dialer_tip">Only supports xhttp (packet-up) and ws outbound; TLS-related settings may be ignored or conflict</string>
+    <string name="toast_allow_insecure_deprecated">WARNING: Skipping certificate verification "allowInsecure" will be disabled in August 2026. Please use certificate fingerprints as soon as possible. This feature will not be available after its expiration.</string>
+    <string name="pinned_ca256_action_fetch">Fetch and fill certificate fingerprint</string>
+    <string name="toast_fetch_cert_sha256_success">Certificate fingerprint fetched successfully</string>
+    <string name="toast_fetch_cert_sha256_failed">Failed to fetch certificate fingerprint</string>
+
+    <!-- UserAssetActivity -->
+    <string name="toast_asset_copy_failed">File copy failed, please use File Manager</string>
+    <string name="menu_item_add_asset">Add asset</string>
+    <string name="menu_item_add_file">Add files</string>
+    <string name="menu_item_add_url">Add URL</string>
+    <string name="menu_item_scan_qrcode">Scan QRcode</string>
+    <string name="title_url">URL</string>
+    <string name="menu_item_download_file">Download files</string>
+    <string name="title_user_asset_add_url">Add asset URL</string>
+    <string name="msg_file_not_found">File not found</string>
+    <string name="msg_remark_is_duplicate">The remarks already exists</string>
+    <string name="asset_geo_files_sources">Geo files source (optional)</string>
+
+    <!-- PerAppProxyActivity -->
+    <string name="msg_dialog_progress">Loading</string>
+    <string name="menu_item_search">Search</string>
+    <string name="menu_item_select_all">Select all</string>
+    <string name="menu_item_invert_selection">Invert selection</string>
+    <string name="msg_enter_keywords">Enter keywords</string>
+    <string name="switch_bypass_apps_mode">Bypass Mode</string>
+    <string name="menu_item_select_proxy_app">Auto select proxy app</string>
+    <string name="msg_downloading_content">Downloading content</string>
+    <string name="menu_item_export_proxy_app">Export to Clipboard</string>
+    <string name="menu_item_import_proxy_app">Import from Clipboard</string>
+    <string name="per_app_proxy_settings">Per-app settings</string>
+    <string name="per_app_proxy_settings_enable">Enable per-app</string>
+    <string name="app_picker_unknown_app">Unknown app (unidentified UID)</string>
+
+    <!-- Preferences -->
+    <string name="title_settings">Settings</string>
+    <string name="title_advanced">Advanced Settings</string>
+    <string name="title_core_settings">Core Settings</string>
+    <string name="title_vpn_settings">VPN Settings</string>
+    <string name="title_pref_per_app_proxy">Per-app proxy</string>
+    <string name="summary_pref_per_app_proxy">General: Checked apps use proxy, unchecked apps connect directly; \nBypass mode: checked apps connect directly, unchecked apps use proxy. \nThe option to automatically select proxy applications is in the menu</string>
+    <string name="title_pref_is_booted">Auto connect at startup</string>
+    <string name="summary_pref_is_booted">Automatically connects to the selected server at startup, which may be unsuccessful</string>
+
+    <string name="title_pref_auto_remove_invalid_after_test">Auto delete invalid config after testing</string>
+    <string name="summary_pref_auto_remove_invalid_after_test">Test results may not be accurate; deleted config cannot be recovered.</string>
+    <string name="title_pref_auto_sort_after_test">Auto sort after testing</string>
+    <string name="summary_pref_auto_sort_after_test">Test results may not be accurate;</string>
+
+    <string name="title_mux_settings">Mux Settings</string>
+    <string name="title_pref_mux_enabled">Enable Mux</string>
+    <string name="summary_pref_mux_enabled">Faster, but it may cause unstable connectivity\nCustomize how to handle TCP, UDP and QUIC below</string>
+    <string name="title_pref_mux_concurency">TCP connections（range -1 to 1024）</string>
+    <string name="title_pref_mux_xudp_concurency">XUDP connections（range -1 to 1024）</string>
+    <string name="title_pref_mux_xudp_quic">Handling of QUIC in mux tunnel</string>
+    <string-array name="mux_xudp_quic_entries">
+        <item>reject</item>
+        <item>allow</item>
+        <item>skip</item>
+    </string-array>
+
+    <string name="title_pref_speed_enabled">Enable speed display</string>
+    <string name="summary_pref_speed_enabled">Display current speed in the notification.\nNotification icon would change based on
+        usage.</string>
+
+    <string name="title_pref_sniffing_enabled">Enable Sniffing</string>
+    <string name="summary_pref_sniffing_enabled">Try sniff domain from the packet (default on)</string>
+    <string name="title_pref_route_only_enabled">Enable routeOnly</string>
+    <string name="summary_pref_route_only_enabled">Use the sniffed domain name for routing only, and keep the target address as the IP address.</string>
+
+    <string name="title_pref_local_dns_enabled">Enable local DNS</string>
+    <string name="summary_pref_local_dns_enabled">DNS processed by core‘s DNS module (Recommended if you need routing bypassing LAN and mainland addresses)</string>
+
+    <string name="title_pref_fake_dns_enabled">Enable fake DNS</string>
+    <string name="summary_pref_fake_dns_enabled">Local DNS returns fake IP addresses (faster, but it may not work for some apps)</string>
+
+    <string name="title_pref_ipv6_enabled">Enable IPv6</string>
+    <string name="summary_pref_ipv6_enabled">Add IPv6 address and routes to the VPN interface</string>
+
+    <string name="title_pref_prefer_ipv6">Prefer IPv6</string>
+    <string name="summary_pref_prefer_ipv6">Prefer IPv6 addresses when resolving domain names</string>
+
+    <string name="title_pref_remote_dns">Remote DNS (udp/tcp/https/quic)(Optional)</string>
+    <string name="summary_pref_remote_dns">DNS</string>
+
+    <string name="title_pref_vpn_dns">VPN DNS (only IPv4/v6)</string>
+    <string name="title_pref_vpn_bypass_lan">Does VPN bypass LAN</string>
+
+    <string name="title_pref_vpn_interface_address">VPN Interface Address</string>
+
+    <string name="title_pref_vpn_mtu">VPN MTU (default 1500)</string>
+
+
+    <string name="title_pref_domestic_dns">Domestic DNS (Optional)</string>
+    <string name="summary_pref_domestic_dns">DNS</string>
+
+    <string name="title_pref_dns_hosts">DNS hosts (Format: domain:address,…)</string>
+    <string name="summary_pref_dns_hosts">domain:address,…</string>
+
+    <string name="title_pref_delay_test_url">True delay test url </string>
+    <string name="summary_pref_delay_test_url">Url</string>
+    <string name="title_pref_real_ping_concurrency">True delay test concurrency</string>
+
+    <string name="title_pref_ip_api_url">Current connection info test url</string>
+    <string name="summary_pref_ip_api_url">Url</string>
+
+    <string name="title_pref_proxy_sharing_enabled">Allow connections from the LAN</string>
+    <string name="summary_pref_proxy_sharing_enabled">Other devices can connect to proxy by your IP address through local proxy. Only enable in trusted networks to avoid unauthorized connections</string>
+    <string name="toast_warning_pref_proxysharing_short">Allow connections from the LAN. Make sure you are in a trusted network</string>
+
+    <string name="title_pref_socks_port">Local proxy port</string>
+    <string name="title_pref_enable_local_proxy">Enable local proxy</string>
+    <string name="summary_pref_enable_local_proxy">When disabled, no SOCKS proxy is available, so subscription updates and similar actions cannot use the proxy</string>
+    <string name="title_pref_socks_enable_udp">SOCKS5 UDP</string>
+    <string name="summary_pref_socks_enable_udp">SOCKS5 authentication is not fully secure when using UDP.</string>
+    <string name="summary_pref_socks_port">Local proxy port</string>
+    <string name="title_pref_dynamic_socks_port">Enable dynamic local proxy port</string>
+    <string name="summary_pref_dynamic_socks_port">Generate a random local proxy port each time the inbound is created</string>
+    <string name="title_pref_socks_username">Local proxy username (optional)</string>
+    <string name="summary_pref_socks_username">Username</string>
+    <string name="title_pref_socks_password">Local proxy password (optional)</string>
+    <string name="summary_pref_socks_password">Password</string>
+
+    <string name="title_pref_local_dns_port">Local DNS port</string>
+    <string name="summary_pref_local_dns_port">Local DNS port</string>
+
+    <string name="title_pref_confirm_remove">Delete config confirmation</string>
+    <string name="summary_pref_confirm_remove">Whether deleting a config requires a second confirmation by the user</string>
+
+    <string name="title_pref_start_scan_immediate">Start scanning immediately</string>
+    <string name="summary_pref_start_scan_immediate">Open the camera to scan immediately at startup, otherwise you can choose to scan the code or select a photo in the toolbar</string>
+
+    <string name="title_pref_append_http_proxy">Append HTTP Proxy to VPN</string>
+    <string name="summary_pref_append_http_proxy">HTTP proxy will be used directly from (browser/ some supported apps), without going through the virtual NIC device (Android 10+)</string>
+
+    <string name="title_pref_double_column_display">Enable double column display</string>
+    <string name="summary_pref_double_column_display">The profile list is displayed in double columns, allowing more content to be displayed on the screen. You need to restart the application to take effect.</string>
+
+    <string name="title_pref_group_all_display">Enable show all groups</string>
+    <string name="summary_pref_group_all_display">Add an extra "All Tabs" page</string>
+
+    <!-- AboutActivity -->
+    <string name="title_pref_feedback">Feedback</string>
+    <string name="summary_pref_feedback">Feedback enhancements or bugs to GitHub</string>
+    <string name="summary_pref_tg_group">Join Telegram Group</string>
+    <string name="toast_tg_app_not_found">Telegram app not found</string>
+    <string name="title_privacy_policy">Privacy policy</string>
+    <string name="title_qr_code">QR code</string>
+    <string name="title_about">About</string>
+    <string name="title_source_code">Source code</string>
+    <string name="title_oss_license">Open Source licenses</string>
+    <string name="title_tg_channel">Website</string>
+
+    <string name="title_subscription_settings">Subscription</string>
+    <string name="title_pref_send_hwid">Send device ID (HWID)</string>
+    <string name="summary_pref_send_hwid">Automatically send X-HWID and device headers when updating subscriptions</string>
+    <string name="title_pref_show_server_address_home">Show server address on Home</string>
+    <string name="summary_pref_show_server_address_home">Display the server host/port under each server name on the Home tab. Off by default.</string>
+    <string name="title_pref_custom_hwid">Custom HWID (optional)</string>
+    <string name="summary_pref_custom_hwid">Override the auto-generated device ID. Leave empty to use the device identifier.</string>
+
+    <string name="title_developer_settings">For developers</string>
+
+    <string name="toast_developer_mode_enabled">Developer settings unlocked</string>
+    <string name="toast_developer_mode_steps">%1$d more taps to unlock developer settings</string>
+
+    <string name="title_pref_promotion">Promotion</string>
+
+    <string name="title_pref_auto_update_subscription">Automatic update subscriptions</string>
+    <string name="summary_pref_auto_update_subscription">Update your subscriptions automatically at set intervals in the background. Depending on the device, this feature may not always work</string>
+    <string name="title_pref_auto_update_interval">Auto Update Interval (Minutes, Min value 15)</string>
+
+    <string name="title_core_loglevel">Log Level</string>
+    <string name="title_outbound_domain_resolve_method">Outbound domain pre-resolve method</string>
+    <string name="title_mode">Mode</string>
+    <string name="title_mode_help">Click me for more help</string>
+    <string name="title_language">Language</string>
+    <string name="title_ui_settings">UI settings</string>
+    <string name="title_pref_ui_mode_night">UI mode settings</string>
+    <string name="title_pref_use_hev_tunnel">Enable Hev TUN Feature</string>
+    <string name="summary_pref_use_hev_tunnel">When enabled, TUN will use hev-socks5-tunnel; otherwise, it will use xray-core.</string>
+    <string name="title_pref_hev_tunnel_loglevel">Hev Tun Log Level</string>
+    <string name="title_pref_hev_tunnel_rw_timeout">Hev Tun read/write timeout (seconds) (tcp,udp default 300,60)</string>
+    <string name="title_mode_settings">Mode Settings</string>
+    <string name="title_root_mode_enabled">Root mode enabled (Root Users)</string>
+    <string name="summary_root_mode_enabled">Enable low-level transparent proxying via root privileges. This mode bypasses the standard Android system VPN to directly take over all underlying network traffic. Once enabled, the original regular mode, per-app routing, and related VPN settings will become completely invalid.</string>
+    <string name="toast_root_required">Root access is required for this feature</string>
+    <string name="title_root_lan_sharing">LAN / tethering sharing (Root Users)</string>
+    <string name="summary_root_lan_sharing">Route Wi-Fi hotspot and USB-tethered devices through the VPN</string>
+
+    <string name="title_logcat">Logcat</string>
+    <string name="logcat_copy">Copy</string>
+    <string name="logcat_clear">Clear</string>
+    <string name="logcat_share">Share log</string>
+    <string name="title_service_restart">Service restart</string>
+    <string name="title_del_all_config">Delete config</string>
+    <string name="title_del_duplicate_config">Delete duplicate config</string>
+    <string name="title_del_invalid_config">Delete invalid config</string>
+    <string name="title_export_all">Export configs to clipboard</string>
+    <string name="title_sub_setting">Subscription group setting</string>
+    <string name="sub_setting_remarks">remarks</string>
+    <string name="sub_setting_url">Optional URL</string>
+    <string name="sub_setting_user_agent">User Agent</string>
+    <string name="sub_setting_filter">Remarks regular filter</string>
+    <string name="sub_setting_enable">Enable update</string>
+    <string name="sub_auto_update">Enable automatic update</string>
+    <string name="sub_allow_insecure_url">Allow insecure HTTP address</string>
+    <string name="sub_setting_pre_profile">Previous proxy config remarks</string>
+    <string name="sub_setting_next_profile">Next proxy config remarks</string>
+    <string name="sub_setting_pre_profile_tip">The config remarks exist and are unique</string>
+    <string name="toast_invalid_update_interval">Invalid update interval. Minimum is 15 minutes.</string>
+    <string name="title_sub_update">Update subscription</string>
+    <string name="title_real_ping_all_server">Real delay config</string>
+    <string name="title_user_asset_setting">Asset files</string>
+    <string name="title_sort_by_test_results">Sorting by test results</string>
+    <string name="title_filter_config">Filter config</string>
+    <string name="filter_config_all">All</string>
+    <string name="title_del_duplicate_config_count">Delete %d duplicate configs</string>
+    <string name="title_del_config_count">Delete %d configs</string>
+    <string name="title_import_config_count">Import %d configs</string>
+    <string name="title_export_config_count">Export %d configs</string>
+    <string name="title_update_config_count">Update %d configs</string>
+    <string name="title_update_subscription_result">Updated %1$d configs (%2$d success, %3$d failed, %4$d skipped)</string>
+    <string name="title_update_subscription_no_subscription">No subscriptions</string>
+    <string name="toast_server_not_found_in_group">Selected server not found in current group</string>
+    <string name="toast_fragment_not_available">Unable to locate current view</string>
+    <string name="title_locate_selected_config">Locate the selected config</string>
+
+    <string name="tasker_start_service">Start Service</string>
+    <string name="tasker_setting_confirm">Confirm</string>
+
+    <!-- RoutingSettingActivity -->
+    <string name="routing_settings_domain_strategy">Domain strategy</string>
+    <string name="routing_settings_title">Routing Settings</string>
+    <string name="routing_settings_tips">Separated by commas(,), \nchoose domain or ip or process</string>
+    <string name="routing_settings_save">Save</string>
+    <string name="routing_settings_delete">Clear</string>
+    <string name="routing_settings_rule_title">Routing Rule Settings</string>
+    <string name="routing_settings_add_rule">Add rule</string>
+    <string name="routing_ui_mode_simple">Simple</string>
+    <string name="routing_ui_mode_expert">Expert</string>
+    <string name="routing_simple_mode_title">How should traffic be routed?</string>
+    <string name="routing_simple_mode_proxy_all">Everything through the proxy</string>
+    <string name="routing_simple_mode_proxy_selected">Only selected sites through the proxy</string>
+    <string name="routing_simple_mode_bypass_selected">Only selected sites bypass the proxy</string>
+    <string name="routing_simple_mode_domains_hint">Add domains, or geosite:/geoip: tags (type to search)</string>
+    <string name="routing_simple_mode_domain_input_hint">youtube.com or geosite:google</string>
+    <string name="routing_simple_mode_add_domain">Add</string>
+    <string name="routing_simple_mode_save">Save</string>
+    <string name="routing_simple_mode_apps_title">Apps</string>
+    <string name="routing_simple_mode_apps_enable">Enable per-app rules</string>
+    <string name="routing_simple_mode_apps_choose">Choose apps</string>
+    <string name="routing_simple_mode_apps_summary_off">Off — all apps follow the routing above</string>
+    <string name="routing_simple_mode_apps_summary_none">No apps selected yet</string>
+    <string name="routing_simple_mode_apps_summary_bypass">%d app(s) bypass the proxy, the rest follow it</string>
+    <string name="routing_simple_mode_apps_summary_only">%d app(s) use the proxy, the rest bypass it</string>
+    <string name="routing_simple_tab_rules">Rules</string>
+    <string name="routing_simple_tab_manual">Manual</string>
+    <string name="routing_simple_tab_geofiles">GeoFiles</string>
+    <string name="routing_simple_scenarios_title">Ready scenarios</string>
+    <string name="routing_scenario_ru_direct_title">Russian services direct</string>
+    <string name="routing_scenario_ru_direct_subtitle">Yandex, VK, Sber, T-Bank and others — bypass the proxy</string>
+    <string name="routing_scenario_vpn_services_title">Foreign services via VPN</string>
+    <string name="routing_scenario_vpn_services_subtitle">YouTube, Telegram, Discord and others — through the proxy</string>
+    <string name="routing_simple_countries_title">Countries</string>
+    <string name="routing_simple_services_title">Popular services</string>
+    <string name="routing_simple_countries_summary_none">Countries</string>
+    <string name="routing_simple_services_summary_none">Popular services</string>
+    <plurals name="routing_simple_countries_summary">
+        <item quantity="one">Countries · %d</item>
+        <item quantity="other">Countries · %d</item>
+    </plurals>
+    <plurals name="routing_simple_services_summary">
+        <item quantity="one">Services · %d</item>
+        <item quantity="other">Services · %d</item>
+    </plurals>
+    <string name="routing_simple_expand_countries">Show countries</string>
+    <string name="routing_simple_expand_services">Show popular services</string>
+    <string name="routing_simple_manage_geofiles">Manage geo files</string>
+    <string name="routing_simple_mode_info_proxy_all">All traffic goes through the proxy.</string>
+    <string name="routing_simple_mode_info_proxy_selected">Only the selected sites/apps go through the proxy — everything else is direct.</string>
+    <string name="routing_simple_mode_info_bypass_selected">Selected sites/apps go direct — everything else goes through the proxy.</string>
+    <string name="routing_trusted_wifi_title">Trusted Wi-Fi → Direct</string>
+    <string name="routing_trusted_wifi_subtitle">On these networks, everything bypasses the proxy — overrides the routing mode below</string>
+    <string name="routing_trusted_wifi_ssid_hint">Wi-Fi name (SSID), one per line or comma-separated</string>
+    <string name="routing_trusted_wifi_background_location_hint">For switching to work while the app is in the background, pick \"Allow all the time\" for Location in system settings</string>
+    <string name="routing_geofile_status_updated">%1$s — updated %2$s</string>
+    <string name="routing_geofile_status_missing">%1$s — not downloaded yet</string>
+    <string name="routing_settings_import_predefined_rulesets">Import predefined rulesets</string>
+    <string name="routing_settings_import_rulesets_tip">Existing rulesets will be deleted, are you sure to continue?</string>
+    <string name="routing_settings_import_rulesets_from_clipboard">Import ruleset from clipboard</string>
+    <string name="routing_settings_import_rulesets_from_qrcode">Import ruleset from QRcode</string>
+    <string name="routing_settings_export_rulesets_to_clipboard">Export ruleset to clipboard</string>
+    <string name="routing_settings_locked">Locked, keep this rule when import presets</string>
+    <string name="routing_settings_domain">domain</string>
+    <string name="routing_settings_ip">ip</string>
+    <string name="routing_settings_process">process (Package Name — only supported when using Xray TUN, routeOnly enabled, and Android 10+)</string>
+    <string name="routing_settings_port">port</string>
+    <string name="routing_settings_protocol">protocol</string>
+    <string name="routing_settings_protocol_tip">[http,tls,bittorrent]</string>
+    <string name="routing_settings_network">network</string>
+    <string name="routing_settings_network_tip">[udp|tcp]</string>
+    <string name="routing_settings_outbound_tag_hint" translatable="false">proxy / direct / block / &lt;remarks&gt;</string>
+    <string name="routing_settings_outbound_tag">outboundTag</string>
+
+    <string name="connection_test_pending">Check Connectivity</string>
+    <string name="connection_test_testing">Testing…</string>
+    <string name="connection_test_testing_count">Testing %d configs…</string>
+    <string name="connection_test_available">Success: Connection took %dms</string>
+    <string name="connection_test_error">Fail to detect internet connection: %s</string>
+    <string name="connection_test_fail">Internet Unavailable</string>
+    <string name="connection_test_error_status_code">Error code: #%d</string>
+    <string name="connection_connected">Connected</string>
+    <string name="connection_not_connected">Not connected</string>
+    <string name="shrimp_connecting">Connecting…</string>
+    <string name="shrimp_connection_timer_inline">· %s</string>
+    <string name="shrimp_tap_to_connect">Tap to connect</string>
+    <string name="shrimp_tap_to_disconnect">Tap to disconnect</string>
+    <string name="shrimp_check_connection">Check connection</string>
+    <string name="shrimp_add_subscription">Add subscription</string>
+    <string name="shrimp_add_key_title">Add key</string>
+    <string name="shrimp_add_key_subtitle">Scan a QR code or paste a link</string>
+    <string name="shrimp_add_key_camera_disabled">Camera off</string>
+    <string name="shrimp_add_key_enable_camera">Enable camera</string>
+    <string name="shrimp_add_key_input_hint">Paste your key or link</string>
+    <string name="shrimp_add_key_how_to_title">How to get a key</string>
+    <string name="shrimp_add_key_how_to_body">Ask your provider for a subscription link (starts with http/https), or a single server key (vless://, vmess://, trojan://, ss://, wireguard://, hysteria2://).</string>
+    <string name="shrimp_add_key_continue">Continue</string>
+    <string name="shrimp_add_key_empty">Paste a key or link first</string>
+    <string name="shrimp_collapse_all">Collapse all</string>
+    <string name="shrimp_expand_subscription">Expand subscription</string>
+    <string name="shrimp_refresh_subscription">Refresh subscription</string>
+    <string name="shrimp_reorder_subscription">Drag to reorder</string>
+    <string name="shrimp_toggle_hidden_from_home">Hide from Home</string>
+    <string name="shrimp_hidden_from_home_hint">Hidden — won\'t appear on Home</string>
+    <string name="shrimp_ping_subscription">Ping servers in this subscription</string>
+    <string name="shrimp_more_options">More options</string>
+    <string name="shrimp_subscription_meta">%1$s · %2$d keys</string>
+    <string name="shrimp_subscription_meta_no_host">%d keys</string>
+    <string name="shrimp_home_title">ShrimpNG</string>
+    <string name="shrimp_coming_soon">Coming soon</string>
+    <string name="shrimp_tap_to_expand_details">Tap to expand details</string>
+    <string name="shrimp_default_subscription_name">Server list</string>
+    <string name="shrimp_default_subscription_description">Locally added servers</string>
+    <string name="shrimp_firewall_title">Firewall</string>
+    <string name="shrimp_firewall_manage">Manage firewall</string>
+    <string name="shrimp_firewall_summary_off">Block apps, domains and IP addresses</string>
+    <string name="shrimp_firewall_summary_on">%1$d apps restricted · %2$d global domains · %3$d global IPs</string>
+    <string name="shrimp_firewall_tab_apps">Apps</string>
+    <string name="shrimp_firewall_tab_targets">Global rules</string>
+    <string name="shrimp_firewall_log_switch">Log connections</string>
+    <string name="shrimp_firewall_log_summary_off">Off by default. No connection history is stored and the per-connection detector is disabled.</string>
+    <string name="shrimp_firewall_log_summary_on">Stores app → IP/domain history on this device. Turning it off erases the journal.</string>
+    <string name="shrimp_firewall_filter_all">All</string>
+    <string name="shrimp_firewall_filter_all_statuses">All statuses</string>
+    <string name="shrimp_firewall_filter_user">User</string>
+    <string name="shrimp_firewall_filter_system">System</string>
+    <string name="shrimp_firewall_select_all">Select all</string>
+    <string name="shrimp_firewall_bulk_apply">Set mode</string>
+    <string name="shrimp_firewall_bulk_status_title">Set firewall mode</string>
+    <plurals name="shrimp_firewall_selected_count">
+        <item quantity="one">%d selected</item>
+        <item quantity="other">%d selected</item>
+    </plurals>
+    <string name="shrimp_firewall_status_allow">Allow</string>
+    <string name="shrimp_firewall_status_block">Block</string>
+    <string name="shrimp_firewall_status_wifi_only">Wi‑Fi only</string>
+    <string name="shrimp_firewall_status_mobile_only">Mobile only</string>
+    <string name="shrimp_firewall_status_isolate">Isolate</string>
+    <string name="shrimp_firewall_status_bypass">Bypass (direct)</string>
+    <string name="shrimp_firewall_app_status">Firewall status</string>
+    <string name="shrimp_firewall_edit_rules">Edit domain and IP rules</string>
+    <string name="shrimp_firewall_app_rules_summary">%1$d domain rules · %2$d IP rules</string>
+    <string name="shrimp_firewall_connections">Recent destinations</string>
+    <string name="shrimp_firewall_connections_search">Search domain or IP</string>
+    <string name="shrimp_firewall_connections_allowed">Allowed</string>
+    <string name="shrimp_firewall_connections_blocked">Blocked</string>
+    <string name="shrimp_firewall_connections_clear">Clear this app’s journal</string>
+    <string name="shrimp_firewall_connections_clear_title">Clear connection history?</string>
+    <string name="shrimp_firewall_connections_clear_message">Only saved connections for this app will be deleted.</string>
+    <string name="shrimp_firewall_connections_empty">No connections logged yet. Keep the VPN on and use the app.</string>
+    <string name="shrimp_firewall_connections_no_matches">No destinations match these filters.</string>
+    <string name="shrimp_firewall_conn_blocked">blocked</string>
+    <string name="shrimp_firewall_conn_allowed">allowed</string>
+    <string name="shrimp_firewall_conn_meta">%1$s%2$d attempts · %3$s · %4$s</string>
+    <string name="shrimp_firewall_domains_block_title">Blocked domains</string>
+    <string name="shrimp_firewall_domains_trust_title">Trusted domains</string>
+    <string name="shrimp_firewall_ips_block_title">Blocked IPs</string>
+    <string name="shrimp_firewall_ips_trust_title">Trusted IPs</string>
+    <string name="shrimp_firewall_action_copy_ip">Copy IP</string>
+    <string name="shrimp_firewall_action_copy_domain">Copy domain</string>
+    <string name="shrimp_firewall_action_block_ip">Block this IP</string>
+    <string name="shrimp_firewall_action_trust_ip">Trust this IP</string>
+    <string name="shrimp_firewall_action_clear_ip">Clear IP rule</string>
+    <string name="shrimp_firewall_action_block_domain">Block this domain</string>
+    <string name="shrimp_firewall_action_trust_domain">Trust this domain</string>
+    <string name="shrimp_firewall_action_clear_domain">Clear domain rule</string>
+    <string name="shrimp_firewall_rule_applied">Firewall rule applied</string>
+    <string name="shrimp_firewall_clip_ip">IP address</string>
+    <string name="shrimp_firewall_clip_domain">Domain</string>
+    <string name="shrimp_firewall_copied">Copied: %1$s</string>
+    <string name="shrimp_firewall_enable_title">Turn the firewall on?</string>
+    <string name="shrimp_firewall_enable_message">Blocking individual apps requires the tunnel engine to switch to Xray, because the current engine cannot tell which app a connection belongs to. Speed may change. The connection will restart, and turning the firewall back off restores your previous settings.</string>
+    <string name="shrimp_firewall_enable_confirm">Turn on</string>
+    <string name="shrimp_firewall_inactive_warning">The firewall is on but inactive: the tunnel engine was changed back in the developer settings, or the app is not in VPN mode.</string>
+    <string name="shrimp_firewall_search_apps">Search apps</string>
+    <string name="shrimp_firewall_app_outside_tunnel">Excluded from the tunnel — cannot be blocked</string>
+    <string name="shrimp_firewall_blocked_count">%1$d blocked</string>
+    <string name="shrimp_firewall_domains_hint">Domain to block</string>
+    <string name="shrimp_firewall_ips_hint">IP address or CIDR to block</string>
+    <string name="shrimp_firewall_domains_title">Domains</string>
+    <string name="shrimp_firewall_ips_title">IP addresses</string>
+    <string name="shrimp_firewall_applies_on_reconnect">Changes apply on reconnect</string>
+    <string name="shrimp_interval_hours">%1$s h</string>
+    <string name="shrimp_interval_minutes">%1$d min</string>
+    <string name="shrimp_subscription_meta_autoupdate">%1$s · auto-update %2$s</string>
+    <!-- Traffic sizes, smallest first. Localised: these were hardcoded in Russian and showed up
+         as "ГБ" in the English UI. -->
+    <string-array name="shrimp_byte_units">
+        <item>B</item>
+        <item>KB</item>
+        <item>MB</item>
+        <item>GB</item>
+        <item>TB</item>
+    </string-array>
+    <string name="shrimp_app_icon_title">App icon</string>
+    <string name="shrimp_app_icon_summary">Show the app under a different icon and name</string>
+    <string name="shrimp_app_icon_calculator">FOSS Calculator</string>
+    <string name="shrimp_decoy_title">Decoy screen</string>
+    <string name="shrimp_decoy_summary">Open a working calculator instead of the client. Type the expression below and press = to get in.</string>
+    <string name="shrimp_decoy_expression_label">Unlock expression</string>
+    <string name="shrimp_decoy_expression_invalid">Use only the calculator keys: digits, . and + − × ÷</string>
+    <string name="shrimp_decoy_warning">If you forget this expression, the only way back in is to tap the calculator\'s title 10 times within 10 seconds — that restores the default 1984*1984. There is no other way in, and nothing on screen confirms the taps.</string>
+    <string name="shrimp_app_icon_section_default">Standard</string>
+    <string name="shrimp_app_icon_section_disguise">Disguise</string>
+    <string name="shrimp_app_icon_warning_title">Change the icon?</string>
+    <string name="shrimp_app_icon_warning_message">The shortcut will be recreated, so it may briefly disappear from the home screen and the app may close. Widgets and any shortcut you placed yourself will need to be added again.</string>
+    <string name="shrimp_app_icon_warning_confirm">Change</string>
+    <string name="shrimp_app_icon_note">The name in Android Settings and the VPN key icon in the status bar are controlled by the system and do not change.</string>
+    <string name="shrimp_app_icon_credit">Calculator icon: Fossify Calculator, GPL-3.0</string>
+    <string name="shrimp_empty_subscriptions">No subscriptions yet</string>
+    <string name="shrimp_empty_subscriptions_hint">Add a subscription from the menu or import a config</string>
+    <string name="shrimp_no_active_subscription">No subscription selected</string>
+    <string name="shrimp_no_active_subscription_hint">Pick one on the Subscriptions tab</string>
+    <string name="shrimp_open_subscription_link">Open subscription link</string>
+    <string name="shrimp_open_support_link">Support</string>
+    <string name="shrimp_traffic_used_total">%1$s / %2$s</string>
+    <string name="shrimp_traffic_used_unlimited">%s / ∞</string>
+    <string name="shrimp_expires_on">Expires on %s</string>
+    <string name="shrimp_never_expires">Never expires</string>
+    <string name="shrimp_active_subscription">Active</string>
+    <string name="shrimp_tap_to_activate">Tap to show on Home</string>
+    <string name="shrimp_go_to_subscriptions">Go to Subscriptions</string>
+
+    <string name="tab_home">Home</string>
+    <string name="tab_subscriptions">Subscriptions</string>
+    <string name="tab_rules">Rules</string>
+    <string name="tab_settings">Settings</string>
+
+    <string name="settings_hub_group_app">App</string>
+    <string name="settings_hub_group_network">Proxy &amp; network</string>
+    <string name="settings_hub_group_data">Data</string>
+    <string name="settings_hub_group_about">About the app</string>
+    <string name="settings_hub_app_settings">Language, theme, mode, HWID</string>
+    <string name="settings_hub_per_app_proxy">Per-app proxy</string>
+    <string name="settings_hub_user_assets">Rule files (geo data)</string>
+    <string name="settings_hub_backup_restore">Backup &amp; restore</string>
+    <string name="settings_hub_check_update">Check for updates</string>
+    <string name="settings_hub_logcat">Logcat</string>
+    <string name="settings_hub_about">About</string>
+    <string name="connection_runing_task_left">Number of running test tasks: %s</string>
+
+    <string name="import_subscription_success">Subscription imported Successfully</string>
+    <string name="import_subscription_failure">Import subscription failed</string>
+    <string name="title_fragment_settings">Fragment Settings</string>
+    <string name="title_pref_fragment_packets">Fragment Packets</string>
+    <string name="title_pref_fragment_length">Fragment Length (min-max)</string>
+    <string name="title_pref_fragment_interval">Fragment Interval (min-max)</string>
+    <string name="title_pref_fragment_enabled">Enable Fragment</string>
+    <string name="title_pref_fragment_maxsplit">Fragment Max Split</string>
+
+    <string name="update_check_for_update">Check for update</string>
+    <string name="update_already_latest_version">Already on the latest version</string>
+    <string name="update_new_version_found">New version found: %s</string>
+    <string name="update_now">Update now</string>
+    <string name="update_check_pre_release">Check Pre-release</string>
+    <string name="update_checking_for_update">Checking for update…</string>
+
+    <string name="title_policy_group_type">Policy group type</string>
+    <string name="title_policy_group_subscription_id">From subscription group</string>
+    <string name="title_policy_group_subscription_filter">Remarks regular filter</string>
+
+    <string name="server_proxy_chain_members">Proxy chain members</string>
+    <string name="server_proxy_chain_pick_members">Tap here to pick member</string>
+    <string name="server_proxy_chain_member_unselected">Select a member</string>
+    <string name="server_proxy_chain_members_unselected">Please select member for each chain row</string>
+    <string name="server_proxy_chain_members_insufficient">Insufficient members</string>
+    <string name="server_proxy_chain_members_invalid">Invalid chain members: %1$s</string>
+
+    <!-- BackupActivity -->
+    <string name="title_configuration_backup_restore">Backup &amp; Restore</string>
+    <string name="title_configuration_backup">Backup config</string>
+    <string name="title_configuration_restore">Restore config</string>
+    <string name="title_configuration_share">Share config</string>
+    <string name="title_webdav_config_setting">WebDAV Settings</string>
+    <string name="title_webdav_config_setting_unknown">Please configure WebDAV first.</string>
+    <string name="title_webdav_url">WebDAV server URL</string>
+    <string name="title_webdav_user">Username</string>
+    <string name="title_webdav_pass">Password</string>
+    <string name="title_webdav_remote_path">Remote directory (optional)</string>
+
+    <string-array name="share_method">
+        <item>QRcode</item>
+        <item>Export to clipboard</item>
+        <item>Export full config to clipboard</item>
+    </string-array>
+
+    <string-array name="share_method_more">
+        <item>QRcode</item>
+        <item>Export to clipboard</item>
+        <item>Export full config to clipboard</item>
+        <item>Edit</item>
+        <item>Delete</item>
+    </string-array>
+
+    <string-array name="share_sub_method">
+        <item>QRcode</item>
+        <item>Export to clipboard</item>
+    </string-array>
+
+    <string-array name="mode_entries">
+        <item>VPN</item>
+        <item>Proxy only</item>
+    </string-array>
+
+    <string-array name="browser_dialer_mode">
+        <item>Disable</item>
+        <item>OkHttp</item>
+        <item>WebView</item>
+    </string-array>
+
+    <string-array name="ui_mode_night">
+        <item>Follow system</item>
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+
+    <string-array name="preset_rulesets">
+        <item>Global</item>
+        <item>Iran Whitelist</item>
+        <item>Russia Whitelist</item>
+    </string-array>
+
+    <string-array name="vpn_bypass_lan">
+        <item>Follow config</item>
+        <item>Bypass</item>
+        <item>Not Bypass</item>
+    </string-array>
+
+    <string-array name="outbound_domain_resolve_method">
+        <item>Do not resolve</item>
+        <item>Resolve and add to DNS Hosts</item>
+        <item>Resolve and replace domain</item>
+    </string-array>
+
+    <string-array name="policy_group_type">
+        <item>Least Ping</item>
+        <item>Least Load</item>
+        <item>Random</item>
+        <item>Round Robin</item>
+    </string-array>
+
+    <string-array name="config_backup_options">
+        <item>Local</item>
+        <item>WebDAV</item>
+    </string-array>
+
+</resources>

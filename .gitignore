@@ -1,0 +1,112 @@
+# Ignore data and key store files
+*.dat
+*.jks
+
+# Ignore output JSON file
+V2rayNG/app/release/output.json
+
+# Ignore IDE and build system directories
+.idea/
+.gradle/
+*.iml
+
+# Ignore local properties and DS_Store files
+/local.properties
+.DS_Store
+
+# Ignore build directories and captures
+/build
+/captures
+V2rayNG/app/build
+V2rayNG/build
+V2rayNG/local.properties
+
+# Ignore APK and AAR files
+*.apk
+*.aar
+
+# Ignore signing properties
+signing.properties
+
+# Ignore shared object files
+*.so
+
+# Compiled output committed on purpose: without it a fresh clone has nothing to link against, and
+# rebuilding needs Go+gomobile (the AAR) or the NDK (the .so). Regenerate with compile-hevtun.sh.
+# The file-level negations are required because *.aar / *.so above match by name regardless of
+# directory — un-ignoring only the folder would not be enough.
+!/libs/
+!/libs/**/*.so
+!V2rayNG/app/libs/
+!V2rayNG/app/libs/*.aar
+!V2rayNG/app/libs/**/*.so
+hev-socks5-tunnel-bin
+
+# The patched xray-core is vendored, not a checkout — it carries our own changes to
+# find_process_*.go and app/router/condition.go that nothing upstream has.
+!/third_party/xray-core/
+/third_party/xray-core/.git/
+
+# The AAR is built from AndroidLibXrayLite; only the copy the app links against is kept, so the
+# 56 MB artefact isn't stored twice. Same for the geo files, which the app downloads at runtime.
+/AndroidLibXrayLite/libv2ray.aar
+/AndroidLibXrayLite/assets/
+
+# libgojni.so already ships inside libv2ray.aar (jni/<abi>/), and AGP unpacks it from there —
+# verified by building without these copies and finding lib/arm64-v8a/libgojni.so in the APK.
+# Committing them too would add 133 MB of exact duplicates.
+V2rayNG/app/libs/*/libgojni.so
+
+# Ignore Google services JSON
+V2rayNG/app/google-services.json
+
+# Additional common Android/Java ignores
+*.log
+*.tmp
+*.bak
+*.swp
+*.orig
+*.class
+*.jar
+*.war
+*.ear
+
+# Ignore executable files
+*.exe
+*.dll
+*.obj
+*.o
+*.pyc
+*.pyo
+
+# Ignore files from other IDEs
+.vscode/
+.classpath
+.project
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# Ignore OS-specific files
+Thumbs.db
+.DS_Store
+
+# Ignore local Claude Code settings/memory
+.claude/
+
+# Ignore local build output / distribution folder
+/dist
+
+# Ignore old design backup (not for public history)
+old_design_version.tar.gz
+
+# Internal project notes, not for public repo
+/PROJECT.md
+/PROJECT_MAP.md
+/FIREWALL_PLAN.md
+
+# Ignore collected release APKs
+/releases
+
+# Last wireless adb endpoint (IP:port), machine-local
+.adb-wireless
