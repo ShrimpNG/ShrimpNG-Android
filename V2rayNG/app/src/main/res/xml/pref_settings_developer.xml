@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="@string/title_vpn_settings">
+        <CheckBoxPreference
+            android:key="pref_ipv6_enabled"
+            android:summary="@string/summary_pref_ipv6_enabled"
+            android:title="@string/title_pref_ipv6_enabled" />
+
+        <CheckBoxPreference
+            android:key="pref_prefer_ipv6"
+            android:summary="@string/summary_pref_prefer_ipv6"
+            android:title="@string/title_pref_prefer_ipv6" />
+
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/vpn_bypass_lan"
+            android:entryValues="@array/vpn_bypass_lan_value"
+            android:key="pref_vpn_bypass_lan"
+            android:summary="%s"
+            android:title="@string/title_pref_vpn_bypass_lan" />
+
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/vpn_interface_address"
+            android:entryValues="@array/vpn_interface_address_value"
+            android:key="pref_vpn_interface_address_config_index"
+            android:summary="%s"
+            android:title="@string/title_pref_vpn_interface_address" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_use_hev_tunnel_v2"
+            android:summary="@string/summary_pref_use_hev_tunnel"
+            android:title="@string/title_pref_use_hev_tunnel" />
+
+        <EditTextPreference
+            android:key="pref_hev_tunnel_rw_timeout_v2"
+            android:summary="300,60"
+            android:title="@string/title_pref_hev_tunnel_rw_timeout" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/title_core_settings">
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_sniffing_enabled"
+            android:summary="@string/summary_pref_sniffing_enabled"
+            android:title="@string/title_pref_sniffing_enabled" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_route_only_enabled"
+            android:summary="@string/summary_pref_route_only_enabled"
+            android:title="@string/title_pref_route_only_enabled" />
+
+        <ListPreference
+            android:defaultValue="warning"
+            android:entries="@array/core_loglevel"
+            android:entryValues="@array/core_loglevel"
+            android:key="pref_core_loglevel"
+            android:summary="%s"
+            android:title="@string/title_core_loglevel" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/title_advanced">
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_show_server_address_home"
+            android:summary="@string/summary_pref_show_server_address_home"
+            android:title="@string/title_pref_show_server_address_home" />
+
+        <EditTextPreference
+            android:key="pref_custom_hwid"
+            android:summary="@string/summary_pref_custom_hwid"
+            android:title="@string/title_pref_custom_hwid" />
+
+        <CheckBoxPreference
+            android:key="pref_is_booted"
+            android:summary="@string/summary_pref_is_booted"
+            android:title="@string/title_pref_is_booted" />
+
+        <CheckBoxPreference
+            android:key="pref_auto_remove_invalid_after_test"
+            android:defaultValue="false"
+            android:summary="@string/summary_pref_auto_remove_invalid_after_test"
+            android:title="@string/title_pref_auto_remove_invalid_after_test" />
+
+        <CheckBoxPreference
+            android:key="pref_auto_sort_after_test"
+            android:defaultValue="false"
+            android:summary="@string/summary_pref_auto_sort_after_test"
+            android:title="@string/title_pref_auto_sort_after_test" />
+
+        <EditTextPreference
+            android:key="pref_delay_test_url"
+            android:summary="@string/summary_pref_delay_test_url"
+            android:title="@string/title_pref_delay_test_url" />
+
+        <EditTextPreference
+            android:inputType="number"
+            android:key="pref_real_ping_concurrency"
+            android:summary="16"
+            android:title="@string/title_pref_real_ping_concurrency" />
+
+        <EditTextPreference
+            android:key="pref_ip_api_url"
+            android:summary="@string/summary_pref_ip_api_url"
+            android:title="@string/title_pref_ip_api_url" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

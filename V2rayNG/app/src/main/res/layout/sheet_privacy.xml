@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- PrivacySheet: what the app does with data, in plain words. Sections are added in code. -->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/padding_spacing_dp24"
+        android:paddingTop="@dimen/padding_spacing_dp8"
+        android:paddingBottom="@dimen/padding_spacing_dp24">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_privacy_policy"
+            android:textAppearance="?attr/textAppearanceHeadlineSmallEmphasized"
+            android:textColor="?attr/colorOnSurface" />
+
+        <!-- The short version, before any detail. -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.ShrimpNG.CardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_spacing_dp16"
+            app:cardBackgroundColor="?attr/colorPrimaryContainer">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_spacing_dp16">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:importantForAccessibility="no"
+                    app:srcCompat="@drawable/ic_shield_24dp"
+                    app:tint="?attr/colorOnPrimaryContainer" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/padding_spacing_dp16"
+                    android:layout_weight="1"
+                    android:text="@string/privacy_banner"
+                    android:textAppearance="?attr/textAppearanceBodyLarge"
+                    android:textColor="?attr/colorOnPrimaryContainer" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:id="@+id/container_sections"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

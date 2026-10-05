@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Its own rounded corners, rather than a clip on the row of buttons: clipToOutline is not
+     anti-aliased, and the corners came out stepped. -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="#33FFFFFF">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="?attr/colorError" />
+            <corners android:topRightRadius="16dp" android:bottomRightRadius="16dp" />
+        </shape>
+    </item>
+</ripple>

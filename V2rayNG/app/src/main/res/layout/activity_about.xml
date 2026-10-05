@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- About: laid out like the settings hub — grouped cards, a coloured circle per row. -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/padding_spacing_dp24">
+
+        <!-- Tapping the header is the version tap that unlocks developer mode. -->
+        <LinearLayout
+            android:id="@+id/layout_version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_spacing_dp24"
+            android:paddingBottom="@dimen/padding_spacing_dp16">
+
+            <!-- The real launcher icon, as the icon picker shows it (AboutActivity picks the variant). -->
+            <ImageView
+                android:id="@+id/iv_app_icon"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:importantForAccessibility="no"
+                tools:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_spacing_dp16"
+                android:text="@string/app_name"
+                android:textAppearance="?attr/textAppearanceHeadlineSmallEmphasized"
+                android:textColor="?attr/colorOnSurface" />
+
+            <TextView
+                android:id="@+id/tv_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_spacing_dp4"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                tools:text="v0.2.7 · Xray 26.7.5" />
+
+            <TextView
+                android:id="@+id/tv_app_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textAppearance="?attr/textAppearanceLabelMedium"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                tools:text="fish.shrimp.ng" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/Widget.ShrimpNG.GroupLabel"
+            android:text="@string/about_group_project" />
+
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.ShrimpNG.GroupCard">
+
+            <LinearLayout
+                android:id="@+id/layout_source_code"
+                style="@style/Widget.ShrimpNG.SettingsHubRow">
+
+                <ImageView
+                    style="@style/Widget.ShrimpNG.SettingsHubRowIcon"
+                    android:backgroundTint="#E5BCFF"
+                    android:tint="#5E2B8C"
+                    app:srcCompat="@drawable/ic_source_code_24dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/padding_spacing_dp16"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_source_code"
+                        android:textAppearance="?attr/textAppearanceBodyLarge"
+                        android:textColor="?attr/colorOnSurface" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/about_source_code_summary"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="?attr/colorOnSurfaceVariant" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="@dimen/padding_spacing_dp8"
+                    android:importantForAccessibility="no"
+                    app:srcCompat="@drawable/ic_open_in_new_24dp"
+                    app:tint="?attr/colorOnSurfaceVariant" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.ShrimpNG.GroupCard">
+
+            <LinearLayout
+                android:id="@+id/layout_oss_licenses"
+                style="@style/Widget.ShrimpNG.SettingsHubRow">
+
+                <ImageView
+                    style="@style/Widget.ShrimpNG.SettingsHubRowIcon"
+                    android:backgroundTint="#81DD88"
+                    android:tint="#00522C"
+                    app:srcCompat="@drawable/license_24px" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/padding_spacing_dp16"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_oss_license"
+                        android:textAppearance="?attr/textAppearanceBodyLarge"
+                        android:textColor="?attr/colorOnSurface" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/about_oss_summary"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="?attr/colorOnSurfaceVariant" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="@dimen/padding_spacing_dp8"
+                    android:importantForAccessibility="no"
+                    app:srcCompat="@drawable/ic_chevron_right_24dp"
+                    app:tint="?attr/colorOnSurfaceVariant" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            style="@style/Widget.ShrimpNG.GroupLabel"
+            android:text="@string/about_group_contact" />
+
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.ShrimpNG.GroupCard">
+
+            <LinearLayout
+                android:id="@+id/layout_feedback"
+                style="@style/Widget.ShrimpNG.SettingsHubRow">
+
+                <ImageView
+                    style="@style/Widget.ShrimpNG.SettingsHubRowIcon"
+                    android:backgroundTint="#A1C9FD"
+                    android:tint="#0343A5"
+                    app:srcCompat="@drawable/ic_telegram_24dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/padding_spacing_dp16"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_pref_feedback"
+                        android:textAppearance="?attr/textAppearanceBodyLarge"
+                        android:textColor="?attr/colorOnSurface" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/about_feedback_summary"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="?attr/colorOnSurfaceVariant" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="@dimen/padding_spacing_dp8"
+                    android:importantForAccessibility="no"
+                    app:srcCompat="@drawable/ic_open_in_new_24dp"
+                    app:tint="?attr/colorOnSurfaceVariant" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.ShrimpNG.GroupCard">
+
+            <LinearLayout
+                android:id="@+id/layout_site"
+                style="@style/Widget.ShrimpNG.SettingsHubRow">
+
+                <ImageView
+                    style="@style/Widget.ShrimpNG.SettingsHubRowIcon"
+                    android:backgroundTint="#FFB581"
+                    android:tint="#743404"
+                    app:srcCompat="@drawable/ic_language_24dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/padding_spacing_dp16"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_tg_channel"
+                        android:textAppearance="?attr/textAppearanceBodyLarge"
+                        android:textColor="?attr/colorOnSurface" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/about_site_summary"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="?attr/colorOnSurfaceVariant" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="@dimen/padding_spacing_dp8"
+                    android:importantForAccessibility="no"
+                    app:srcCompat="@drawable/ic_open_in_new_24dp"
+                    app:tint="?attr/colorOnSurfaceVariant" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            style="@style/Widget.ShrimpNG.GroupLabel"
+            android:text="@string/about_group_privacy" />
+
+        <!-- The HWID subscription servers are sent; held to copy, since panels ask for it. -->
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.ShrimpNG.GroupCard">
+
+            <LinearLayout
+                android:id="@+id/layout_hwid"
+                style="@style/Widget.ShrimpNG.SettingsHubRow">
+
+                <ImageView
+                    style="@style/Widget.ShrimpNG.SettingsHubRowIcon"
+                    android:backgroundTint="#FEAEE3"
+                    android:tint="#890251"
+                    app:srcCompat="@drawable/ic_fingerprint_24dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/padding_spacing_dp16"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/about_hwid_title"
+                        android:textAppearance="?attr/textAppearanceBodyLarge"
+                        android:textColor="?attr/colorOnSurface" />
+
+                    <TextView
+                        android:id="@+id/tv_hwid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="monospace"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="?attr/colorOnSurface"
+                        tools:text="a1b2c3d4e5f60718" />
+
+                    <TextView
+                        android:id="@+id/tv_hwid_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:textAppearance="?attr/textAppearanceBodySmall"
+                        android:textColor="?attr/colorOnSurfaceVariant" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="@dimen/padding_spacing_dp8"
+                    android:importantForAccessibility="no"
+                    app:srcCompat="@drawable/ic_copy"
+                    app:tint="?attr/colorOnSurfaceVariant" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.ShrimpNG.GroupCard">
+
+            <LinearLayout
+                android:id="@+id/layout_privacy"
+                style="@style/Widget.ShrimpNG.SettingsHubRow">
+
+                <ImageView
+                    style="@style/Widget.ShrimpNG.SettingsHubRowIcon"
+                    android:backgroundTint="#FCBC02"
+                    android:tint="#743404"
+                    app:srcCompat="@drawable/ic_privacy_24dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/padding_spacing_dp16"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_privacy_policy"
+                        android:textAppearance="?attr/textAppearanceBodyLarge"
+                        android:textColor="?attr/colorOnSurface" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/about_privacy_summary"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="?attr/colorOnSurfaceVariant" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="@dimen/padding_spacing_dp8"
+                    android:importantForAccessibility="no"
+                    app:srcCompat="@drawable/ic_chevron_right_24dp"
+                    app:tint="?attr/colorOnSurfaceVariant" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sits behind the server card and is uncovered as the card slides right. Rounded on all four
+     corners even though only the left pair is ever seen: the right pair stays under the card. -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#33FFFFFF">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/colorPing" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+</ripple>

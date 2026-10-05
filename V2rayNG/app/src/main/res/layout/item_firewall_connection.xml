@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/padding_spacing_dp16"
+    android:paddingVertical="@dimen/padding_spacing_dp8">
+
+    <TextView
+        android:id="@+id/tv_dest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceBodyLarge"
+        tools:text="youtube.com" />
+
+    <TextView
+        android:id="@+id/tv_meta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceBodySmall"
+        android:textColor="?attr/colorOnSurfaceVariant"
+        tools:text="142.250.1.1:443 · 12 attempts · blocked" />
+
+</LinearLayout>

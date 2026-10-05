@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Semantic colors shared across screens (not part of the M3 role set) -->
+    <color name="colorWhite">#FFFFFFFF</color>
+    <color name="colorPing">#FF2E7D32</color>
+    <color name="colorPingRed">@color/md_theme_error</color>
+    <!-- Ping chip tiers (HomeServerAdapter): good < 300 ms < fair < 800 ms < slow. -->
+    <color name="colorPingFair">#FF9A6700</color>
+    <color name="colorPingSlow">#FFC24E00</color>
+    <!-- A subscription in its last days: the end date on the card. -->
+    <color name="colorExpirySoon">#FFC24E00</color>
+    <color name="colorConfigType">@color/md_theme_tertiary</color>
+    <color name="color_fab_active">@color/md_theme_primary</color>
+    <color name="color_fab_inactive">@color/md_theme_outline</color>
+    <color name="divider_color_light">@color/md_theme_outlineVariant</color>
+    <color name="colorIndicator">@color/md_theme_primary</color>
+
+    <!-- Calm semantic colors for per-app firewall status split buttons -->
+    <color name="firewall_status_allow_container">#FFD9F2DF</color>
+    <color name="firewall_status_allow_content">#FF205C32</color>
+    <color name="firewall_status_block_container">#FFFFDAD6</color>
+    <color name="firewall_status_block_content">#FF8C1D18</color>
+    <color name="firewall_status_wifi_container">#FFDCE5FF</color>
+    <color name="firewall_status_wifi_content">#FF284A82</color>
+    <color name="firewall_status_mobile_container">#FFFFE2B8</color>
+    <color name="firewall_status_mobile_content">#FF6B4700</color>
+    <color name="firewall_status_isolate_container">#FFE8E2EA</color>
+    <color name="firewall_status_isolate_content">#FF504A53</color>
+    <color name="firewall_status_bypass_container">#FFCFECEF</color>
+    <color name="firewall_status_bypass_content">#FF185158</color>
+
+    <!-- Settings hub row icon circles — fixed (AOSP Settings style), same in light/dark -->
+    <color name="settings_icon_blue">#FF1A73E8</color>
+    <color name="settings_icon_purple">#FF673AB7</color>
+    <color name="settings_icon_amber">#FFF9A000</color>
+    <color name="settings_icon_green">#FF43A047</color>
+    <color name="settings_icon_teal">#FF00897B</color>
+    <color name="settings_icon_pink">#FFD81B60</color>
+    <color name="settings_icon_indigo">#FF3949AB</color>
+
+    <!-- Material 3 Expressive scheme — light — derived from seed #006874 (SchemeExpressive, spec 2025) -->
+    <color name="md_theme_primary">#FF006975</color>
+    <color name="md_theme_onPrimary">#FFECFCFF</color>
+    <color name="md_theme_primaryContainer">#FF64E9FD</color>
+    <color name="md_theme_onPrimaryContainer">#FF00535D</color>
+    <color name="md_theme_primaryFixed">#FF64E9FD</color>
+    <color name="md_theme_primaryFixedDim">#FF53DBEF</color>
+    <color name="md_theme_onPrimaryFixed">#FF003F46</color>
+    <color name="md_theme_onPrimaryFixedVariant">#FF005D68</color>
+
+    <color name="md_theme_secondary">#FF68597B</color>
+    <color name="md_theme_onSecondary">#FFFEF6FF</color>
+    <color name="md_theme_secondaryContainer">#FFEDDCFF</color>
+    <color name="md_theme_onSecondaryContainer">#FF5A4B6D</color>
+    <color name="md_theme_secondaryFixed">#FFEDDCFF</color>
+    <color name="md_theme_secondaryFixedDim">#FFE0CDF5</color>
+    <color name="md_theme_onSecondaryFixed">#FF47395A</color>
+    <color name="md_theme_onSecondaryFixedVariant">#FF645577</color>
+
+    <color name="md_theme_tertiary">#FF764C9D</color>
+    <color name="md_theme_onTertiary">#FFFFF6FF</color>
+    <color name="md_theme_tertiaryContainer">#FFD4A5FE</color>
+    <color name="md_theme_onTertiaryContainer">#FF4B2171</color>
+    <color name="md_theme_tertiaryFixed">#FFD4A5FE</color>
+    <color name="md_theme_tertiaryFixedDim">#FFC698F0</color>
+    <color name="md_theme_onTertiaryFixed">#FF330259</color>
+    <color name="md_theme_onTertiaryFixedVariant">#FF542B7B</color>
+
+    <color name="md_theme_error">#FFAC3434</color>
+    <color name="md_theme_onError">#FFFFF7F6</color>
+    <color name="md_theme_errorContainer">#FFF56965</color>
+    <color name="md_theme_onErrorContainer">#FF65000B</color>
+
+    <color name="md_theme_background">#FFF1FBFF</color>
+    <color name="md_theme_onBackground">#FF003844</color>
+
+    <color name="md_theme_surface">#FFF1FBFF</color>
+    <color name="md_theme_onSurface">#FF003844</color>
+    <color name="md_theme_surfaceVariant">#FFB4EBFE</color>
+    <color name="md_theme_onSurfaceVariant">#FF2F6676</color>
+    <color name="md_theme_surfaceDim">#FFA6E3F8</color>
+    <color name="md_theme_surfaceBright">#FFF1FBFF</color>
+    <color name="md_theme_surfaceContainerLowest">#FFFFFFFF</color>
+    <color name="md_theme_surfaceContainerLow">#FFE2F7FF</color>
+    <color name="md_theme_surfaceContainer">#FFD3F3FF</color>
+    <color name="md_theme_surfaceContainerHigh">#FFC3EFFF</color>
+    <color name="md_theme_surfaceContainerHighest">#FFB4EBFE</color>
+
+    <color name="md_theme_inverseSurface">#FF001016</color>
+    <color name="md_theme_inverseOnSurface">#FF86A1AB</color>
+    <color name="md_theme_inversePrimary">#FF64E9FD</color>
+
+    <color name="md_theme_outline">#FF4C8293</color>
+    <color name="md_theme_outlineVariant">#FF84BACC</color>
+    <!-- Starting-window colour. Static below API 31; the system palette above (see values-v31). -->
+    <color name="splash_background">@color/md_theme_surface</color>
+</resources>

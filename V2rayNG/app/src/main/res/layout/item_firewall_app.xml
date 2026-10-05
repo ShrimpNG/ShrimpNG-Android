@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/padding_spacing_dp16"
+    android:paddingVertical="@dimen/padding_spacing_dp8">
+
+    <!-- Fixed slot so swapping icon ↔ checkbox never changes row metrics. -->
+    <FrameLayout
+        android:layout_width="@dimen/settings_hub_icon_size"
+        android:layout_height="@dimen/settings_hub_icon_size">
+
+        <ImageView
+            android:id="@+id/iv_app_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:importantForAccessibility="no" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/check_app_selected"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:clickable="false"
+            android:focusable="false"
+            android:gravity="center"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="0dp"
+            android:visibility="invisible"
+            tools:visibility="visible" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_spacing_dp16"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_app_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
+            android:textColor="?attr/colorOnSurface"
+            tools:text="Some app" />
+
+        <TextView
+            android:id="@+id/tv_app_package"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="?attr/textAppearanceBodySmall"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            tools:text="com.example.app" />
+
+        <TextView
+            android:id="@+id/tv_app_warning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/shrimp_firewall_app_outside_tunnel"
+            android:textAppearance="?attr/textAppearanceBodySmall"
+            android:textColor="?attr/colorError"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/status_split_button"
+        style="@style/Widget.Material3.MaterialButtonToggleGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_spacing_dp8"
+        app:singleSelection="false">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_quick_status"
+            style="@style/Widget.Material3Expressive.Button.TonalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:checkable="false"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:minWidth="0dp"
+            android:paddingHorizontal="@dimen/padding_spacing_dp12"
+            android:textAppearance="?attr/textAppearanceLabelLarge"
+            tools:text="Block" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_choose_status"
+            style="@style/Widget.Material3Expressive.Button.TonalButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:checkable="false"
+            android:contentDescription="@string/shrimp_more_options"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:minWidth="0dp"
+            android:padding="0dp"
+            app:icon="@drawable/ic_arrow_drop_down"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconSize="20dp" />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+</LinearLayout>

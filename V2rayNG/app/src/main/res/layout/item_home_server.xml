@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The card sits on top: it slides right to uncover the measure button behind its start, and
+     left to uncover the copy and delete buttons behind its end. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/padding_spacing_dp8">
+
+    <FrameLayout
+        android:id="@+id/btn_ping_reveal"
+        android:visibility="invisible"
+        android:layout_width="56dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@drawable/bg_ping_reveal"
+        android:clickable="true"
+        android:contentDescription="@string/shrimp_ping_one_server"
+        android:focusable="true">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_speed_24dp"
+            app:tint="@android:color/white" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/actions_reveal"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/btn_copy_json"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_action_json"
+            android:clickable="true"
+            android:contentDescription="@string/shrimp_copy_json"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_data_object_24dp"
+                app:tint="?attr/colorOnPrimary" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btn_copy_link"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_action_link"
+            android:clickable="true"
+            android:contentDescription="@string/shrimp_copy_link"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_key_24dp"
+                app:tint="?attr/colorOnTertiary" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btn_delete"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_action_delete"
+            android:clickable="true"
+            android:contentDescription="@string/shrimp_delete_server"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_delete_24dp"
+                app:tint="?attr/colorOnError" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_root"
+        style="@style/Widget.ShrimpNG.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/layout_server_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/padding_spacing_dp12"
+            android:paddingTop="@dimen/padding_spacing_dp12"
+            android:paddingEnd="@dimen/padding_spacing_dp4"
+            android:paddingBottom="@dimen/padding_spacing_dp12">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_server_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textAppearance="?attr/textAppearanceBodyLarge"
+                    android:textColor="?attr/colorOnSurface"
+                    tools:text="Server remark" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_spacing_dp4"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_server_protocol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_protocol_chip"
+                        android:clickable="true"
+                        android:drawableEnd="@drawable/ic_info_10dp"
+                        android:drawablePadding="2dp"
+                        android:drawableTint="?attr/colorOnSecondaryContainer"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:minHeight="18dp"
+                        android:paddingHorizontal="5dp"
+                        android:textAppearance="?attr/textAppearanceLabelSmall"
+                        android:textColor="?attr/colorOnSecondaryContainer"
+                        android:textSize="9sp"
+                        tools:text="HY2" />
+
+                    <TextView
+                        android:id="@+id/tv_server_detail"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/padding_spacing_dp6"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textAppearance="?attr/textAppearanceBodySmall"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        tools:text="example.com:443" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/loading_ping"
+                android:layout_width="38dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/padding_spacing_dp4"
+                android:importantForAccessibility="no"
+                android:visibility="gone"
+                app:tint="?attr/colorPrimary" />
+
+            <!-- A tonal chip in the ping's own colour; HomeServerAdapter tints it per result. -->
+            <TextView
+                android:id="@+id/tv_server_ping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/padding_spacing_dp4"
+                android:background="@drawable/shape_pill"
+                android:gravity="center"
+                android:maxLines="1"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:textAppearance="?attr/textAppearanceLabelMedium"
+                android:fontFeatureSettings="tnum"
+                tools:text="128 ms" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_favorite"
+                style="@style/Widget.Material3Expressive.Button.IconButton.Standard"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:padding="0dp"
+                android:contentDescription="@string/shrimp_favorite_toggle"
+                app:icon="@drawable/ic_star_outline_24dp" />
+
+        </LinearLayout>
+
+        <com.v2ray.ang.ui.widget.HoldProgressView
+            android:id="@+id/view_hold_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+</FrameLayout>

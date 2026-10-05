@@ -1,0 +1,31 @@
+<!--
+     Background layer of the adaptive launcher icon: a near-black radial gradient.
+
+     A drawable rather than the flat @color it replaced, because a gradient cannot be expressed as
+     a colour resource. Together with the foreground this reproduces the supplied combined
+     rendering exactly, so no separate flattened copy is kept.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:pathData="M0 0H108V108H0z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="radial"
+                android:centerX="0"
+                android:centerY="0"
+                android:gradientRadius="1">
+                <item
+                    android:color="#FF232222"
+                    android:offset="0"/>
+                <item
+                    android:color="#FF191818"
+                    android:offset="1"/>
+            </gradient>
+        </aapt:attr>
+    </path>
+</vector>

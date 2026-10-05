@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Shown for the second or two an import takes. Deliberately wordless: this screen also appears
+     while the Calculator disguise is on, where any mention of subscriptions would give it away.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface">
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progress_import"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true" />
+
+</FrameLayout>

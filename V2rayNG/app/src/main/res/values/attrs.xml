@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TabLayoutTextStyle" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <declare-styleable name="SquareFrameLayout">
+        <attr name="sizeFraction" format="float" />
+        <attr name="cornerRadius" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="DropdownField">
+        <!-- The fixed choices, like android:entries on a Spinner. -->
+        <attr name="entries" format="reference" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- API 34 exposes the surface role itself, an exact match for the app's surface. -->
+    <color name="splash_background">@android:color/system_surface_light</color>
+</resources>

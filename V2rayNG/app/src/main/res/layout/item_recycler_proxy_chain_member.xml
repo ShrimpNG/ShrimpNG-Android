@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_bg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:id="@+id/info_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingVertical="@dimen/padding_spacing_dp4"
+        android:paddingStart="@dimen/form_horizontal_padding"
+        android:paddingEnd="@dimen/padding_spacing_dp4">
+
+        <TextView
+            android:id="@+id/tv_member_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_spacing_dp12"
+            android:minWidth="@dimen/padding_spacing_dp16"
+            android:gravity="center"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:textColor="?attr/colorOnSurfaceVariant" />
+
+        <!-- The end icon opens the member list, as the separate arrow button used to. -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.ShrimpNG.Dropdown"
+            android:layout_width="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_weight="1"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/sp_member_remark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:hint="@string/server_proxy_chain_member_unselected"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="1"
+                tools:ignore="NestedWeights" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/layout_remove"
+            style="@style/Widget.Material3Expressive.Button.IconButton.Standard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_spacing_dp4"
+            android:contentDescription="@string/menu_item_del_config"
+            app:icon="@drawable/ic_delete_24dp" />
+
+    </LinearLayout>
+</LinearLayout>

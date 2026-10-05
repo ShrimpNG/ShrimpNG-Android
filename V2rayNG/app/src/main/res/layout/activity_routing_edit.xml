@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.RoutingEditActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/form_horizontal_padding"
+        android:paddingTop="@dimen/padding_spacing_dp4"
+        android:paddingBottom="@dimen/form_section_spacing">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.ShrimpNG.TextField"
+            android:hint="@string/sub_setting_remarks">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_remarks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/chk_locked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/form_field_spacing"
+            android:minHeight="56dp"
+            android:text="@string/routing_settings_locked"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
+            android:textColor="?attr/colorOnSurface" />
+
+        <TextView
+            style="@style/Widget.ShrimpNG.FormSectionHeader"
+            android:text="@string/routing_settings_rule_title" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.ShrimpNG.TextField"
+            android:hint="@string/routing_settings_domain"
+            app:helperText="@string/routing_settings_tips">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_domain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:maxLines="10" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.ShrimpNG.TextField"
+            android:hint="@string/routing_settings_ip"
+            app:helperText="@string/routing_settings_tips">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_ip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:maxLines="10" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- The end icon opens the app picker; disabled together with the field when per-app
+             routing is unavailable. -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_process"
+            style="@style/Widget.ShrimpNG.TextField"
+            android:hint="@string/routing_settings_process"
+            app:endIconContentDescription="@string/routing_settings_process"
+            app:endIconDrawable="@drawable/ic_per_apps_24dp"
+            app:endIconMode="custom"
+            app:helperText="@string/routing_settings_tips">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_process"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:maxLines="10" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.ShrimpNG.TextField"
+            android:hint="@string/routing_settings_port">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_port"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.ShrimpNG.TextField"
+            android:hint="@string/routing_settings_protocol"
+            app:helperText="@string/routing_settings_protocol_tip">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_protocol"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.ShrimpNG.TextField"
+            android:hint="@string/routing_settings_network"
+            app:helperText="@string/routing_settings_network_tip">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_network"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Free text with suggestions: the end icon opens the full list of outbounds. -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_outbound_tag"
+            style="@style/Widget.ShrimpNG.TextField"
+            android:hint="@string/routing_settings_outbound_tag"
+            app:endIconContentDescription="@string/routing_settings_outbound_tag"
+            app:endIconDrawable="@drawable/ic_arrow_drop_down"
+            app:endIconMode="custom"
+            app:helperText="@string/routing_settings_outbound_tag_hint">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/sp_outbound_tag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:completionThreshold="0"
+                android:imeOptions="actionDone"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+</ScrollView>

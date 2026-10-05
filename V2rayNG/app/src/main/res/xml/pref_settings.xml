@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="@string/title_ui_settings">
+        <CheckBoxPreference
+            android:key="pref_speed_enabled"
+            android:summary="@string/summary_pref_speed_enabled"
+            android:title="@string/title_pref_speed_enabled" />
+
+        <CheckBoxPreference
+            android:key="pref_confirm_remove"
+            android:summary="@string/summary_pref_confirm_remove"
+            android:title="@string/title_pref_confirm_remove" />
+
+        <CheckBoxPreference
+            android:key="pref_start_scan_immediate"
+            android:summary="@string/summary_pref_start_scan_immediate"
+            android:title="@string/title_pref_start_scan_immediate" />
+
+        <CheckBoxPreference
+            android:key="pref_double_column_display"
+            android:summary="@string/summary_pref_double_column_display"
+            android:title="@string/title_pref_double_column_display" />
+
+        <CheckBoxPreference
+            android:key="pref_group_all_display"
+            android:summary="@string/summary_pref_group_all_display"
+            android:title="@string/title_pref_group_all_display" />
+
+        <ListPreference
+            android:defaultValue="auto"
+            android:entries="@array/language_select"
+            android:entryValues="@array/language_select_value"
+            android:key="pref_language"
+            android:summary="%s"
+            android:title="@string/title_language" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/title_mode_settings">
+        <ListPreference
+            android:defaultValue="VPN"
+            android:entries="@array/mode_entries"
+            android:entryValues="@array/mode_value"
+            android:key="pref_mode"
+            android:summary="%s"
+            android:title="@string/title_mode" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_fingerprint_auto_fallback"
+            android:summary="@string/summary_pref_fingerprint_auto_fallback"
+            android:title="@string/title_pref_fingerprint_auto_fallback" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_tunnel_watchdog"
+            android:summary="@string/summary_pref_tunnel_watchdog"
+            android:title="@string/title_pref_tunnel_watchdog" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/title_ping_settings">
+        <ListPreference
+            android:defaultValue="http"
+            android:entries="@array/ping_method"
+            android:entryValues="@array/ping_method_value"
+            android:key="pref_ping_method"
+            android:summary="%s"
+            android:title="@string/title_pref_ping_method" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/title_subscription_settings">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_send_hwid_enabled"
+            android:summary="@string/summary_pref_send_hwid"
+            android:title="@string/title_pref_send_hwid" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_expiry_reminders"
+            android:summary="@string/summary_pref_expiry_reminders"
+            android:title="@string/title_pref_expiry_reminders" />
+    </PreferenceCategory>
+
+    <Preference
+        android:key="pref_open_developer_settings"
+        android:fragment="com.v2ray.ang.ui.SettingsActivity$SettingsAdvancedFragment"
+        android:title="@string/title_developer_settings" />
+
+</PreferenceScreen>

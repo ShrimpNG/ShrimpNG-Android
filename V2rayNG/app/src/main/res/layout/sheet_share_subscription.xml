@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ShareSubscriptionSheet: the subscription link as a QR code, to copy, or to send. -->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/padding_spacing_dp24"
+        android:paddingTop="@dimen/padding_spacing_dp8"
+        android:paddingBottom="@dimen/padding_spacing_dp24">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceHeadlineSmallEmphasized"
+            android:textColor="?attr/colorOnSurface"
+            tools:text="I.Shrimp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_spacing_dp4"
+            android:text="@string/share_sub_subtitle"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurfaceVariant" />
+
+        <!-- White in both themes: scanners want dark modules on a light ground. -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.ShrimpNG.CardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_spacing_dp24"
+            app:cardBackgroundColor="@android:color/white">
+
+            <ImageView
+                android:id="@+id/iv_qr"
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                android:layout_margin="@dimen/padding_spacing_dp12"
+                android:contentDescription="@string/share_sub_qr"
+                android:scaleType="fitXY" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tv_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_spacing_dp16"
+            android:ellipsize="middle"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            tools:text="https://sub.example.com/abc123" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_spacing_dp16"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_copy"
+                style="@style/Widget.Material3Expressive.Button.TonalButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/padding_spacing_dp8"
+                android:layout_weight="1"
+                android:text="@string/share_sub_copy"
+                app:icon="@drawable/ic_copy" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_send"
+                style="@style/Widget.Material3Expressive.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_spacing_dp8"
+                android:layout_weight="1"
+                android:text="@string/share_sub_send"
+                app:icon="@drawable/ic_share_24dp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_spacing_dp16"
+            android:text="@string/share_sub_warning"
+            android:textAppearance="?attr/textAppearanceBodySmall"
+            android:textColor="?attr/colorOnSurfaceVariant" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

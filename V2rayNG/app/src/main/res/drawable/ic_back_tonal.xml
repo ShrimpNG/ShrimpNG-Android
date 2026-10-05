@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Up/back in the top bar, as Android 16's own Settings draws it: an arrow in a tonal circle. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:width="40dp" android:height="40dp" android:gravity="center">
+        <shape android:shape="oval">
+            <solid android:color="?attr/colorSurfaceContainerHigh" />
+        </shape>
+    </item>
+    <item android:width="24dp" android:height="24dp" android:gravity="center"
+        android:drawable="@drawable/ic_arrow_back_24dp" />
+</layer-list>

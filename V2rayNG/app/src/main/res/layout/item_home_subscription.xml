@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.ShrimpNG.CardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/padding_spacing_dp8">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/layout_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/padding_spacing_dp16"
+            android:paddingTop="@dimen/padding_spacing_dp12"
+            android:paddingEnd="@dimen/padding_spacing_dp4"
+            android:paddingBottom="@dimen/padding_spacing_dp12">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_subscription_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textAppearance="?attr/textAppearanceTitleMediumEmphasized"
+                    android:textColor="?attr/colorOnSurface"
+                    tools:text="My subscription" />
+
+                <TextView
+                    android:id="@+id/tv_subscription_meta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_spacing_dp4"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textAppearance="?attr/textAppearanceBodySmall"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    tools:text="shrimp.fish · 12 keys" />
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_ping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.Material3Expressive.Button.IconButton.Standard"
+                android:contentDescription="@string/shrimp_ping_subscription"
+                app:icon="@drawable/ic_speed_24dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.Material3Expressive.Button.IconButton.Standard"
+                android:contentDescription="@string/shrimp_refresh_subscription"
+                app:icon="@drawable/ic_refresh_24dp" />
+
+            <ImageView
+                android:id="@+id/iv_expand_chevron"
+                android:layout_width="@dimen/view_height_dp36"
+                android:layout_height="@dimen/view_height_dp36"
+                android:contentDescription="@string/shrimp_expand_subscription"
+                android:padding="@dimen/padding_spacing_dp8"
+                android:src="@drawable/ic_arrow_drop_down"
+                app:tint="?attr/colorOnSurfaceVariant" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_servers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:paddingBottom="@dimen/padding_spacing_dp8"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One suggestion in the routing rule's outbound picker: the tag on the left, and on the right
+     the subscription it belongs to, shown only when more than one subscription exists. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:minHeight="48dp"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/padding_spacing_dp16"
+    android:paddingTop="@dimen/padding_spacing_dp8"
+    android:paddingEnd="@dimen/padding_spacing_dp16"
+    android:paddingBottom="@dimen/padding_spacing_dp8">
+
+    <TextView
+        android:id="@+id/tv_outbound_tag"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="?attr/textAppearanceBodyLarge"
+        android:textColor="?attr/colorOnSurface"
+        tools:text="Netherlands 01" />
+
+    <TextView
+        android:id="@+id/tv_outbound_subscription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_spacing_dp8"
+        android:background="@drawable/bg_outbound_tag_chip"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:maxWidth="140dp"
+        android:paddingStart="@dimen/padding_spacing_dp8"
+        android:paddingTop="2dp"
+        android:paddingEnd="@dimen/padding_spacing_dp8"
+        android:paddingBottom="2dp"
+        android:textAppearance="?attr/textAppearanceLabelSmall"
+        android:textColor="?attr/colorOnSecondaryContainer"
+        tools:text="Provider" />
+
+</LinearLayout>

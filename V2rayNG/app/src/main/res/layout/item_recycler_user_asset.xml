@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One geo asset: name and size/date on the left, edit and remove on the right. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:minHeight="72dp"
+    android:orientation="horizontal"
+    android:paddingVertical="@dimen/padding_spacing_dp8"
+    android:paddingStart="@dimen/padding_spacing_dp16"
+    android:paddingEnd="@dimen/padding_spacing_dp4">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/asset_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
+            android:textColor="?attr/colorOnSurface"
+            tools:text="Placeholder.dat" />
+
+        <TextView
+            android:id="@+id/asset_properties"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            tools:text="1MB . 2020.01.01" />
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/layout_edit"
+        style="@style/Widget.Material3Expressive.Button.IconButton.Standard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/menu_item_edit_config"
+        app:icon="@drawable/ic_edit_24dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/layout_remove"
+        style="@style/Widget.Material3Expressive.Button.IconButton.Standard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/menu_item_del_config"
+        app:icon="@drawable/ic_delete_24dp" />
+
+</LinearLayout>

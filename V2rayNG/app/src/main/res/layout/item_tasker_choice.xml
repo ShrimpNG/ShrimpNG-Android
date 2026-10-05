@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     A single-choice row for TaskerActivity's ListView: an M3 radio button, leading, with the
+     server name as its label. The ListView owns clicks and checks the row through Checkable, so
+     the button itself must not take touches or focus. A CompoundButton draws its button at the
+     very start regardless of padding, so the inset from the card edge comes from the ListView.
+-->
+<com.google.android.material.radiobutton.MaterialRadioButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="false"
+    android:ellipsize="end"
+    android:focusable="false"
+    android:maxLines="1"
+    android:minHeight="56dp"
+    android:paddingStart="@dimen/padding_spacing_dp8"
+    android:paddingEnd="@dimen/padding_spacing_dp8"
+    android:textAppearance="?attr/textAppearanceBodyLarge"
+    android:textColor="?attr/colorOnSurface" />

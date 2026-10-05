@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Fossify pulls this from its shared Commons library, so the disguise icon needs its own.
+         Fixed, not day/night-aware, like every other launcher icon: a launcher icon is a static
+         image and must not shift with the system theme. -->
+    <color name="ic_launcher_calc_background">#FF2D3B4E</color>
+</resources>

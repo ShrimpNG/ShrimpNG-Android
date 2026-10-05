@@ -1,0 +1,216 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Common base theme: full Material 3 Expressive role set, day/night switches via @color qualifiers -->
+    <style name="AppThemeBase" parent="Theme.Material3Expressive.DynamicColors.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/md_theme_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/md_theme_onPrimaryContainer</item>
+        <item name="colorPrimaryFixed">@color/md_theme_primaryFixed</item>
+        <item name="colorPrimaryFixedDim">@color/md_theme_primaryFixedDim</item>
+        <item name="colorOnPrimaryFixed">@color/md_theme_onPrimaryFixed</item>
+        <item name="colorOnPrimaryFixedVariant">@color/md_theme_onPrimaryFixedVariant</item>
+        <item name="colorPrimaryInverse">@color/md_theme_inversePrimary</item>
+
+        <item name="colorSecondary">@color/md_theme_secondary</item>
+        <item name="colorOnSecondary">@color/md_theme_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/md_theme_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/md_theme_onSecondaryContainer</item>
+        <item name="colorSecondaryFixed">@color/md_theme_secondaryFixed</item>
+        <item name="colorSecondaryFixedDim">@color/md_theme_secondaryFixedDim</item>
+        <item name="colorOnSecondaryFixed">@color/md_theme_onSecondaryFixed</item>
+        <item name="colorOnSecondaryFixedVariant">@color/md_theme_onSecondaryFixedVariant</item>
+
+        <item name="colorTertiary">@color/md_theme_tertiary</item>
+        <item name="colorOnTertiary">@color/md_theme_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/md_theme_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/md_theme_onTertiaryContainer</item>
+        <item name="colorTertiaryFixed">@color/md_theme_tertiaryFixed</item>
+        <item name="colorTertiaryFixedDim">@color/md_theme_tertiaryFixedDim</item>
+        <item name="colorOnTertiaryFixed">@color/md_theme_onTertiaryFixed</item>
+        <item name="colorOnTertiaryFixedVariant">@color/md_theme_onTertiaryFixedVariant</item>
+
+        <item name="colorError">@color/md_theme_error</item>
+        <item name="colorOnError">@color/md_theme_onError</item>
+        <item name="colorErrorContainer">@color/md_theme_errorContainer</item>
+        <item name="colorOnErrorContainer">@color/md_theme_onErrorContainer</item>
+
+        <item name="android:colorBackground">@color/md_theme_background</item>
+        <item name="colorOnBackground">@color/md_theme_onBackground</item>
+
+        <item name="colorSurface">@color/md_theme_surface</item>
+        <item name="colorOnSurface">@color/md_theme_onSurface</item>
+        <item name="colorSurfaceVariant">@color/md_theme_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/md_theme_onSurfaceVariant</item>
+        <item name="colorSurfaceDim">@color/md_theme_surfaceDim</item>
+        <item name="colorSurfaceBright">@color/md_theme_surfaceBright</item>
+        <item name="colorSurfaceContainerLowest">@color/md_theme_surfaceContainerLowest</item>
+        <item name="colorSurfaceContainerLow">@color/md_theme_surfaceContainerLow</item>
+        <item name="colorSurfaceContainer">@color/md_theme_surfaceContainer</item>
+        <item name="colorSurfaceContainerHigh">@color/md_theme_surfaceContainerHigh</item>
+        <item name="colorSurfaceContainerHighest">@color/md_theme_surfaceContainerHighest</item>
+        <item name="colorSurfaceInverse">@color/md_theme_inverseSurface</item>
+        <item name="colorOnSurfaceInverse">@color/md_theme_inverseOnSurface</item>
+
+        <item name="colorOutline">@color/md_theme_outline</item>
+        <item name="colorOutlineVariant">@color/md_theme_outlineVariant</item>
+
+        <!-- Theme attributes, not @color resources: the dynamic-colour overlay applied to every
+             activity rewrites the attributes, but a direct @color reference stays the static
+             seed palette — a teal navigation bar under a Monet-grey app. The splash is drawn by
+             the system before any overlay exists, so it reads the system palette itself. -->
+        <item name="android:windowBackground">?attr/colorSurface</item>
+        <item name="android:statusBarColor">?attr/colorSurface</item>
+        <item name="android:navigationBarColor">?attr/colorSurfaceContainer</item>
+        <item name="android:windowSplashScreenBackground" tools:targetApi="31">@color/splash_background</item>
+
+        <item name="materialCardViewStyle">@style/Widget.ShrimpNG.CardView</item>
+        <item name="textInputStyle">@style/Widget.Material3.TextInputLayout.OutlinedBox</item>
+    </style>
+
+    <style name="AppThemeDayNight" parent="AppThemeBase">
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
+    </style>
+
+    <style name="AppThemeDayNight.NoActionBar" parent="AppThemeDayNight">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppThemeDayNight.NoActionBar.Translucent">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="BrandedSwitch" parent="AppThemeDayNight">
+        <item name="colorPrimary">@color/color_fab_active</item>
+    </style>
+
+    <!-- Home screen widgets -->
+    <style name="Widget.ShrimpNG.CardView" parent="Widget.Material3.CardView.Filled">
+        <item name="cardElevation">0dp</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="cardBackgroundColor">?attr/colorSurfaceContainerLow</item>
+        <item name="shapeAppearance">?attr/shapeAppearanceCornerLarge</item>
+    </style>
+
+    <!-- Decoy calculator key: flat text on the surface, like an ordinary calculator app. Filled
+         buttons would read as "some Material 3 app wearing a calculator costume", which is
+         exactly what the disguise must not do. -->
+    <style name="Widget.ShrimpNG.DecoyKey" parent="">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="android:textSize">26sp</item>
+    </style>
+
+    <style name="Widget.ShrimpNG.DecoyKey.Operator">
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="Widget.ShrimpNG.DecoyKey.Row" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <!-- Group label on the Themes & icons screen, the settings hub's section label style. -->
+    <style name="Widget.ShrimpNG.ThemeGroupLabel" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingHorizontal">@dimen/padding_spacing_dp8</item>
+        <item name="android:paddingVertical">@dimen/padding_spacing_dp8</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textAppearance">?attr/textAppearanceLabelMedium</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <!-- Info / support buttons beside the subscription card's traffic tile, matching it. -->
+    <style name="Widget.ShrimpNG.TrafficRowButton" parent="Widget.Material3Expressive.Button.IconButton.Tonal">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginEnd">@dimen/padding_spacing_dp4</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:padding">0dp</item>
+        <item name="backgroundTint">?attr/colorSurfaceContainerHigh</item>
+        <item name="iconTint">?attr/colorOnSurfaceVariant</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">0dp</item>
+        <item name="iconSize">18dp</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.ShrimpNG.TrafficTile</item>
+    </style>
+
+    <style name="Widget.ShrimpNG.TrafficRenewButton" parent="Widget.Material3Expressive.Button.TonalButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:textAppearance">?attr/textAppearanceLabelLarge</item>
+        <item name="backgroundTint">?attr/colorErrorContainer</item>
+        <item name="android:textColor">?attr/colorOnErrorContainer</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.ShrimpNG.TrafficTile</item>
+    </style>
+
+    <style name="ShapeAppearance.ShrimpNG.TrafficTile" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+    </style>
+
+    <!-- The top bar of every inner screen (activity_base.xml). -->
+    <style name="Widget.ShrimpNG.Toolbar" parent="Widget.Material3Expressive.Toolbar">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="titleTextAppearance">?attr/textAppearanceHeadlineSmall</item>
+        <item name="contentInsetStartWithNavigation">4dp</item>
+    </style>
+
+    <!-- Settings hub (Настройки tab) -->
+    <style name="Widget.ShrimpNG.SettingsHubRow" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:paddingHorizontal">@dimen/padding_spacing_dp16</item>
+        <item name="android:paddingVertical">@dimen/padding_spacing_dp12</item>
+    </style>
+
+    <style name="Widget.ShrimpNG.SettingsHubRowIcon" parent="">
+        <item name="android:layout_width">@dimen/settings_hub_icon_size</item>
+        <item name="android:layout_height">@dimen/settings_hub_icon_size</item>
+        <item name="android:padding">@dimen/settings_hub_icon_padding</item>
+        <item name="android:background">@drawable/shape_settings_icon_circle</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:importantForAccessibility">no</item>
+        <item name="android:tint">@android:color/white</item>
+    </style>
+
+    <style name="Widget.ShrimpNG.SettingsHubRowText" parent="">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginStart">@dimen/padding_spacing_dp16</item>
+        <item name="android:textAppearance">?attr/textAppearanceBodyLarge</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+</resources>

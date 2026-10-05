@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.SubEditActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/form_horizontal_padding"
+        android:paddingBottom="@dimen/form_section_spacing">
+
+        <TextView
+            style="@style/Widget.ShrimpNG.FormSectionHeader"
+            android:layout_marginTop="@dimen/padding_spacing_dp16"
+            android:text="@string/title_sub_setting" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.ShrimpNG.TextField"
+            android:hint="@string/sub_setting_remarks">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_remarks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.ShrimpNG.TextField"
+            android:hint="@string/sub_setting_url">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:maxLines="10"
+                android:minLines="2"
+                android:scrollbars="vertical"
+                tools:ignore="TextFields" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.ShrimpNG.TextField"
+            android:hint="@string/sub_setting_user_agent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_user_agent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.ShrimpNG.TextField"
+            android:hint="@string/sub_setting_filter">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_filter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout style="@style/Widget.ShrimpNG.FormSwitchRow">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/sub_setting_enable"
+                android:textAppearance="?attr/textAppearanceBodyLarge"
+                android:textColor="?attr/colorOnSurface" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/chk_enable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_spacing_dp16" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/Widget.ShrimpNG.FormSwitchRow">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/sub_auto_update"
+                android:textAppearance="?attr/textAppearanceBodyLarge"
+                android:textColor="?attr/colorOnSurface" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/auto_update_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_spacing_dp16" />
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.ShrimpNG.TextField"
+            android:hint="@string/title_pref_auto_update_interval">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_update_interval"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                tools:ignore="TextFields" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout style="@style/Widget.ShrimpNG.FormSwitchRow">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/sub_allow_insecure_url"
+                android:textAppearance="?attr/textAppearanceBodyLarge"
+                android:textColor="?attr/colorOnSurface" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/allow_insecure_url"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_spacing_dp16" />
+        </LinearLayout>
+
+        <!-- Free text with suggestions: the end icon opens the full list of profiles. -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_pre_profile"
+            style="@style/Widget.ShrimpNG.TextField"
+            android:hint="@string/sub_setting_pre_profile"
+            app:endIconContentDescription="@string/sub_setting_pre_profile"
+            app:endIconDrawable="@drawable/ic_arrow_drop_down"
+            app:endIconMode="custom"
+            app:helperText="@string/sub_setting_pre_profile_tip">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/et_pre_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:completionThreshold="0"
+                android:imeOptions="actionDone"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_next_profile"
+            style="@style/Widget.ShrimpNG.TextField"
+            android:hint="@string/sub_setting_next_profile"
+            app:endIconContentDescription="@string/sub_setting_next_profile"
+            app:endIconDrawable="@drawable/ic_arrow_drop_down"
+            app:endIconMode="custom"
+            app:helperText="@string/sub_setting_pre_profile_tip">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/et_next_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:completionThreshold="0"
+                android:imeOptions="actionDone"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+</ScrollView>

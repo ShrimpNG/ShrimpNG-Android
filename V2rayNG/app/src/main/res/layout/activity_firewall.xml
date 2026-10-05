@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
+    android:orientation="vertical">
+
+    <!-- Shown when the firewall flag is on but the conditions it needs no longer hold, so the
+         screen never claims to be blocking something it isn't. -->
+    <TextView
+        android:id="@+id/tv_inactive_warning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorErrorContainer"
+        android:padding="@dimen/padding_spacing_dp16"
+        android:text="@string/shrimp_firewall_inactive_warning"
+        android:textAppearance="?attr/textAppearanceBodySmall"
+        android:textColor="?attr/colorOnErrorContainer"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <!-- Same chipset language as Rules tabs / Firewall page toggles. -->
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chips_firewall_options"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/padding_spacing_dp16"
+        android:paddingTop="@dimen/padding_spacing_dp8"
+        app:singleLine="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_connection_log"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="@string/shrimp_firewall_log_switch"
+            app:checkedIconVisible="true" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <TextView
+        android:id="@+id/tv_connection_log_summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/padding_spacing_dp16"
+        android:paddingTop="@dimen/padding_spacing_dp4"
+        android:paddingBottom="@dimen/padding_spacing_dp8"
+        android:text="@string/shrimp_firewall_log_summary_off"
+        android:textAppearance="?attr/textAppearanceBodySmall"
+        android:textColor="?attr/colorOnSurfaceVariant" />
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/toggle_firewall_page"
+        style="@style/Widget.Material3.MaterialButtonToggleGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/padding_spacing_dp16"
+        android:layout_marginBottom="@dimen/padding_spacing_dp8"
+        app:selectionRequired="true"
+        app:singleSelection="true">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_page_apps"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/shrimp_firewall_tab_apps" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_page_targets"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/shrimp_firewall_tab_targets" />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pager_firewall"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

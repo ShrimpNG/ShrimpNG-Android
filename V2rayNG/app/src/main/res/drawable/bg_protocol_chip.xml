@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The outbound picker's chip shape, wrapped in a ripple: unlike that one, this chip is tapped
+     to read what the protocol is, and without feedback nothing suggests it can be. -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?attr/colorControlHighlight">
+    <item android:drawable="@drawable/bg_outbound_tag_chip" />
+</ripple>

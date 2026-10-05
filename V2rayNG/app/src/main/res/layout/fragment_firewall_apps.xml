@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/padding_spacing_dp16"
+        android:layout_marginTop="@dimen/padding_spacing_dp8"
+        android:hint="@string/shrimp_firewall_search_apps">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_search_apps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chips_app_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/padding_spacing_dp16"
+        app:selectionRequired="true"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_apps_all"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shrimp_firewall_filter_all" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_apps_user"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+                android:checked="true"
+            android:text="@string/shrimp_firewall_filter_user" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_apps_system"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shrimp_firewall_filter_system" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="false"
+        android:scrollbars="none">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chips_app_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/padding_spacing_dp16"
+            app:selectionRequired="true"
+            app:singleLine="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_status_all"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/shrimp_firewall_filter_all_statuses" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_status_allow"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shrimp_firewall_status_allow" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_status_block"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shrimp_firewall_status_block" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_status_wifi"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shrimp_firewall_status_wifi_only" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_status_mobile"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shrimp_firewall_status_mobile_only" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_status_isolate"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shrimp_firewall_status_isolate" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_status_bypass"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shrimp_firewall_status_bypass" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+    </HorizontalScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_firewall_apps"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/padding_spacing_dp16"
+            android:visibility="gone" />
+
+        <com.v2ray.ang.ui.widget.ExpressiveLoadingIndicatorView
+            android:id="@+id/app_loading_container"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_gravity="center" />
+
+        <!-- Overlay: showing/hiding must not resize the list (that caused selection jank). -->
+        <LinearLayout
+            android:id="@+id/bulk_actions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="?attr/colorSurface"
+            android:elevation="6dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/padding_spacing_dp8"
+            android:paddingVertical="@dimen/padding_spacing_dp4"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_selected_count"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_select_all"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shrimp_firewall_select_all" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_bulk_apply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shrimp_firewall_bulk_apply" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_bulk_cancel"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@android:string/cancel" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

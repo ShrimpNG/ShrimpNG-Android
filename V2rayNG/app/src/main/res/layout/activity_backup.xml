@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/padding_spacing_dp16"
+        android:paddingBottom="@dimen/padding_spacing_dp8">
+
+        <!-- Local: back up to a file, share it, restore from one. -->
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.ShrimpNG.GroupCard">
+
+            <LinearLayout style="@style/Widget.ShrimpNG.GroupCardContent">
+
+                <LinearLayout
+                    android:id="@+id/layout_backup"
+                    style="@style/Widget.ShrimpNG.SettingsHubRow">
+
+                    <ImageView
+                        style="@style/Widget.ShrimpNG.ListRowIcon"
+                        app:srcCompat="@drawable/ic_backup_24dp" />
+
+                    <TextView
+                        style="@style/Widget.ShrimpNG.SettingsHubRowText"
+                        android:text="@string/title_configuration_backup" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_share"
+                    style="@style/Widget.ShrimpNG.SettingsHubRow">
+
+                    <ImageView
+                        style="@style/Widget.ShrimpNG.ListRowIcon"
+                        app:srcCompat="@drawable/ic_share_24dp" />
+
+                    <TextView
+                        style="@style/Widget.ShrimpNG.SettingsHubRowText"
+                        android:text="@string/title_configuration_share" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_restore"
+                    style="@style/Widget.ShrimpNG.SettingsHubRow">
+
+                    <ImageView
+                        style="@style/Widget.ShrimpNG.ListRowIcon"
+                        app:srcCompat="@drawable/ic_restore_24dp" />
+
+                    <TextView
+                        style="@style/Widget.ShrimpNG.SettingsHubRowText"
+                        android:text="@string/title_configuration_restore" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Remote: the WebDAV server the same actions can target. -->
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.ShrimpNG.GroupCard">
+
+            <LinearLayout style="@style/Widget.ShrimpNG.GroupCardContent">
+
+                <LinearLayout
+                    android:id="@+id/layout_webdav_config_setting"
+                    style="@style/Widget.ShrimpNG.SettingsHubRow">
+
+                    <ImageView
+                        style="@style/Widget.ShrimpNG.ListRowIcon"
+                        app:srcCompat="@drawable/ic_settings_24dp" />
+
+                    <TextView
+                        style="@style/Widget.ShrimpNG.SettingsHubRowText"
+                        android:text="@string/title_webdav_config_setting" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</ScrollView>

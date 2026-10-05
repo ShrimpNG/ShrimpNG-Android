@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One connection in LogsActivity's history. -->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.ShrimpNG.GroupCard"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_spacing_dp16">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_started"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_pill"
+                android:backgroundTint="?attr/colorSurfaceContainerHighest"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:textAppearance="?attr/textAppearanceLabelLarge"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                tools:text="27.05.26 17:22" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tv_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceTitleSmall"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                tools:text="25ч 18м 16с" />
+        </LinearLayout>
+
+        <!-- Server, then the subscription it came from right beside it, wrapping when long. -->
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_spacing_dp12"
+            app:alignItems="center"
+            app:flexWrap="wrap">
+
+            <TextView
+                android:id="@+id/tv_remarks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/padding_spacing_dp8"
+                android:textAppearance="?attr/textAppearanceTitleMediumEmphasized"
+                android:textColor="?attr/colorOnSurface"
+                tools:text="Германия" />
+
+            <TextView
+                android:id="@+id/tv_subscription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_pill"
+                android:backgroundTint="?attr/colorSecondaryContainer"
+                android:drawablePadding="4dp"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:textAppearance="?attr/textAppearanceLabelMedium"
+                android:textColor="?attr/colorOnSecondaryContainer"
+                tools:text="Моя подписка" />
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_spacing_dp4"
+            android:ellipsize="middle"
+            android:fontFamily="monospace"
+            android:singleLine="true"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            tools:text="netw.example.me:443" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_spacing_dp12"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:importantForAccessibility="no"
+                app:srcCompat="@drawable/ic_description_24dp"
+                app:tint="?attr/colorOnSurfaceVariant" />
+
+            <TextView
+                android:id="@+id/tv_records"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_spacing_dp8"
+                android:layout_weight="1"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                tools:text="5 записей" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:importantForAccessibility="no"
+                app:srcCompat="@drawable/ic_chevron_right_24dp"
+                app:tint="?attr/colorOnSurfaceVariant" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

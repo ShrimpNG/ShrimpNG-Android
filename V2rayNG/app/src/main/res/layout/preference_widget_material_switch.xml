@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Widget for CheckBoxPreference rows: a Material 3 switch in place of the checkbox. It keeps
+     the checkbox id because CheckBoxPreference binds whatever Checkable sits there, so the
+     preference classes (and every findPreference<CheckBoxPreference> in the code) stay as they
+     are. Not clickable itself: the whole row toggles it — which is also why it drops the 48dp
+     touch-target minimum: at 48dp it overflowed a one-line row and had its track clipped.
+-->
+<com.google.android.material.materialswitch.MaterialSwitch xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/checkbox"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minHeight="0dp"
+    android:background="@null"
+    android:clickable="false"
+    android:focusable="false" />

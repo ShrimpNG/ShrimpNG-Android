@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     One colour swatch on the Themes & icons screen. The swatch drawable (solid primary, or the
+     system palette's three accents as a pie) and the selection ring are set by ThemePaletteAdapter.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swatch_root"
+    android:layout_width="64dp"
+    android:layout_height="64dp"
+    android:layout_marginHorizontal="@dimen/padding_spacing_dp4"
+    android:foreground="?attr/selectableItemBackgroundBorderless"
+    android:clickable="true"
+    android:focusable="true">
+
+    <ImageView
+        android:id="@+id/iv_swatch"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:importantForAccessibility="no" />
+
+</FrameLayout>

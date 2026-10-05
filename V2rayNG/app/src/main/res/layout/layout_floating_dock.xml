@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     The floating dock, after Google Photos: a pill of the three main destinations, where the
+     selected one gets an indicator with its icon, and a separate circle for Settings. It floats
+     over the tab content, which pads its scrolling content by MainActivity.onDockInset. Selected
+     state, colours and ripples are set by FloatingDockController.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dock"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|center_horizontal"
+    android:layout_marginBottom="@dimen/dock_bottom_margin"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/dock_tabs"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dock_height"
+        android:background="@drawable/shape_dock_container"
+        android:elevation="4dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dock_inner_padding">
+
+        <LinearLayout
+            android:id="@+id/dock_tab_home"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/tab_home"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/dock_tab_padding">
+
+            <ImageView
+                android:id="@+id/dock_icon_home"
+                android:layout_width="@dimen/dock_icon_size"
+                android:layout_height="@dimen/dock_icon_size"
+                android:layout_marginEnd="@dimen/padding_spacing_dp6"
+                android:importantForAccessibility="no"
+                android:visibility="gone"
+                app:srcCompat="@drawable/ic_home_24dp" />
+
+            <TextView
+                android:id="@+id/dock_label_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:maxLines="1"
+                android:text="@string/tab_home"
+                android:textAppearance="?attr/textAppearanceLabelLarge" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dock_tab_subscriptions"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/tab_subscriptions"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/dock_tab_padding">
+
+            <ImageView
+                android:id="@+id/dock_icon_subscriptions"
+                android:layout_width="@dimen/dock_icon_size"
+                android:layout_height="@dimen/dock_icon_size"
+                android:layout_marginEnd="@dimen/padding_spacing_dp6"
+                android:importantForAccessibility="no"
+                android:visibility="gone"
+                app:srcCompat="@drawable/ic_subscriptions_24dp" />
+
+            <TextView
+                android:id="@+id/dock_label_subscriptions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:maxLines="1"
+                android:text="@string/tab_subscriptions"
+                android:textAppearance="?attr/textAppearanceLabelLarge" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dock_tab_rules"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/tab_rules"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/dock_tab_padding">
+
+            <ImageView
+                android:id="@+id/dock_icon_rules"
+                android:layout_width="@dimen/dock_icon_size"
+                android:layout_height="@dimen/dock_icon_size"
+                android:layout_marginEnd="@dimen/padding_spacing_dp6"
+                android:importantForAccessibility="no"
+                android:visibility="gone"
+                app:srcCompat="@drawable/ic_routing_24dp" />
+
+            <TextView
+                android:id="@+id/dock_label_rules"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:maxLines="1"
+                android:text="@string/tab_rules"
+                android:textAppearance="?attr/textAppearanceLabelLarge" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/dock_settings"
+        android:layout_width="@dimen/dock_height"
+        android:layout_height="@dimen/dock_height"
+        android:layout_marginStart="@dimen/dock_gap"
+        android:background="@drawable/shape_dock_container"
+        android:contentDescription="@string/tab_settings"
+        android:elevation="4dp">
+
+        <ImageView
+            android:id="@+id/dock_icon_settings"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:importantForAccessibility="no"
+            app:srcCompat="@drawable/ic_settings_24dp" />
+    </FrameLayout>
+
+</LinearLayout>

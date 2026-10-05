@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Behind the selected destination: a pill inside the dock, like the M3 navigation indicator. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="?attr/colorSecondaryContainer" />
+    <corners android:radius="@dimen/dock_height" />
+</shape>

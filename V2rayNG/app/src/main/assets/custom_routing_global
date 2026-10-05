@@ -1,0 +1,27 @@
+[
+  {
+    "remarks": "Block UDP 443",
+    "outboundTag": "block",
+    "port": "443",
+    "network": "udp"
+  },
+  {
+    "remarks": "Bypass LAN (IP)",
+    "outboundTag": "direct",
+    "ip": [
+      "geoip:private"
+    ]
+  },
+  {
+    "remarks": "Bypass LAN (domain)",
+    "outboundTag": "direct",
+    "domain": [
+      "geosite:private"
+    ]
+  },
+  {
+    "remarks": "Proxy everything else",
+    "port": "0-65535",
+    "outboundTag": "proxy"
+  }
+]

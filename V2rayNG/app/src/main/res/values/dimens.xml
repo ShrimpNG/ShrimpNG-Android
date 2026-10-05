@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_spacing_dp4">4dp</dimen>
+    <dimen name="padding_spacing_dp6">6dp</dimen>
+    <dimen name="padding_spacing_dp8">8dp</dimen>
+    <dimen name="padding_spacing_dp12">12dp</dimen>
+    <dimen name="padding_spacing_dp16">16dp</dimen>
+    <dimen name="padding_spacing_dp24">24dp</dimen>
+    <dimen name="padding_spacing_dp32">32dp</dimen>
+    <dimen name="image_size_dp24">24dp</dimen>
+    <dimen name="view_height_dp36">36dp</dimen>
+    <dimen name="view_height_dp48">48dp</dimen>
+    <dimen name="view_height_dp64">64dp</dimen>
+    <dimen name="view_height_dp120">120dp</dimen>
+    <dimen name="view_height_dp160">160dp</dimen>
+
+    <!-- Home screen -->
+    <dimen name="connection_button_size">92dp</dimen>
+    <dimen name="connection_button_icon_size">31dp</dimen>
+
+    <!-- Subscriptions tab -->
+    <dimen name="subscription_card_active_stroke">2dp</dimen>
+
+    <!-- Settings hub -->
+    <dimen name="settings_hub_icon_size">40dp</dimen>
+    <dimen name="settings_hub_icon_padding">8dp</dimen>
+
+    <!-- Form screens (styles_forms.xml) -->
+    <dimen name="form_horizontal_padding">16dp</dimen>
+    <dimen name="form_field_spacing">12dp</dimen>
+    <dimen name="form_section_spacing">24dp</dimen>
+
+    <!-- Themes & icons screen -->
+    <dimen name="theme_swatch_ring">3dp</dimen>
+
+    <!-- Floating dock (layout_floating_dock.xml) -->
+    <dimen name="dock_height">48dp</dimen>
+    <dimen name="dock_inner_padding">4dp</dimen>
+    <dimen name="dock_gap">8dp</dimen>
+    <dimen name="dock_bottom_margin">12dp</dimen>
+    <dimen name="dock_icon_size">18dp</dimen>
+    <!-- The dock's icons when a large font leaves no room for labels (FloatingDockController.fitWidth). -->
+    <dimen name="dock_icon_size_large">24dp</dimen>
+    <dimen name="dock_tab_padding">12dp</dimen>
+</resources>

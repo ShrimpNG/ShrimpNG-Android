@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One log line: the tag as a small primary label, the message below it in monospace so
+     stack traces and addresses line up. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/padding_spacing_dp16"
+    android:paddingVertical="@dimen/padding_spacing_dp8">
+
+    <TextView
+        android:id="@+id/log_tag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceLabelMedium"
+        android:textColor="?attr/colorPrimary" />
+
+    <TextView
+        android:id="@+id/log_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_spacing_dp4"
+        android:fontFamily="monospace"
+        android:textAppearance="?attr/textAppearanceBodySmall"
+        android:textColor="?attr/colorOnSurface"
+        android:textIsSelectable="false" />
+
+</LinearLayout>

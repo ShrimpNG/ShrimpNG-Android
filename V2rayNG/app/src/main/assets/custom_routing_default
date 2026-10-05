@@ -1,0 +1,11 @@
+[
+  {
+    "remarks": "🚫 Ads Blocker",
+    "outboundTag": "block",
+    "domain": [
+      "geosite:category-ads-all"
+    ],
+    "enabled": true,
+    "locked": false
+  }
+]

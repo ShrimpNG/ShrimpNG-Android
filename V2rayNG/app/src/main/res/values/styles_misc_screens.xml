@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Grouped list rows for the small screens off the settings hub (About, Backup, Check update…),
+     in the hub's own visual language: rows in a Widget.ShrimpNG.CardView per group, an optional
+     primary label above each group. Icons are plain 24dp glyphs in onSurfaceVariant rather than
+     the hub's coloured circles, which are reserved for the hub's top-level destinations.
+-->
+<resources>
+
+    <style name="Widget.ShrimpNG.GroupCard" parent="Widget.ShrimpNG.CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginHorizontal">@dimen/padding_spacing_dp16</item>
+        <item name="android:layout_marginBottom">@dimen/padding_spacing_dp8</item>
+    </style>
+
+    <style name="Widget.ShrimpNG.GroupCardContent" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Widget.ShrimpNG.GroupLabel" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingHorizontal">@dimen/padding_spacing_dp24</item>
+        <item name="android:paddingTop">@dimen/padding_spacing_dp16</item>
+        <item name="android:paddingBottom">@dimen/padding_spacing_dp8</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textAppearance">?attr/textAppearanceLabelMedium</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="Widget.ShrimpNG.ListRowIcon" parent="">
+        <item name="android:layout_width">@dimen/image_size_dp24</item>
+        <item name="android:layout_height">@dimen/image_size_dp24</item>
+        <item name="android:importantForAccessibility">no</item>
+        <item name="tint">?attr/colorOnSurfaceVariant</item>
+    </style>
+
+    <!-- Headline + optional supporting line, for a row that needs two lines. -->
+    <style name="Widget.ShrimpNG.ListRowTexts" parent="">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginStart">@dimen/padding_spacing_dp16</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Widget.ShrimpNG.ListRowHeadline" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?attr/textAppearanceBodyLarge</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="Widget.ShrimpNG.ListRowSupporting" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?attr/textAppearanceBodyMedium</item>
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+    </style>
+
+</resources>

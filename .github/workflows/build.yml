@@ -1,0 +1,112 @@
+name: Build APK
+
+# The native components are vendored as plain files and the prebuilt .aar/.so are committed, so a
+# build needs nothing but the JDK and the Android SDK.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        abi: [arm64-v8a, armeabi-v7a]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        # No `submodules:` on purpose — there are none left.
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v4
+        with:
+          log-accepted-android-sdk-licenses: false
+          cmdline-tools-version: '14742923'
+          packages: 'platforms;android-37.0 build-tools;37.0.0 platform-tools'
+
+      - name: Install NDK
+        # build.gradle.kts pins ndkVersion, and AGP needs it to strip the bundled .so files.
+        run: |
+          echo "y" | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager \
+            --channel=0 --install "ndk;29.0.14206865"
+
+      - name: Setup Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Decide how to sign
+        id: signing
+        # A fork or a clone without the secrets still gets a usable build — just a debug-signed
+        # one, which installs fine but cannot update over a release install.
+        run: echo "release=${{ secrets.KEYSTORE_BASE64 != '' }}" >> "$GITHUB_OUTPUT"
+
+      - name: Decode keystore
+        if: steps.signing.outputs.release == 'true'
+        id: keystore
+        uses: timheuer/base64-to-file@v2.0.0
+        with:
+          fileName: 'shrimpng-release.jks'
+          encodedString: ${{ secrets.KEYSTORE_BASE64 }}
+
+      - name: Build
+        env:
+          ABI: ${{ matrix.abi }}
+          RELEASE: ${{ steps.signing.outputs.release }}
+          KEYSTORE_PATH: ${{ steps.keystore.outputs.filePath }}
+          STORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          set -euo pipefail
+          cd "$GITHUB_WORKSPACE/V2rayNG"
+          echo "sdk.dir=$ANDROID_HOME" > local.properties
+          chmod +x gradlew
+
+          OUT="$GITHUB_WORKSPACE/artifacts"
+          mkdir -p "$OUT"
+
+          if [ "$RELEASE" = "true" ]; then
+            TASK=assemblePlaystoreRelease
+            # android.injected.signing.* overrides the signingConfig wholesale, so this works
+            # without the keystore ever living at the path build.gradle.kts looks for.
+            SIGN_ARGS="-Pandroid.injected.signing.store.file=$KEYSTORE_PATH
+                       -Pandroid.injected.signing.store.password=$STORE_PASSWORD
+                       -Pandroid.injected.signing.key.alias=$KEY_ALIAS
+                       -Pandroid.injected.signing.key.password=$KEY_PASSWORD"
+          else
+            TASK=assemblePlaystoreDebug
+            SIGN_ARGS=""
+          fi
+
+          # The two variants are the same Gradle task with a different -PDISGUISED, so AGP writes
+          # them to the same directory and clears it in between. Each result has to be copied out
+          # before the next build starts.
+          build_variant() {
+            ./gradlew --no-daemon "$TASK" -PABI_FILTERS="$ABI" $SIGN_ARGS "$@"
+            find app/build/outputs/apk -name '*.apk' -exec cp {} "$OUT/" \;
+          }
+
+          build_variant
+          build_variant -PDISGUISED=true
+
+          echo "Built:"
+          ls -lh "$OUT"
+
+      - name: Upload APKs
+        uses: actions/upload-artifact@v7
+        with:
+          # Both branches must be truthy strings: `cond && '' || 'x'` always yields 'x', because
+          # the empty string is falsy and falls through to the right-hand side.
+          name: apk-${{ matrix.abi }}-${{ steps.signing.outputs.release == 'true' && 'release' || 'debug' }}
+          path: artifacts/*.apk
+          if-no-files-found: error

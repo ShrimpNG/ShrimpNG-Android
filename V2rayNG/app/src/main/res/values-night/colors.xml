@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Calm semantic colors for per-app firewall status split buttons -->
+    <color name="firewall_status_allow_container">#FF244B30</color>
+    <color name="firewall_status_allow_content">#FFBCECC7</color>
+    <color name="firewall_status_block_container">#FF633B38</color>
+    <color name="firewall_status_block_content">#FFFFDAD6</color>
+    <color name="firewall_status_wifi_container">#FF304766</color>
+    <color name="firewall_status_wifi_content">#FFDCE5FF</color>
+    <color name="firewall_status_mobile_container">#FF57451F</color>
+    <color name="firewall_status_mobile_content">#FFFFE2B8</color>
+    <color name="firewall_status_isolate_container">#FF49454F</color>
+    <color name="firewall_status_isolate_content">#FFE8E2EA</color>
+    <color name="firewall_status_bypass_container">#FF244B50</color>
+    <color name="firewall_status_bypass_content">#FFCFECEF</color>
+
+    <!-- Material 3 Expressive scheme — dark — derived from seed #006874 (SchemeExpressive, spec 2025) -->
+    <color name="md_theme_primary">#FFD1F8FF</color>
+    <color name="md_theme_onPrimary">#FF00646F</color>
+    <color name="md_theme_primaryContainer">#FF9EEFFE</color>
+    <color name="md_theme_onPrimaryContainer">#FF005B65</color>
+    <color name="md_theme_primaryFixed">#FF64E9FD</color>
+    <color name="md_theme_primaryFixedDim">#FF53DBEF</color>
+    <color name="md_theme_onPrimaryFixed">#FF003F46</color>
+    <color name="md_theme_onPrimaryFixedVariant">#FF005D68</color>
+
+    <color name="md_theme_secondary">#FFCFC2DA</color>
+    <color name="md_theme_onSecondary">#FF453C50</color>
+    <color name="md_theme_secondaryContainer">#FF2A2235</color>
+    <color name="md_theme_onSecondaryContainer">#FFAB9FB7</color>
+    <color name="md_theme_secondaryFixed">#FFEDDCFF</color>
+    <color name="md_theme_secondaryFixedDim">#FFE0CDF5</color>
+    <color name="md_theme_onSecondaryFixed">#FF47395A</color>
+    <color name="md_theme_onSecondaryFixedVariant">#FF645577</color>
+
+    <color name="md_theme_tertiary">#FFDEB7FF</color>
+    <color name="md_theme_onTertiary">#FF552C7B</color>
+    <color name="md_theme_tertiaryContainer">#FFD4A5FE</color>
+    <color name="md_theme_onTertiaryContainer">#FF4B2171</color>
+    <color name="md_theme_tertiaryFixed">#FFD4A5FE</color>
+    <color name="md_theme_tertiaryFixedDim">#FFC698F0</color>
+    <color name="md_theme_onTertiaryFixed">#FF330259</color>
+    <color name="md_theme_onTertiaryFixedVariant">#FF542B7B</color>
+
+    <color name="md_theme_error">#FFFF716C</color>
+    <color name="md_theme_onError">#FF490006</color>
+    <color name="md_theme_errorContainer">#FF8A1A1E</color>
+    <color name="md_theme_onErrorContainer">#FFFF9993</color>
+
+    <color name="md_theme_background">#FF001116</color>
+    <color name="md_theme_onBackground">#FFC5ECFA</color>
+
+    <color name="md_theme_surface">#FF001116</color>
+    <color name="md_theme_onSurface">#FFC5ECFA</color>
+    <color name="md_theme_surfaceVariant">#FF002A34</color>
+    <color name="md_theme_onSurfaceVariant">#FF8BB1BE</color>
+    <color name="md_theme_surfaceDim">#FF001116</color>
+    <color name="md_theme_surfaceBright">#FF00313C</color>
+    <color name="md_theme_surfaceContainerLowest">#FF000000</color>
+    <color name="md_theme_surfaceContainerLow">#FF00161D</color>
+    <color name="md_theme_surfaceContainer">#FF001D25</color>
+    <color name="md_theme_surfaceContainerHigh">#FF00232C</color>
+    <color name="md_theme_surfaceContainerHighest">#FF002A34</color>
+
+    <color name="md_theme_inverseSurface">#FFF1FBFF</color>
+    <color name="md_theme_inverseOnSurface">#FF45585E</color>
+    <color name="md_theme_inversePrimary">#FF006975</color>
+
+    <color name="md_theme_outline">#FF567B87</color>
+    <color name="md_theme_outlineVariant">#FF284D58</color>
+    <!-- Starting-window colour, dark. -->
+    <color name="splash_background">@color/md_theme_surface</color>
+    <color name="colorPing">#FF81C995</color>
+    <color name="colorPingFair">#FFF3C04A</color>
+    <color name="colorPingSlow">#FFFFA36B</color>
+    <color name="colorExpirySoon">#FFFFA36B</color>
+</resources>

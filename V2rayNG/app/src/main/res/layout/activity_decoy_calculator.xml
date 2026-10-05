@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Laid out like a conventional FOSS calculator: formula above result, then a flat keypad whose
+     keys are plain text rather than filled buttons. Nothing here hints at what the screen fronts
+     for, which is the whole point of the decoy.
+
+     Each key carries the character it inserts in android:tag; the activity walks the rows and
+     wires them up from that, so there are no ids to keep in sync with the layout.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="bottom|end"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/padding_spacing_dp24"
+        android:paddingVertical="@dimen/padding_spacing_dp16">
+
+        <TextView
+            android:id="@+id/tv_expression"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="start"
+            android:gravity="end"
+            android:maxLines="1"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:textSize="24sp"
+            tools:text="1984×1984" />
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_spacing_dp8"
+            android:ellipsize="start"
+            android:gravity="end"
+            android:maxLines="1"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="44sp"
+            tools:text="3936256" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_keypad"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/padding_spacing_dp8"
+        android:paddingBottom="@dimen/padding_spacing_dp16">
+
+        <!-- Five columns: digits keep their usual 3-wide block, column 4 holds the functions and
+             column 5 the operators, which is where a calculator user expects to find them. -->
+        <LinearLayout style="@style/Widget.ShrimpNG.DecoyKey.Row">
+            <TextView style="@style/Widget.ShrimpNG.DecoyKey.Operator" android:tag="(" android:text="(" />
+            <TextView style="@style/Widget.ShrimpNG.DecoyKey.Operator" android:tag=")" android:text=")" />
+            <TextView style="@style/Widget.ShrimpNG.DecoyKey.Operator" android:tag="%" android:text="%" />
+            <TextView style="@style/Widget.ShrimpNG.DecoyKey.Operator" android:tag="AC" android:text="AC" />
+            <TextView style="@style/Widget.ShrimpNG.DecoyKey.Operator" android:tag="÷" android:text="÷" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/Widget.ShrimpNG.DecoyKey.Row">
+            <TextView style="@style/Widget.ShrimpNG.DecoyKey" android:tag="7" android:text="7" />
+            <TextView style="@style/Widget.ShrimpNG.DecoyKey" android:tag="8" android:text="8" />
+            <TextView style="@style/Widget.ShrimpNG.DecoyKey" android:tag="9" android:text="9" />
+            <TextView style="@style/Widget.ShrimpNG.DecoyKey.Operator" android:tag="^" android:text="^" />
+            <TextView style="@style/Widget.ShrimpNG.DecoyKey.Operator" android:tag="×" android:text="×" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/Widget.ShrimpNG.DecoyKey.Row">
+            <TextView style="@style/Widget.ShrimpNG.DecoyKey" android:tag="4" android:text="4" />
+            <TextView style="@style/Widget.ShrimpNG.DecoyKey" android:tag="5" android:text="5" />
+            <TextView style="@style/Widget.ShrimpNG.DecoyKey" android:tag="6" android:text="6" />
+            <TextView style="@style/Widget.ShrimpNG.DecoyKey.Operator" android:tag="√" android:text="√" />
+            <TextView style="@style/Widget.ShrimpNG.DecoyKey.Operator" android:tag="−" android:text="−" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/Widget.ShrimpNG.DecoyKey.Row">
+            <TextView style="@style/Widget.ShrimpNG.DecoyKey" android:tag="1" android:text="1" />
+            <TextView style="@style/Widget.ShrimpNG.DecoyKey" android:tag="2" android:text="2" />
+            <TextView style="@style/Widget.ShrimpNG.DecoyKey" android:tag="3" android:text="3" />
+            <TextView style="@style/Widget.ShrimpNG.DecoyKey.Operator" android:tag="C" android:text="C" />
+            <TextView style="@style/Widget.ShrimpNG.DecoyKey.Operator" android:tag="+" android:text="+" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/Widget.ShrimpNG.DecoyKey.Row">
+            <TextView
+                style="@style/Widget.ShrimpNG.DecoyKey"
+                android:layout_weight="2"
+                android:tag="0"
+                android:text="0" />
+
+            <TextView style="@style/Widget.ShrimpNG.DecoyKey" android:tag="." android:text="." />
+
+            <TextView
+                style="@style/Widget.ShrimpNG.DecoyKey.Operator"
+                android:layout_weight="2"
+                android:tag="="
+                android:text="=" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

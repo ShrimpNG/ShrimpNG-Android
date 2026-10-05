@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Chip-shaped background for the subscription label in the outbound picker. A plain shape
+     rather than a Material Chip: rows of a dropdown are not interactive on their own, and a real
+     Chip would add its own touch target and ripple inside a list item that handles the click. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="?attr/colorSecondaryContainer" />
+    <corners android:radius="8dp" />
+</shape>

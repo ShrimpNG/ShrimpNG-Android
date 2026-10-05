@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/padding_spacing_dp16"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/lay_stream_security"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.v2ray.ang.ui.widget.DropdownField
+            android:id="@+id/sp_stream_security"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.ShrimpNG.Dropdown"
+            android:hint="@string/server_lab_stream_security"
+            app:entries="@array/streamsecuritys"
+            android:nextFocusDown="@+id/et_sni" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lay_sni"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.ShrimpNG.TextField"
+            android:hint="@string/server_lab_sni">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_sni"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:nextFocusDown="@+id/sp_stream_fingerprint" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lay_allow_insecure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.v2ray.ang.ui.widget.DropdownField
+            android:id="@+id/sp_allow_insecure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.ShrimpNG.Dropdown"
+            android:hint="@string/server_lab_allow_insecure"
+            app:entries="@array/allowinsecures" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.ShrimpNG.TextField"
+                android:hint="@string/server_lab_pinned_ca256">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_pinned_ca256"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btn_pinned_ca256_action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.Material3Expressive.Button.TonalButton"
+                android:text="@string/pinned_ca256_action_fetch"
+                android:layout_marginTop="@dimen/padding_spacing_dp8" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

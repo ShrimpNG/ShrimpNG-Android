@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.ShrimpNG.CardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/padding_spacing_dp8">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_spacing_dp12">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top">
+
+            <LinearLayout
+                android:id="@+id/layout_sub_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_sub_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textAppearance="?attr/textAppearanceTitleMediumEmphasized"
+                    android:textColor="?attr/colorOnSurface" />
+
+                <TextView
+                    android:id="@+id/tv_sub_meta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_spacing_dp4"
+                    android:drawableStart="@drawable/ic_refresh_14dp"
+                    android:drawablePadding="@dimen/padding_spacing_dp4"
+                    android:drawableTint="?attr/colorOnSurfaceVariant"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:textAppearance="?attr/textAppearanceBodySmall"
+                    android:textColor="?attr/colorOnSurfaceVariant" />
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_sub_refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.Material3Expressive.Button.IconButton.Standard"
+                android:contentDescription="@string/shrimp_refresh_subscription"
+                app:icon="@drawable/ic_refresh_24dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_sub_ping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.Material3Expressive.Button.IconButton.Standard"
+                android:contentDescription="@string/shrimp_ping_subscription"
+                app:icon="@drawable/ic_speed_24dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_sub_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.Material3Expressive.Button.IconButton.Standard"
+                android:contentDescription="@string/share_sub_title"
+                app:icon="@drawable/ic_share_24dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_sub_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_spacing_dp8"
+            android:textAppearance="?attr/textAppearanceBodySmall"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/layout_traffic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_spacing_dp8"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <!-- A tonal square in the traffic tile's colour and corners, so the two buttons and
+                 the tile read as one row of tiles; as tall as the tile beside it. -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_sub_info"
+                style="@style/Widget.ShrimpNG.TrafficRowButton"
+                android:contentDescription="@string/shrimp_open_subscription_link"
+                app:icon="@drawable/ic_info_24dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_sub_support"
+                style="@style/Widget.ShrimpNG.TrafficRowButton"
+                android:contentDescription="@string/shrimp_open_support_link"
+                android:visibility="gone"
+                app:icon="@drawable/ic_support_24dp" />
+
+            <!-- Traffic as a tonal tile: label and amount on top, then a wavy Expressive progress
+                 bar when the provider sets a cap; with no cap, an "unlimited" pill instead. -->
+            <LinearLayout
+                android:id="@+id/layout_traffic_bar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/shape_traffic_tile"
+                android:gravity="center_vertical"
+                android:minHeight="48dp"
+                android:orientation="vertical"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="6dp">
+
+                <!-- Label, then amount and pill, on one line when they fit. When they don't (a large
+                     font, two buttons beside the tile) the amount wraps under the label as a whole;
+                     a weighted label used to be squeezed to one letter per line instead. -->
+                <com.google.android.flexbox.FlexboxLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:alignItems="center"
+                    app:flexWrap="wrap">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/padding_spacing_dp6"
+                        android:maxLines="1"
+                        app:layout_flexGrow="1"
+                        android:text="@string/shrimp_traffic_label"
+                        android:textAppearance="?attr/textAppearanceLabelSmall"
+                        android:textColor="?attr/colorOnSurfaceVariant" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_traffic_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFeatureSettings="tnum"
+                            android:maxLines="1"
+                            android:textAppearance="?attr/textAppearanceLabelLarge"
+                            android:textColor="?attr/colorOnSurface" />
+
+                        <TextView
+                            android:id="@+id/tv_traffic_unlimited"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/padding_spacing_dp6"
+                            android:background="@drawable/shape_pill"
+                            android:backgroundTint="?attr/colorSecondaryContainer"
+                            android:maxLines="1"
+                            android:paddingHorizontal="6dp"
+                            android:paddingVertical="1dp"
+                            android:text="@string/shrimp_traffic_unlimited"
+                            android:textAppearance="?attr/textAppearanceLabelSmall"
+                            android:textColor="?attr/colorOnSecondaryContainer"
+                            android:visibility="gone" />
+                    </LinearLayout>
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/progress_traffic"
+                    style="@style/Widget.Material3Expressive.LinearProgressIndicator.Wavy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_spacing_dp4"
+                    android:max="1000"
+                    app:indicatorTrackGapSize="3dp"
+                    app:trackCornerRadius="2dp"
+                    app:trackThickness="4dp"
+                    app:waveAmplitude="0dp"
+                    app:waveAmplitudeRampProgressMax="1"
+                    app:waveAmplitudeRampProgressMin="0"
+                    app:wavelength="20dp" />
+
+            </LinearLayout>
+
+            <!-- Takes the traffic tile's place once the subscription has expired: usage no longer
+                 matters, renewing does. Same shape and height as the tile. -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_sub_renew"
+                style="@style/Widget.ShrimpNG.TrafficRenewButton"
+                android:text="@string/shrimp_renew_subscription"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <!-- The end date; coloured once it is near or past (HomeFragment.bindExpiry). -->
+        <TextView
+            android:id="@+id/tv_sub_expiry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_spacing_dp4"
+            android:drawableStart="@drawable/ic_calendar_14dp"
+            android:drawablePadding="@dimen/padding_spacing_dp4"
+            android:drawableTint="?attr/colorOnSurfaceVariant"
+            android:gravity="center_vertical"
+            android:textAppearance="?attr/textAppearanceBodySmall"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

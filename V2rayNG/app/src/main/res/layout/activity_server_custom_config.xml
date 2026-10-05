@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.ServerCustomConfigActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/form_horizontal_padding"
+        android:paddingTop="@dimen/padding_spacing_dp16"
+        android:paddingBottom="@dimen/padding_spacing_dp32">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/server_lab_need_inbound"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurfaceVariant" />
+
+        <TextView
+            style="@style/Widget.ShrimpNG.FormSectionHeader"
+            android:text="@string/title_server" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.ShrimpNG.TextField"
+            android:hint="@string/server_lab_remarks">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_remarks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.v2ray.ang.ui.widget.DropdownField
+            android:id="@+id/sp_fingerprint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.ShrimpNG.Dropdown"
+            android:hint="@string/shrimp_fingerprint_override"
+            app:helperText="@string/shrimp_fingerprint_override_hint"
+            app:helperTextEnabled="true" />
+
+        <TextView
+            style="@style/Widget.ShrimpNG.FormSectionHeader"
+            android:text="@string/server_lab_content" />
+
+        <com.blacksquircle.ui.editorkit.widget.TextProcessor
+            android:id="@+id/editor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/padding_spacing_dp8"
+            android:gravity="top|start" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Destinations of the floating dock (FloatingDockController); MainActivity keys its tab fragments by these. -->
+<resources>
+    <item name="nav_home" type="id" />
+    <item name="nav_subscriptions" type="id" />
+    <item name="nav_rules" type="id" />
+    <item name="nav_settings" type="id" />
+</resources>

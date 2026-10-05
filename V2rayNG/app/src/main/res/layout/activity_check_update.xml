@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/padding_spacing_dp16"
+        android:paddingBottom="@dimen/padding_spacing_dp8">
+
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.ShrimpNG.GroupCard">
+
+            <LinearLayout style="@style/Widget.ShrimpNG.GroupCardContent">
+
+                <!-- The whole row toggles the switch, as a settings row does. -->
+                <LinearLayout
+                    android:id="@+id/row_pre_release"
+                    style="@style/Widget.ShrimpNG.SettingsHubRow">
+
+                    <ImageView
+                        style="@style/Widget.ShrimpNG.ListRowIcon"
+                        app:srcCompat="@drawable/ic_source_code_24dp" />
+
+                    <TextView
+                        style="@style/Widget.ShrimpNG.SettingsHubRowText"
+                        android:layout_marginEnd="@dimen/padding_spacing_dp16"
+                        android:text="@string/update_check_pre_release" />
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/check_pre_release"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/update_check_pre_release" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_check_update"
+                    style="@style/Widget.ShrimpNG.SettingsHubRow">
+
+                    <ImageView
+                        style="@style/Widget.ShrimpNG.ListRowIcon"
+                        app:srcCompat="@drawable/ic_check_update_24dp" />
+
+                    <TextView
+                        style="@style/Widget.ShrimpNG.SettingsHubRowText"
+                        android:text="@string/update_check_for_update" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tv_version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingVertical="@dimen/padding_spacing_dp24"
+            android:text="@string/title_about"
+            android:textAppearance="?attr/textAppearanceLabelLarge"
+            android:textColor="?attr/colorOnSurfaceVariant" />
+
+    </LinearLayout>
+
+</ScrollView>

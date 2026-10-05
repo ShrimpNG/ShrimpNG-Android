@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Главное's ⋮. Adding, refreshing, pinging and sharing live on the screen itself (the Add chip,
+     the subscription card's buttons); only what has no other home stays here. -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/service_restart"
+        android:title="@string/menu_reconnect" />
+    <item
+        android:id="@+id/sort_by_test_results"
+        android:title="@string/menu_sort_by_ping" />
+    <item
+        android:id="@+id/locate_selected_config"
+        android:title="@string/menu_locate_selected" />
+</menu>

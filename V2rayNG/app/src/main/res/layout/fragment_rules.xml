@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/page_rules"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_rules"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/padding_spacing_dp16"
+        android:paddingTop="@dimen/padding_spacing_dp4">
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggle_ui_mode"
+            style="@style/Widget.Material3.MaterialButtonToggleGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/padding_spacing_dp16"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_mode_simple"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/routing_ui_mode_simple" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_mode_expert"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/routing_ui_mode_expert" />
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <LinearLayout
+            android:id="@+id/layout_simple_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/padding_spacing_dp24"
+            android:visibility="gone">
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.ShrimpNG.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/layout_simple_mode_summary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_spacing_dp16">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_simple_mode_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?attr/textAppearanceTitleMediumEmphasized"
+                            android:textColor="?attr/colorOnSurface" />
+
+                        <TextView
+                            android:id="@+id/tv_simple_mode_subtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/padding_spacing_dp4"
+                            android:textAppearance="?attr/textAppearanceBodySmall"
+                            android:textColor="?attr/colorOnSurfaceVariant" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_arrow_drop_down" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/tv_simple_mode_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_spacing_dp8"
+                android:background="@drawable/shape_info_banner"
+                android:padding="@dimen/padding_spacing_dp12"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:textColor="?attr/colorOnPrimaryContainer" />
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/toggle_simple_tab"
+                style="@style/Widget.Material3.MaterialButtonToggleGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_spacing_dp16"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_tab_rules"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/routing_simple_tab_rules" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_tab_manual"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/routing_simple_tab_manual" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_tab_geofiles"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/routing_simple_tab_geofiles" />
+
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <!-- Rules tab: scenarios + country/service split dropdowns + firewall + Wi‑Fi -->
+            <LinearLayout
+                android:id="@+id/layout_tab_rules"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_spacing_dp16"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_spacing_dp8"
+                    android:text="@string/routing_simple_scenarios_title"
+                    android:textAppearance="?attr/textAppearanceLabelLarge"
+                    android:textColor="?attr/colorOnSurfaceVariant" />
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.ShrimpNG.CardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_spacing_dp8">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/padding_spacing_dp16">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/routing_scenario_ru_direct_title"
+                                android:textAppearance="?attr/textAppearanceBodyLarge"
+                                android:textColor="?attr/colorOnSurface" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/padding_spacing_dp4"
+                                android:text="@string/routing_scenario_ru_direct_subtitle"
+                                android:textAppearance="?attr/textAppearanceBodySmall"
+                                android:textColor="?attr/colorOnSurfaceVariant" />
+
+                        </LinearLayout>
+
+                        <com.google.android.material.materialswitch.MaterialSwitch
+                            android:id="@+id/switch_scenario_ru_direct"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.ShrimpNG.CardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_spacing_dp16">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/padding_spacing_dp16">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/routing_scenario_vpn_services_title"
+                                android:textAppearance="?attr/textAppearanceBodyLarge"
+                                android:textColor="?attr/colorOnSurface" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/padding_spacing_dp4"
+                                android:text="@string/routing_scenario_vpn_services_subtitle"
+                                android:textAppearance="?attr/textAppearanceBodySmall"
+                                android:textColor="?attr/colorOnSurfaceVariant" />
+
+                        </LinearLayout>
+
+                        <com.google.android.material.materialswitch.MaterialSwitch
+                            android:id="@+id/switch_scenario_vpn_services"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Countries: MD3 split button + speed-dial-style expressive pill list -->
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/split_countries"
+                    style="@style/Widget.Material3.MaterialButtonToggleGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_spacing_dp8"
+                    app:singleSelection="false">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_countries_label"
+                        style="@style/Widget.Material3Expressive.Button.TonalButton"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:checkable="false"
+                        android:gravity="start|center_vertical"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:paddingHorizontal="@dimen/padding_spacing_dp16"
+                        android:text="@string/routing_simple_countries_summary_none"
+                        android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_countries_expand"
+                        style="@style/Widget.Material3Expressive.Button.TonalButton"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:checkable="false"
+                        android:contentDescription="@string/routing_simple_expand_countries"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:minWidth="0dp"
+                        android:padding="0dp"
+                        app:icon="@drawable/ic_arrow_drop_down"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="24dp" />
+
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                <LinearLayout
+                    android:id="@+id/list_countries"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_spacing_dp16"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+                <!-- Popular services: same split + animated pills pattern -->
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/split_services"
+                    style="@style/Widget.Material3.MaterialButtonToggleGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_spacing_dp8"
+                    app:singleSelection="false">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_services_label"
+                        style="@style/Widget.Material3Expressive.Button.TonalButton"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:checkable="false"
+                        android:gravity="start|center_vertical"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:paddingHorizontal="@dimen/padding_spacing_dp16"
+                        android:text="@string/routing_simple_services_summary_none"
+                        android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_services_expand"
+                        style="@style/Widget.Material3Expressive.Button.TonalButton"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:checkable="false"
+                        android:contentDescription="@string/routing_simple_expand_services"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:minWidth="0dp"
+                        android:padding="0dp"
+                        app:icon="@drawable/ic_arrow_drop_down"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="24dp" />
+
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                <LinearLayout
+                    android:id="@+id/list_services"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.ShrimpNG.CardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_spacing_dp16">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/padding_spacing_dp16">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/shrimp_firewall_title"
+                                    android:textAppearance="?attr/textAppearanceTitleMediumEmphasized"
+                                    android:textColor="?attr/colorOnSurface" />
+
+                                <TextView
+                                    android:id="@+id/tv_firewall_summary"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/padding_spacing_dp4"
+                                    android:text="@string/shrimp_firewall_summary_off"
+                                    android:textAppearance="?attr/textAppearanceBodySmall"
+                                    android:textColor="?attr/colorOnSurfaceVariant" />
+
+                            </LinearLayout>
+
+                            <com.google.android.material.materialswitch.MaterialSwitch
+                                android:id="@+id/switch_firewall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_firewall_open"
+                            style="@style/Widget.Material3Expressive.Button.TonalButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/padding_spacing_dp12"
+                            android:text="@string/shrimp_firewall_manage"
+                            android:visibility="gone"
+                            tools:visibility="visible" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.ShrimpNG.CardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_spacing_dp16">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/padding_spacing_dp16">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/routing_trusted_wifi_title"
+                                    android:textAppearance="?attr/textAppearanceTitleMediumEmphasized"
+                                    android:textColor="?attr/colorOnSurface" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/padding_spacing_dp4"
+                                    android:text="@string/routing_trusted_wifi_subtitle"
+                                    android:textAppearance="?attr/textAppearanceBodySmall"
+                                    android:textColor="?attr/colorOnSurfaceVariant" />
+
+                            </LinearLayout>
+
+                            <com.google.android.material.materialswitch.MaterialSwitch
+                                android:id="@+id/switch_trusted_wifi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_trusted_wifi_ssids"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/padding_spacing_dp12"
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                            android:visibility="gone"
+                            tools:visibility="visible">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_trusted_wifi_ssids"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/routing_trusted_wifi_ssid_hint"
+                                android:inputType="textMultiLine|textNoSuggestions"
+                                android:minLines="2"
+                                tools:ignore="LabelFor" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <!-- Manual tab: free-form domain/geo-tag input + per-app rules -->
+            <LinearLayout
+                android:id="@+id/layout_tab_manual"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_spacing_dp16"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.ShrimpNG.CardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/padding_spacing_dp16">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/padding_spacing_dp4"
+                            android:text="@string/routing_simple_mode_domains_hint"
+                            android:textAppearance="?attr/textAppearanceBodySmall"
+                            android:textColor="?attr/colorOnSurfaceVariant" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+
+                                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                                    android:id="@+id/et_simple_domain_input"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/routing_simple_mode_domain_input_hint"
+                                    android:inputType="text"
+                                    android:completionThreshold="1"
+                                    android:imeOptions="actionDone"
+                                    tools:ignore="LabelFor" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btn_add_domain"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/padding_spacing_dp4"
+                                style="@style/Widget.Material3Expressive.Button.IconButton.Filled"
+                                android:contentDescription="@string/routing_simple_mode_add_domain"
+                                app:icon="@drawable/ic_add_24dp" />
+
+                        </LinearLayout>
+
+                        <com.google.android.material.chip.ChipGroup
+                            android:id="@+id/chip_group_simple_domains"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/padding_spacing_dp8" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.ShrimpNG.CardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_spacing_dp16">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/padding_spacing_dp16">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/routing_simple_mode_apps_enable"
+                                android:textAppearance="?attr/textAppearanceTitleMediumEmphasized"
+                                android:textColor="?attr/colorOnSurface" />
+
+                            <com.google.android.material.materialswitch.MaterialSwitch
+                                android:id="@+id/switch_simple_apps_enable"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_simple_apps_summary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/padding_spacing_dp4"
+                            android:textAppearance="?attr/textAppearanceBodySmall"
+                            android:textColor="?attr/colorOnSurfaceVariant" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_simple_apps_options"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/padding_spacing_dp12"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="@string/switch_bypass_apps_mode"
+                                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                                    android:textColor="?attr/colorOnSurface" />
+
+                                <com.google.android.material.materialswitch.MaterialSwitch
+                                    android:id="@+id/switch_simple_apps_bypass_mode"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+                            </LinearLayout>
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btn_simple_apps_choose"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:layout_marginTop="@dimen/padding_spacing_dp8"
+                                style="@style/Widget.Material3Expressive.Button.TonalButton"
+                                android:text="@string/routing_simple_mode_apps_choose" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <!-- GeoFiles tab: status of bundled geoip.dat/geosite.dat + link to full manager -->
+            <LinearLayout
+                android:id="@+id/layout_tab_geofiles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_spacing_dp16"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.ShrimpNG.CardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/padding_spacing_dp16">
+
+                        <TextView
+                            android:id="@+id/tv_geofile_geoip_status"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?attr/textAppearanceBodyMedium"
+                            android:textColor="?attr/colorOnSurface" />
+
+                        <TextView
+                            android:id="@+id/tv_geofile_geosite_status"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/padding_spacing_dp8"
+                            android:textAppearance="?attr/textAppearanceBodyMedium"
+                            android:textColor="?attr/colorOnSurface" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_manage_geofiles"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="@dimen/padding_spacing_dp12"
+                            style="@style/Widget.Material3Expressive.Button.TonalButton"
+                            android:text="@string/routing_simple_manage_geofiles" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_expert_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.ShrimpNG.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/padding_spacing_dp16">
+
+                <LinearLayout
+                    android:id="@+id/layout_domain_strategy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_spacing_dp16">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/routing_settings_domain_strategy"
+                        android:textAppearance="?attr/textAppearanceTitleMediumEmphasized"
+                        android:textColor="?attr/colorOnSurface" />
+
+                    <TextView
+                        android:id="@+id/tv_domain_strategy_summary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding_spacing_dp4"
+                        android:maxLines="1"
+                        android:textAppearance="?attr/textAppearanceBodySmall"
+                        android:textColor="?attr/colorOnSurfaceVariant" />
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="@dimen/padding_spacing_dp8"
+                    android:text="@string/routing_settings_rule_title"
+                    android:textAppearance="?attr/textAppearanceLabelLarge"
+                    android:textColor="?attr/colorOnSurfaceVariant" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_rules_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.Material3Expressive.Button.IconButton.Standard"
+                    android:contentDescription="@string/shrimp_more_options"
+                    app:icon="@drawable/ic_more_vert_24dp" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:paddingBottom="88dp"
+                tools:listitem="@layout/item_recycler_routing_setting" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_rule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/padding_spacing_dp16"
+        android:contentDescription="@string/routing_settings_add_rule"
+        app:srcCompat="@drawable/ic_add_24dp" />
+
+</FrameLayout>

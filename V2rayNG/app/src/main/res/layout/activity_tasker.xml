@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/padding_spacing_dp16"
+    tools:context=".ui.TaskerActivity">
+
+    <com.google.android.material.card.MaterialCardView style="@style/Widget.ShrimpNG.GroupCard">
+
+        <!-- The whole row toggles the switch, as a settings row does. -->
+        <LinearLayout
+            android:id="@+id/row_start_service"
+            style="@style/Widget.ShrimpNG.SettingsHubRow">
+
+            <TextView
+                style="@style/Widget.ShrimpNG.SettingsHubRowText"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="@dimen/padding_spacing_dp16"
+                android:text="@string/tasker_start_service" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/switch_start_service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:contentDescription="@string/tasker_start_service" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.ShrimpNG.GroupCard"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/padding_spacing_dp16"
+        android:layout_weight="1">
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:choiceMode="singleChoice"
+            android:divider="@null"
+            android:paddingHorizontal="@dimen/padding_spacing_dp8"
+            android:paddingVertical="@dimen/padding_spacing_dp8"
+            android:clipToPadding="false"
+            android:listSelector="@android:color/transparent" />
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

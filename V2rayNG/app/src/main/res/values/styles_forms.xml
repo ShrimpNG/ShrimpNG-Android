@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Shared building blocks for the form screens (server editors, subscription, routing rule,
+     assets, dialogs). One look everywhere: outlined fields with the label inside, M3 exposed
+     dropdowns instead of Spinners, section headers in the settings hub's primary label style.
+-->
+<resources>
+
+    <!-- Outlined text field. Also the theme's default textInputStyle, so a bare TextInputLayout
+         gets it without naming it. -->
+    <style name="Widget.ShrimpNG.TextField" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/form_field_spacing</item>
+    </style>
+
+    <!-- For ui.widget.DropdownField (and any exposed dropdown TextInputLayout). -->
+    <style name="Widget.ShrimpNG.Dropdown" parent="Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/form_field_spacing</item>
+    </style>
+
+    <!-- A heading that opens a group of fields: "Server", "Transport", "TLS"… -->
+    <style name="Widget.ShrimpNG.FormSectionHeader" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/form_section_spacing</item>
+        <item name="android:textAppearance">?attr/textAppearanceTitleSmallEmphasized</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <!-- Helper/explanatory text under a field or at the top of a form. -->
+    <style name="Widget.ShrimpNG.FormSupportingText" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/padding_spacing_dp4</item>
+        <item name="android:paddingHorizontal">@dimen/padding_spacing_dp16</item>
+        <item name="android:textAppearance">?attr/textAppearanceBodySmall</item>
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+    </style>
+
+    <!-- A full-width row with a label (and optional summary) on the left and a MaterialSwitch on
+         the right, for boolean options inside a form. -->
+    <style name="Widget.ShrimpNG.FormSwitchRow" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/form_field_spacing</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+</resources>

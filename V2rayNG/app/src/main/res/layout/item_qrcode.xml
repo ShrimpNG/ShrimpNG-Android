@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The QR code shown in a dialog. Padded so the code keeps clear of the dialog's rounded
+     corners, and sized to the dialog rather than a fixed 336dp, which overflowed narrow phones. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/padding_spacing_dp24">
+
+    <ImageView
+        android:id="@+id/iv_qcode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/title_qr_code"
+        android:maxWidth="336dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/ic_fab_check" />
+</FrameLayout>

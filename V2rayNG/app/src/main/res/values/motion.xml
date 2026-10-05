@@ -1,0 +1,12 @@
+<resources>
+    <!-- Fallbacks match MDC 1.14's Expressive tokens. Normal app themes resolve their own
+         motionSpring* attributes; these avoid depending on the library's private styles. -->
+    <style name="Motion.ShrimpNG.FastSpatial" parent="">
+        <item name="stiffness">800</item>
+        <item name="damping">0.6</item>
+    </style>
+    <style name="Motion.ShrimpNG.DefaultEffects" parent="">
+        <item name="stiffness">1600</item>
+        <item name="damping">1</item>
+    </style>
+</resources>

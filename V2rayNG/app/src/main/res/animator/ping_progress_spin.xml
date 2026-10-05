@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Walks the visible quarter once around the outline every two seconds. Linear on purpose: any
+     easing makes a continuous loop appear to stall at the seam. -->
+<objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="2000"
+    android:interpolator="@android:anim/linear_interpolator"
+    android:propertyName="trimPathOffset"
+    android:repeatCount="infinite"
+    android:valueFrom="0"
+    android:valueTo="1" />
