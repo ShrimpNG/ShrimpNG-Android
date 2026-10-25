@@ -42,8 +42,8 @@ android {
         applicationId = "fish.shrimp.ng"
         minSdk = if (legacyBuild) 26 else 31
         targetSdk = 37
-        versionCode = 130
-        versionName = "0.3.0"
+        versionCode = 131
+        versionName = "0.3.1"
         multiDexEnabled = true
 
         // The <application> label/icon can only be chosen at build time, which is exactly why the
