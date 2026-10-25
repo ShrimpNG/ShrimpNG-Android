@@ -153,6 +153,8 @@ object AppConfig {
     const val PREF_GEO_FILES_SOURCES = "pref_geo_files_sources"
     const val PREF_GEO_AUTO_UPDATE = "pref_geo_auto_update"
     const val PREF_GEO_LAST_UPDATE = "pref_geo_last_update"
+    const val PREF_GEO_LAST_REPAIR = "pref_geo_last_repair"
+    const val PREF_GEO_CODES_IN_USE = "pref_geo_codes_in_use"
     const val PREF_USE_HEV_TUNNEL = "pref_use_hev_tunnel_v2"
     const val PREF_HEV_TUNNEL_RW_TIMEOUT = "pref_hev_tunnel_rw_timeout_v2"
     const val PREF_AUTO_REMOVE_INVALID_AFTER_TEST = "pref_auto_remove_invalid_after_test"

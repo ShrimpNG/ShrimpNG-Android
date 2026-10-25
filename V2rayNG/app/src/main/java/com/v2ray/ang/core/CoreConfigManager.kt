@@ -16,6 +16,7 @@ import com.v2ray.ang.enums.EConfigType
 import com.v2ray.ang.extension.isNotNullEmpty
 import com.v2ray.ang.handler.FirewallManager
 import com.v2ray.ang.handler.FingerprintManager
+import com.v2ray.ang.handler.GeoRuleGuard
 import com.v2ray.ang.handler.MmkvManager
 import com.v2ray.ang.handler.SettingsManager
 import com.v2ray.ang.util.HttpUtil
@@ -45,9 +46,9 @@ object CoreConfigManager {
             val configContext = CoreConfigContextBuilder.build(context, guid)
                 ?: return ConfigResult(status = false, guid = guid, errorMessage = "Failed to build config context")
             if (configContext.isCustom) {
-                return buildV2rayCustomConfig(configContext)
+                return GeoRuleGuard.apply(context, buildV2rayCustomConfig(configContext))
             }
-            return toConfigResult(configContext, buildUnifiedConfig(configContext))
+            return GeoRuleGuard.apply(context, toConfigResult(configContext, buildUnifiedConfig(configContext)))
         } catch (e: Exception) {
             LogUtil.e(AppConfig.TAG, "Failed to get V2ray config", e)
             return ConfigResult(
@@ -68,12 +69,12 @@ object CoreConfigManager {
             val configContext = CoreConfigContextBuilder.build(context, guid)
                 ?: return ConfigResult(status = false, guid = guid, errorMessage = "Failed to build config context")
             if (configContext.isCustom) {
-                return buildV2rayCustomConfig(configContext)
+                return GeoRuleGuard.apply(context, buildV2rayCustomConfig(configContext))
             }
             val v2rayConfig = buildUnifiedConfig(configContext)
             postProcessForSpeedtest(v2rayConfig)
 
-            return toConfigResult(configContext, v2rayConfig)
+            return GeoRuleGuard.apply(context, toConfigResult(configContext, v2rayConfig))
         } catch (e: Exception) {
             LogUtil.e(AppConfig.TAG, "Failed to get V2ray config for speedtest", e)
             return ConfigResult(

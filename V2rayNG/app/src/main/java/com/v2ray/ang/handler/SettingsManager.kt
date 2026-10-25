@@ -29,10 +29,10 @@ import com.v2ray.ang.handler.MmkvManager.decodeSubscription
 import com.v2ray.ang.handler.MmkvManager.encodeSubscription
 import com.v2ray.ang.handler.MmkvManager.removeSubscription
 import com.v2ray.ang.util.JsonUtil
+import com.v2ray.ang.util.GeoDatIndex
 import com.v2ray.ang.util.LogUtil
 import com.v2ray.ang.util.Utils
 import java.io.File
-import java.io.FileOutputStream
 import java.util.Collections
 import java.util.Locale
 import kotlin.random.Random
@@ -440,15 +440,13 @@ object SettingsManager {
             val geo = arrayOf(AppConfig.GEOSITE_DAT, AppConfig.GEOIP_DAT, AppConfig.GEOIP_ONLY_CN_PRIVATE_DAT)
             assets.list("")
                 ?.filter { geo.contains(it) }
-                ?.filter { !File(extFolder, it).exists() }
+                // Not only a missing file: one that is no longer a readable geo list is as good as
+                // missing to the core, and would otherwise stay until someone downloads by hand.
+                ?.filter { GeoDatIndex.codes(File(extFolder, it)) == null }
                 ?.forEach {
-                    val target = File(extFolder, it)
-                    assets.open(it).use { input ->
-                        FileOutputStream(target).use { output ->
-                            input.copyTo(output)
-                        }
+                    if (GeoAssetUpdater.restoreBundled(context, it)) {
+                        LogUtil.i(AppConfig.TAG, "Copied $it from the apk assets to $extFolder")
                     }
-                    LogUtil.i(AppConfig.TAG, "Copied from apk assets folder to ${target.absolutePath}")
                 }
         } catch (e: Exception) {
             LogUtil.e(ANG_PACKAGE, "asset copy failed", e)

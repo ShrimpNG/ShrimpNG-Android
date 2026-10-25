@@ -28,6 +28,16 @@ Rebuild the AAR after changing the core (Fedora; Go 1.27.3 — the release's rev
 comes from that Go, and `GOTOOLCHAIN=go1.27.3` fetches it — and gomobile at the version pinned in `AndroidLibXrayLite/go.mod`, installed with
 `go install golang.org/x/mobile/cmd/{gomobile,gobind}@<ver>`):
 
+The AAR also carries the geo files the app falls back to (`AndroidLibXrayLite/assets/geosite.dat`,
+`geoip.dat`, from Loyalsoldier/v2ray-rules-dat). Refresh them before a rebuild, so the fallback has
+the codes the routing scenarios use (`TBANK-RU`, `WILDBERRIES`, `2GIS`, … — a copy from mid-2026
+lacks them):
+
+```bash
+curl -fL -o AndroidLibXrayLite/assets/geosite.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
+curl -fL -o AndroidLibXrayLite/assets/geoip.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
+```
+
 ```bash
 export ANDROID_HOME="$HOME/Android/Sdk"
 export ANDROID_NDK_HOME="$HOME/Android/Sdk/ndk/29.0.14206865"
