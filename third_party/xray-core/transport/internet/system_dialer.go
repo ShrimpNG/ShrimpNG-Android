@@ -50,37 +50,52 @@ func (d *DefaultSystemDialer) Dial(ctx context.Context, src net.Address, dest ne
 	errors.LogDebug(ctx, "dialing to "+dest.String())
 
 	if dest.Network == net.Network_UDP {
-		srcAddr := resolveSrcAddr(net.Network_UDP, src)
-		if srcAddr == nil {
-			srcAddr = &net.UDPAddr{
-				IP:   []byte{0, 0, 0, 0},
-				Port: 0,
-			}
-		}
-		var lc net.ListenConfig
 		destAddr, err := net.ResolveUDPAddr("udp", dest.NetAddr())
 		if err != nil {
 			return nil, err
 		}
-		lc.Control = func(network, address string, c syscall.RawConn) error {
-			for _, ctl := range Controllers {
-				if err := ctl(network, address, c); err != nil {
-					errors.LogInfoInner(ctx, err, "failed to apply external controller")
-				}
+		srcAddr := resolveSrcAddr(net.Network_UDP, src)
+		if srcAddr == nil {
+			// some OS don't support mapped IPv4 dual stack
+			// and need to select 0.0.0.0 or [::] manually based on the destination
+			wildcard := net.AnyIP.IP()
+			if destAddr.IP.To4() == nil {
+				wildcard = net.AnyIPv6.IP()
 			}
-			return c.Control(func(fd uintptr) {
-				if sockopt != nil {
-					if err := applyOutboundSocketOptions(network, destAddr.String(), fd, sockopt); err != nil {
-						errors.LogInfo(ctx, err, "failed to apply socket options")
+			srcAddr = &net.UDPAddr{
+				IP:   wildcard,
+				Port: 0,
+			}
+		}
+		var lc net.ListenConfig
+		if sockopt != nil || len(Controllers) > 0 {
+			lc.Control = func(network, _ string, c syscall.RawConn) error {
+				// ListenPacket supplies a local address; dialer controllers need the destination.
+				for _, ctl := range Controllers {
+					if err := ctl(network, destAddr.String(), c); err != nil {
+						return errors.New("failed to apply external controller").Base(err)
 					}
 				}
-			})
+				if sockopt != nil {
+					var sockErr, controlErr error
+					controlErr = c.Control(func(fd uintptr) {
+						if sockErr = applyOutboundSocketOptions(network, destAddr.String(), fd, sockopt); sockErr != nil {
+							errors.LogInfoInner(ctx, sockErr, "failed to apply socket options")
+						}
+					})
+					if _, ok := sockErr.(*BindError); ok {
+						return sockErr
+					}
+					return controlErr
+				}
+				return nil
+			}
 		}
 		packetConn, err := lc.ListenPacket(ctx, srcAddr.Network(), srcAddr.String())
 		if err != nil {
 			return nil, err
 		}
-		return &PacketConnWrapper{
+		return &net.PacketConnWrapper{
 			PacketConn: packetConn,
 			Dest:       destAddr,
 		}, nil
@@ -122,16 +137,22 @@ func (d *DefaultSystemDialer) Dial(ctx context.Context, src net.Address, dest ne
 		dialer.Control = func(network, address string, c syscall.RawConn) error {
 			for _, ctl := range Controllers {
 				if err := ctl(network, address, c); err != nil {
-					errors.LogInfoInner(ctx, err, "failed to apply external controller")
+					return errors.New("failed to apply external controller").Base(err)
 				}
 			}
-			return c.Control(func(fd uintptr) {
-				if sockopt != nil {
-					if err := applyOutboundSocketOptions(network, address, fd, sockopt); err != nil {
-						errors.LogInfoInner(ctx, err, "failed to apply socket options")
+			if sockopt != nil {
+				var sockErr, controlErr error
+				controlErr = c.Control(func(fd uintptr) {
+					if sockErr = applyOutboundSocketOptions(network, address, fd, sockopt); sockErr != nil {
+						errors.LogInfoInner(ctx, sockErr, "failed to apply socket options")
 					}
+				})
+				if _, ok := sockErr.(*BindError); ok {
+					return sockErr
 				}
-			})
+				return controlErr
+			}
+			return nil
 		}
 	}
 
@@ -140,24 +161,6 @@ func (d *DefaultSystemDialer) Dial(ctx context.Context, src net.Address, dest ne
 
 func (d *DefaultSystemDialer) DestIpAddress() net.IP {
 	return nil
-}
-
-type PacketConnWrapper struct {
-	net.PacketConn
-	Dest net.Addr
-}
-
-func (c *PacketConnWrapper) Read(p []byte) (int, error) {
-	n, _, err := c.PacketConn.ReadFrom(p)
-	return n, err
-}
-
-func (c *PacketConnWrapper) Write(p []byte) (int, error) {
-	return c.PacketConn.WriteTo(p, c.Dest)
-}
-
-func (c *PacketConnWrapper) RemoteAddr() net.Addr {
-	return c.Dest
 }
 
 type SystemDialerAdapter interface {
@@ -195,6 +198,7 @@ func UseAlternativeSystemDialer(dialer SystemDialer) {
 
 // RegisterDialerController adds a controller to the effective system dialer.
 // The controller can be used to operate on file descriptors before they are put into use.
+// It receives the network and resolved remote address, as in net.Dialer.Control.
 // It only works when effective dialer is the default dialer.
 //
 // xray:api:beta
@@ -229,5 +233,5 @@ func (c *FakePacketConn) WriteTo(p []byte, _ net.Addr) (n int, err error) {
 }
 
 func (c *FakePacketConn) LocalAddr() net.Addr {
-	return &net.UDPAddr{IP: c.Conn.LocalAddr().(*net.TCPAddr).IP, Port: c.Conn.LocalAddr().(*net.TCPAddr).Port}
+	return &net.UDPAddr{IP: []byte{0, 0, 0, 0}}
 }

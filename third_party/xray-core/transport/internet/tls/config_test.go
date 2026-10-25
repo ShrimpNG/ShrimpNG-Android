@@ -73,15 +73,6 @@ func TestInsecureCertificates(t *testing.T) {
 	}
 }
 
-func TestAllowInsecure(t *testing.T) {
-	c := &Config{AllowInsecure: true}
-
-	tlsConfig := c.GetTLSConfig()
-	if !tlsConfig.InsecureSkipVerify {
-		t.Fatal("AllowInsecure should enable InsecureSkipVerify")
-	}
-}
-
 func BenchmarkCertificateIssuing(b *testing.B) {
 	ct, _ := cert.MustGenerate(nil, cert.Authority(true), cert.KeyUsage(x509.KeyUsageCertSign))
 	certificate := ParseCertificate(ct)

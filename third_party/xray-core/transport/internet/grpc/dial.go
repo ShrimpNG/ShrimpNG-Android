@@ -83,7 +83,6 @@ func getGrpcClient(ctx context.Context, dest net.Destination, streamSettings *in
 	}
 	tlsConfig := tls.ConfigFromStreamSettings(streamSettings)
 	realityConfig := reality.ConfigFromStreamSettings(streamSettings)
-	sockopt := streamSettings.SocketSettings
 	grpcSettings := streamSettings.ProtocolSettings.(*Config)
 
 	if client, found := globalDialerMap[dialerConf{dest, streamSettings}]; found && client.GetState() != connectivity.Shutdown {
@@ -124,22 +123,15 @@ func getGrpcClient(ctx context.Context, dest net.Destination, streamSettings *in
 			gctx = session.ContextWithOutbounds(gctx, session.OutboundsFromContext(ctx))
 			gctx = session.ContextWithTimeoutOnly(gctx, true)
 
-			c, err := internet.DialSystem(gctx, net.TCPDestination(address, port), sockopt)
+			var c net.Conn
+			if streamSettings.FinalMask != nil {
+				c, err = streamSettings.FinalMask.DialTCP(gctx, net.TCPDestination(address, port))
+			} else {
+				c, err = internet.DialSystem(gctx, net.TCPDestination(address, port), streamSettings.SocketSettings)
+			}
 			if err == nil {
-				if streamSettings.TcpmaskManager != nil {
-					newConn, err := streamSettings.TcpmaskManager.WrapConnClient(c)
-					if err != nil {
-						c.Close()
-						return nil, errors.New("mask err").Base(err)
-					}
-					c = newConn
-				}
-
 				if tlsConfig != nil {
-					config := tlsConfig.GetTLSConfig()
-					if config.ServerName == "" && address.Family().IsDomain() {
-						config.ServerName = address.Domain()
-					}
+					config := tlsConfig.GetTLSConfig(tls.WithDestination(dest))
 					if fingerprint := tls.GetFingerprint(tlsConfig.Fingerprint); fingerprint != nil {
 						return tls.UClient(c, config, fingerprint), nil
 					} else { // Fallback to normal gRPC TLS

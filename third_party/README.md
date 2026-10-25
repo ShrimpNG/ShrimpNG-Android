@@ -4,30 +4,35 @@
 
 `AndroidLibXrayLite/go.mod` replaces `github.com/xtls/xray-core` with `./third_party/xray-core`.
 
-Checkout used by the bundled AAR:
+Source used by the bundled AAR: upstream XTLS/Xray-core **v26.10.21**, plain files (no `.git`):
 
 ```bash
-git clone https://github.com/autorepobot/xray-core.git third_party/xray-core
-cd third_party/xray-core
-git fetch --depth 1 origin 50c452881eb946e23c4098f9c288447e9d36345c
-git checkout 50c452881eb946e23c4098f9c288447e9d36345c
+curl -L https://github.com/XTLS/Xray-core/archive/refs/tags/v26.10.21.tar.gz | tar -xz
+rsync -a --delete Xray-core-26.10.21/ third_party/xray-core/
 ```
 
-ShrimpNG patch: `FindProcess` / `RegisterAndroidProcessFinder` take an extra `domain` argument filled from `ctx.GetTargetDomain()` in `app/router/condition.go`, so the connection journal can store sniffed hostnames instead of PTR guesses.
+ShrimpNG patch: `FindProcess` / `RegisterAndroidProcessFinder` take an extra `domain` argument
+filled from `ctx.GetTargetDomain()` (in `app/router/condition.go` and the Lua `findProcess` helper in
+`app/router/lua.go`), so the connection journal can store sniffed hostnames instead of PTR guesses.
+Every platform's `FindProcess` and the tests calling it carry the extra argument.
 
-ShrimpNG patch: `common/protocol/quic/sniff.go` skips zero bytes after a parsed QUIC packet instead of
-rejecting the datagram. Firefox (neqo) pads its Initial datagrams that way (RFC 9000 §14.1), and the
-unpatched sniffer gave up on them, so Firefox's HTTP/3 flows were routed by IP and domain rules
-(vk.com, geosite:VK, …) never matched. Upstream main still has the same check. Regression vectors
-(real Firefox 156 Initial datagrams for vk.com) are in `sniff_test.go`.
+Earlier ShrimpNG patches that upstream has since taken over, no longer carried:
+- QUIC sniffer skipping zero padding after a packet (Firefox/neqo Initial datagrams). Upstream's
+  rewritten sniffer handles it; our real Firefox 156 vectors for vk.com are kept in
+  `common/protocol/quic/sniff_test.go` as a regression check.
+- XHTTP path without a forced trailing `/` when `sessionIDPlacement` and `seqPlacement` are both off
+  the path (upstream 1aabe7ea). Before it a file-like path (`…/1080p.mp4`) went out as
+  `…/1080p.mp4/`, which an exact-match nginx/CDN location answers with 403.
 
-Rebuild the AAR after changing the patch (Fedora; Go 1.26 and gomobile at the version pinned in
-`AndroidLibXrayLite/go.mod`, installed with `go install golang.org/x/mobile/cmd/{gomobile,gobind}@<ver>`):
+Rebuild the AAR after changing the core (Fedora; Go 1.27.3 — the release's revoked-CA filtering
+comes from that Go, and `GOTOOLCHAIN=go1.27.3` fetches it — and gomobile at the version pinned in `AndroidLibXrayLite/go.mod`, installed with
+`go install golang.org/x/mobile/cmd/{gomobile,gobind}@<ver>`):
 
 ```bash
 export ANDROID_HOME="$HOME/Android/Sdk"
 export ANDROID_NDK_HOME="$HOME/Android/Sdk/ndk/29.0.14206865"
 export JAVA_HOME="$HOME/.jdks/jdk-17.0.20.1+1"
+export PATH="$JAVA_HOME/bin:$PATH" GOTOOLCHAIN=go1.27.3 GOFLAGS=-buildvcs=false
 # gomobile only recognises platforms/android-NN, not sdkmanager's android-37.0
 ln -sfn android-37.0 "$ANDROID_HOME/platforms/android-37"
 cd AndroidLibXrayLite

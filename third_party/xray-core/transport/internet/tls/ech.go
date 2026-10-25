@@ -17,6 +17,7 @@ import (
 
 	utls "github.com/refraction-networking/utls"
 	"github.com/xtls/xray-core/common/crypto"
+	"github.com/xtls/xray-core/common/session"
 	"golang.org/x/net/http2"
 
 	"github.com/miekg/dns"
@@ -55,19 +56,16 @@ func ApplyECH(c *Config, config *tls.Config) error {
 			}
 			config.EncryptedClientHelloConfigList = ECHConfig
 		}()
-		// direct base64 config
+		// query config from dns
 		if strings.Contains(c.EchConfigList, "://") {
-			// query config from dns
-			parts := strings.Split(c.EchConfigList, "+")
+			// parse ECH DNS server in format of "example.com+https://1.1.1.1/dns-query"
+			parts := strings.SplitN(c.EchConfigList, "+", 2)
 			if len(parts) == 2 {
-				// parse ECH DNS server in format of "example.com+https://1.1.1.1/dns-query"
 				nameToQuery = parts[0]
 				DNSServer = parts[1]
-			} else if len(parts) == 1 {
+			} else {
 				// normal format
 				DNSServer = parts[0]
-			} else {
-				return errors.New("Invalid ECH DNS server format: ", c.EchConfigList)
 			}
 			if nameToQuery == "" {
 				return errors.New("Using DNS for ECH Config needs serverName or use Server format example.com+https://1.1.1.1/dns-query")
@@ -77,6 +75,7 @@ func ApplyECH(c *Config, config *tls.Config) error {
 				return errors.New("Failed to query ECH DNS record for domain: ", nameToQuery, " at server: ", DNSServer).Base(err)
 			}
 		} else {
+			// direct base64 config
 			ECHConfig, err = base64.StdEncoding.DecodeString(c.EchConfigList)
 			if err != nil {
 				return errors.New("Failed to unmarshal ECHConfigList: ", err)
@@ -157,7 +156,7 @@ func QueryRecord(domain string, server string, sockopt *internet.SocketConfig) (
 	// If expire is zero value, it means we are in initial state, wait for the query to finish
 	// otherwise return old value immediately and update in a goroutine
 	// but if the cache is too old, wait for update
-	if configRecord.expire == (time.Time{}) || configRecord.expire.Add(time.Hour*4).Before(time.Now()) {
+	if configRecord.expire.IsZero() || configRecord.expire.Add(time.Hour*4).Before(time.Now()) {
 		return echConfigCache.Update(domain, server, false, sockopt)
 	} else {
 		// If someone already acquired the lock, it means it is updating, do not start another update goroutine
@@ -200,23 +199,27 @@ func dnsQuery(server string, domain string, sockopt *internet.SocketConfig) ([]b
 				IdleConnTimeout: net.ConnIdleTimeout,
 				ReadIdleTimeout: net.ChromeH2KeepAlivePeriod,
 				DialTLSContext: func(ctx context.Context, network, addr string, cfg *tls.Config) (net.Conn, error) {
+					host, _, err := net.SplitHostPort(addr)
+					if err != nil {
+						return nil, err
+					}
 					dest, err := net.ParseDestination(network + ":" + addr)
 					if err != nil {
 						return nil, err
 					}
+					dnsCtx := ctx
+					if h2c {
+						dnsCtx = session.ContextWithMitmAlpn11(dnsCtx, false) // for insurance
+						dnsCtx = session.ContextWithMitmServerName(dnsCtx, host)
+					}
 					var conn net.Conn
-
-					conn, err = internet.DialSystem(ctx, dest, sockopt)
+					conn, err = internet.DialSystem(dnsCtx, dest, sockopt)
 					if err != nil {
 						return nil, err
 					}
 
 					if !h2c {
-						u, err := url.Parse(server)
-						if err != nil {
-							return nil, err
-						}
-						conn = utls.UClient(conn, &utls.Config{ServerName: u.Hostname()}, utls.HelloChrome_Auto)
+						conn = utls.UClient(conn, &utls.Config{ServerName: host}, utls.HelloChrome_Auto)
 						if err := conn.(*utls.UConn).HandshakeContext(ctx); err != nil {
 							return nil, err
 						}
@@ -256,14 +259,17 @@ func dnsQuery(server string, domain string, sockopt *internet.SocketConfig) ([]b
 		}
 		dnsResolve = respBody
 	} else if strings.HasPrefix(server, "udp://") { // for classic udp dns server
-		udpServerAddr := server[len("udp://"):]
-		// default port 53 if not specified
-		if !strings.Contains(udpServerAddr, ":") {
-			udpServerAddr = udpServerAddr + ":53"
-		}
-		dest, err := net.ParseDestination("udp" + ":" + udpServerAddr)
+		udpServerURL, err := url.Parse(server)
 		if err != nil {
-			return nil, 0, errors.New("failed to parse udp dns server ", udpServerAddr, " for ECH: ", err)
+			return nil, 0, errors.New("failed to parse udp dns server ", server, " for ECH: ", err)
+		}
+		// default port 53 if not specified
+		if udpServerURL.Port() == "" {
+			udpServerURL.Host = udpServerURL.Host + ":53"
+		}
+		dest, err := net.ParseDestination("udp" + ":" + udpServerURL.Host)
+		if err != nil {
+			return nil, 0, errors.New("failed to parse udp dns server ", udpServerURL.Host, " for ECH: ", err)
 		}
 		dnsTimeoutCtx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 		defer cancel()
