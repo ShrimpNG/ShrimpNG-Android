@@ -10,8 +10,10 @@
         android:padding="@dimen/padding_spacing_dp16">
 
         <LinearLayout
+            android:id="@+id/row_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/padding_spacing_dp8"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -36,7 +38,6 @@
             android:id="@+id/tv_notes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_spacing_dp8"
             android:lineSpacingMultiplier="1.15"
             android:textAppearance="?attr/textAppearanceBodyMedium"
             android:textColor="?attr/colorOnSurfaceVariant" />

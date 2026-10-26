@@ -310,8 +310,8 @@ class UpdatesActivity : BaseActivity() {
         binding.listHistory.removeAllViews()
         if (releases.isEmpty()) {
             val empty = ItemUpdateReleaseBinding.inflate(layoutInflater, binding.listHistory, true)
-            empty.tvVersion.visibility = View.GONE
-            empty.tvDate.visibility = View.GONE
+            // The header carries the gap above the notes: gone with it, the text sits centred.
+            empty.rowHeader.visibility = View.GONE
             empty.tvNotes.setText(R.string.update_history_empty)
             return
         }
