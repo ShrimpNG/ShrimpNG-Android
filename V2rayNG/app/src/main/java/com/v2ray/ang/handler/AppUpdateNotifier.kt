@@ -11,6 +11,7 @@ import androidx.core.app.NotificationManagerCompat
 import com.v2ray.ang.AppConfig
 import com.v2ray.ang.R
 import com.v2ray.ang.ui.UpdatesActivity
+import com.v2ray.ang.util.UpdateNotesFormatter
 
 /**
  * The one notification about a new version: posted when the user has something to do — the
@@ -40,8 +41,7 @@ object AppUpdateNotifier {
         ensureChannel(context)
         val manifest = available.manifest
         val notes = AppUpdateManager.localized(manifest.notes)
-        val text = notes.joinToString("\n") { "• $it" }
-            .ifBlank { context.getString(R.string.update_notify_text) }
+        val text = UpdateNotesFormatter.plain(notes).ifBlank { context.getString(R.string.update_notify_text) }
         val open = PendingIntent.getActivity(
             context, NOTIFICATION_ID,
             Intent(context, UpdatesActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),

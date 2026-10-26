@@ -25,6 +25,7 @@ import com.v2ray.ang.handler.AppUpdateManager.DownloadState
 import com.v2ray.ang.handler.AppUpdateManager.Reason
 import com.v2ray.ang.handler.AppUpdateNotifier
 import com.v2ray.ang.util.LogUtil
+import com.v2ray.ang.util.UpdateNotesFormatter
 import com.v2ray.ang.util.Utils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -328,7 +329,7 @@ class UpdatesActivity : BaseActivity() {
         }
     }
 
-    private fun bullets(lines: List<String>) = lines.joinToString("\n") { "•  $it" }
+    private fun bullets(lines: List<String>) = UpdateNotesFormatter.styled(lines)
 
     private fun formatDate(date: String): String = try {
         val parsed = SimpleDateFormat("yyyy-MM-dd", Locale.ROOT).parse(date)

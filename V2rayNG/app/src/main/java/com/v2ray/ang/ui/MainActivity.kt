@@ -36,6 +36,7 @@ import com.v2ray.ang.handler.SettingsChangeManager
 import com.v2ray.ang.handler.SettingsManager
 import com.v2ray.ang.handler.SubscriptionUpdater
 import com.v2ray.ang.util.LogUtil
+import com.v2ray.ang.util.UpdateNotesFormatter
 import com.v2ray.ang.util.Utils
 import com.v2ray.ang.viewmodel.MainViewModel
 import kotlinx.coroutines.Dispatchers
@@ -117,7 +118,7 @@ class MainActivity : HelperBaseActivity() {
         val (version, notes) = AppUpdateManager.takeWhatsNew(this) ?: return
         MaterialAlertDialogBuilder(this)
             .setTitle(getString(R.string.update_whats_new_title, version))
-            .setMessage(notes.joinToString("\n") { "•  $it" })
+            .setMessage(UpdateNotesFormatter.styled(notes))
             .setPositiveButton(android.R.string.ok, null)
             .show()
     }
