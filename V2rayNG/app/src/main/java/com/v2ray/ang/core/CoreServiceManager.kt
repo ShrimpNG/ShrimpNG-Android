@@ -395,6 +395,8 @@ object CoreServiceManager {
         }
         verifyFingerprintIfNeeded(service, guid, config)
         coreStartedAt = System.currentTimeMillis()
+        // What an in-app update reads to know a connection is up to bring back (AppUpdateManager).
+        MmkvManager.encodeSettings(AppConfig.PREF_CORE_ACTIVE, true)
         ConnectionTimer.resetStarted()
         NotificationManager.startSpeedNotification()
         ConnectionLogRecorder.start(service)
@@ -431,6 +433,7 @@ object CoreServiceManager {
         }
 
         MessageUtil.sendMsg2UI(service, AppConfig.MSG_STATE_STOP_SUCCESS, "")
+        MmkvManager.encodeSettings(AppConfig.PREF_CORE_ACTIVE, false)
         ConnectionTimer.markStopped()
         NotificationManager.cancelNotification()
         ConnectionLogRecorder.stop()

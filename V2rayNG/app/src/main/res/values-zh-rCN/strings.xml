@@ -379,12 +379,6 @@
     <string name="title_pref_fragment_enabled">启用分片（Fragment）</string>
     <string name="title_pref_fragment_maxsplit">分片最大分割数</string>
 
-    <string name="update_check_for_update">检查更新</string>
-    <string name="update_already_latest_version">目前已是最新版本</string>
-    <string name="update_new_version_found">发现新版本: %s</string>
-    <string name="update_now">立即更新</string>
-    <string name="update_check_pre_release">检查 Pre-release</string>
-    <string name="update_checking_for_update">正在检查更新中…</string>
 
     <string name="title_policy_group_type">策略组类型</string>
     <string name="title_policy_group_subscription_id">来自订阅分组</string>

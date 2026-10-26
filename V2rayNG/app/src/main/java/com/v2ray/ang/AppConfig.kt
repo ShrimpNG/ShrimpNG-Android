@@ -150,6 +150,18 @@ object AppConfig {
     const val PREF_IS_BOOTED = "pref_is_booted"
     const val PREF_CONNECTION_STARTED_AT = "pref_connection_started_at"
     const val PREF_CHECK_UPDATE_PRE_RELEASE = "pref_check_update_pre_release"
+    const val PREF_UPDATE_AUTO_CHECK = "pref_update_auto_check"
+    const val PREF_UPDATE_AUTO_DOWNLOAD = "pref_update_auto_download"
+    const val PREF_UPDATE_WIFI_ONLY = "pref_update_wifi_only"
+    const val PREF_UPDATE_AUTO_INSTALL = "pref_update_auto_install"
+    const val PREF_UPDATE_MANIFEST = "pref_update_manifest"
+    const val PREF_UPDATE_LAST_CHECK = "pref_update_last_check"
+    const val PREF_UPDATE_DOWNLOADED = "pref_update_downloaded"
+    const val PREF_UPDATE_RECONNECT = "pref_update_reconnect"
+    const val PREF_UPDATE_WHATS_NEW = "pref_update_whats_new"
+    const val PREF_UPDATE_NOTIFIED = "pref_update_notified"
+    /** Set by the VPN process while the core runs, cleared on a stop; survives the process being killed. */
+    const val PREF_CORE_ACTIVE = "pref_core_active"
     const val PREF_GEO_FILES_SOURCES = "pref_geo_files_sources"
     const val PREF_GEO_AUTO_UPDATE = "pref_geo_auto_update"
     const val PREF_GEO_LAST_UPDATE = "pref_geo_last_update"
@@ -196,6 +208,7 @@ object AppConfig {
     const val PREF_FIREWALL_LOG_MAX_ROWS = "pref_firewall_log_max_rows"
     const val FIREWALL_LOG_MAINTENANCE_TASK = "firewall_log_maintenance"
     const val GEO_ASSET_UPDATE_TASK = "geo_asset_updater"
+    const val APP_UPDATE_TASK = "app_updater"
     const val FIREWALL_LOG_DEFAULT_RETENTION_DAYS = 3
     const val FIREWALL_LOG_DEFAULT_MAX_ROWS = 50_000
     const val PREF_DECOY_ENABLED = "pref_decoy_enabled"
@@ -239,11 +252,12 @@ object AppConfig {
     const val GITHUB_DOWNLOAD_URL = "$GITHUB_URL/%s/releases/latest/download"
     const val ANDROID_PACKAGE_NAME_LIST_URL = "$GITHUB_RAW_URL/2dust/androidpackagenamelist/master/proxy.txt"
     const val APP_SITE_URL = "https://ng.shrimp.fish"
-    const val APP_URL = "$GITHUB_URL/invisible-shrimp/ShrimpNG"
-    const val APP_API_URL = "https://api.github.com/repos/invisible-shrimp/ShrimpNG/releases"
-    const val APP_ISSUES_URL = "$GITHUB_URL/invisible-shrimp/ShrimpNG/issues"
+    const val APP_URL = "$GITHUB_URL/ShrimpNG/ShrimpNG-Android"
+    const val APP_ISSUES_URL = "$APP_URL/issues"
+    /** The release manifests `local/publish-release.py` writes next to the APKs; see AppUpdateManager. */
+    const val UPDATE_MANIFEST_URL = "$APP_SITE_URL/releases/update.json"
+    const val UPDATE_MANIFEST_BETA_URL = "$APP_SITE_URL/releases/update-beta.json"
     const val APP_WIKI_MODE = "$GITHUB_URL/2dust/v2rayNG/wiki/Mode"
-    const val APP_PROMOTION_URL = "aHR0cHM6Ly85LjIzNDQ1Ni54eXovYWJjLmh0bWw="
 
     /** Source of the "Calculator" disguise icon, reused under GPL-3.0. */
     const val SOURCE_CODE_URL = "$GITHUB_URL/ShrimpNG/ShrimpNG-Android"

@@ -8,6 +8,7 @@ import com.tencent.mmkv.MMKV
 import com.v2ray.ang.AppConfig.ANG_PACKAGE
 import com.v2ray.ang.handler.DecoyAutoLock
 import com.v2ray.ang.handler.EmojiStyle
+import com.v2ray.ang.handler.AppUpdateManager
 import com.v2ray.ang.handler.GeoAssetUpdater
 import com.v2ray.ang.handler.SettingsManager
 import com.v2ray.ang.handler.ThemeManager
@@ -56,6 +57,7 @@ class AngApplication : MultiDexApplication() {
             // UI process only: the VPN daemon draws no text.
             EmojiStyle.install(this)
             GeoAssetUpdater.schedule(this)
+            AppUpdateManager.schedule(this)
         }
     }
 

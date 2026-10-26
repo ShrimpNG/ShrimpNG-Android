@@ -611,7 +611,7 @@
     <string name="settings_hub_per_app_proxy">Прокси по приложениям</string>
     <string name="settings_hub_user_assets">Файлы правил (geo-данные)</string>
     <string name="settings_hub_backup_restore">Резервное копирование</string>
-    <string name="settings_hub_check_update">Проверить обновления</string>
+    <string name="settings_hub_check_update">Обновления</string>
     <string name="settings_hub_logcat">Логи</string>
     <string name="settings_hub_about">О приложении</string>
     <string name="connection_runing_task_left">Запущено проверок: %s</string>
@@ -625,12 +625,6 @@
     <string name="title_pref_fragment_enabled">Использовать фрагментирование</string>
     <string name="title_pref_fragment_maxsplit">Максимальное число фрагментов</string>
 
-    <string name="update_check_for_update">Проверить обновление</string>
-    <string name="update_already_latest_version">Установлена последняя версия</string>
-    <string name="update_new_version_found">Найдена новая версия: %s</string>
-    <string name="update_now">Обновить</string>
-    <string name="update_check_pre_release">Искать предварительный выпуск</string>
-    <string name="update_checking_for_update">Проверка обновления…</string>
 
     <string name="title_policy_group_type">Тип политики группы</string>
     <string name="title_policy_group_subscription_id">Из группы подписки</string>
@@ -768,7 +762,7 @@
     <string name="about_feedback_summary">Чат в Telegram</string>
     <string name="about_site_summary">ng.shrimp.fish</string>
     <string name="about_privacy_summary">Что приложение делает с вашими данными</string>
-    <string name="privacy_banner">Без аналитики, рекламы, трекеров и аккаунтов. Разработчики ShrimpNG ничего о вас не получают: у проекта нет своих серверов, куда приложение что-то отправляло бы. Ниже — все случаи, когда приложение само выходит в сеть, и всё, к чему у него есть доступ.</string>
+    <string name="privacy_banner">Без аналитики, рекламы, трекеров и аккаунтов. Разработчики ShrimpNG ничего о вас не получают: из наших серверов приложение ходит только на ng.shrimp.fish — за обновлениями, и тот не получает ничего, кроме самого запроса. Ниже — все случаи, когда приложение само выходит в сеть, и всё, к чему у него есть доступ.</string>
     <string name="privacy_none_title">Что мы не собираем</string>
     <string name="privacy_none_body">Нет статистики использования, отчётов об ошибках, рекламных идентификаторов и сторонних SDK, которые бы их отправляли. Сервисов Google и Firebase в приложении тоже нет. Какими серверами и сайтами вы пользуетесь, приложение никуда не передаёт.</string>
     <string name="privacy_subs_title">Обновление подписок</string>
@@ -778,13 +772,13 @@
     <string name="privacy_dns_title">DNS</string>
     <string name="privacy_dns_body">Когда VPN включён, адреса сайтов, которые идут через прокси, определяются через Cloudflare (1.1.1.1), тоже через прокси.\nАдреса сайтов из правил «напрямую» по умолчанию определяются через Яндекс DNS (77.88.8.8) — мимо VPN, поэтому эти запросы видят ваш провайдер и Яндекс. Оба адреса меняются в настройках DNS.</string>
     <string name="privacy_downloads_title">Файлы и обновления</string>
-    <string name="privacy_downloads_body">• Раз в сутки — файлы правил (geosite, geoip) с GitHub, через VPN, если он подключён. Выключается на экране «Файлы ресурсов».\n• Список приложений для «Прокси для приложений» — с GitHub, только когда вы нажимаете импорт.\nGitHub видит IP, с которого пришёл запрос, и больше ничего: идентификатор устройства в эти запросы не добавляется.</string>
+    <string name="privacy_downloads_body">• Раз в сутки — файлы правил (geosite, geoip) с GitHub, через VPN, если он подключён. Выключается на экране «Файлы ресурсов».\n• Раз в сутки — список новых версий с ng.shrimp.fish, а сама новая версия — когда вы её ставите или разрешили скачивать заранее. Через VPN, если он подключён. Выключается на экране «Обновления».\n• Список приложений для «Прокси для приложений» — с GitHub, только когда вы нажимаете импорт.\nGitHub и ng.shrimp.fish видят IP, с которого пришёл запрос, и больше ничего: ни идентификатор устройства, ни сведения о приложении в эти запросы не добавляются.</string>
     <string name="privacy_permissions_title">Разрешения</string>
-    <string name="privacy_permissions_body">• VPN — чтобы направлять трафик через выбранный сервер.\n• Камера — только для сканирования QR-кода. Кадры не сохраняются и никуда не уходят.\n• Геолокация — только для правила «Доверенный Wi-Fi»: без неё Android не сообщает приложениям имя сети. Ни место, ни имя сети никуда не отправляются. Если правило не включать, разрешение не запрашивается.\n• Список приложений — чтобы вы могли выбрать, какие идут через VPN. Остаётся на устройстве.\n• Буфер обмена — читается, только когда вы вставляете ключ или открываете «Добавить» на главном.\n• Уведомления — статус подключения и скорость.</string>
+    <string name="privacy_permissions_body">• VPN — чтобы направлять трафик через выбранный сервер.\n• Камера — только для сканирования QR-кода. Кадры не сохраняются и никуда не уходят.\n• Геолокация — только для правила «Доверенный Wi-Fi»: без неё Android не сообщает приложениям имя сети. Ни место, ни имя сети никуда не отправляются. Если правило не включать, разрешение не запрашивается.\n• Список приложений — чтобы вы могли выбрать, какие идут через VPN. Остаётся на устройстве.\n• Буфер обмена — читается, только когда вы вставляете ключ или открываете «Добавить» на главном.\n• Уведомления — статус подключения и скорость.\n• Установка приложений — только для обновлений ShrimpNG и только после вашего разрешения.</string>
     <string name="privacy_storage_title">Что хранится на устройстве</string>
     <string name="privacy_storage_body">Серверы, ключи, подписки, правила и настройки хранятся только в памяти приложения.\n• История подключений: последние 50 — время, длительность, сервер, подписка, адрес и логи за сессию на выбранном уровне. Уровень и выключение — на экране «Логи». Под маской калькулятора история не пишется и стирается при автоблокировке. На уровне «Отладка» в лог попадает конфигурация подключения вместе с ключами.\n• Журнал файрвола — по умолчанию выключен. Если включить, записывает, какое приложение к какому адресу подключалось, и хранит это 3 дня. Чтобы показать имена вместо IP, приложение делает обратные DNS-запросы мимо VPN — их видит провайдер.\n• Логи уходят с устройства, только если вы сами ими поделитесь. Резервная копия — в файл или на ваш WebDAV, только по вашей команде.\nОдно «но»: системное резервное копирование Android для приложения включено. Если на телефоне включён бэкап в аккаунт Google, данные приложения, включая ключи, могут попасть в вашу резервную копию на Google Диске.</string>
     <string name="privacy_links_title">Ссылки</string>
-    <string name="privacy_links_body">Сайт, чат и канал в Telegram (туда же ведёт «Проверить обновления») и GitHub открываются только по нажатию — в браузере или в Telegram, со всеми их правилами.</string>
+    <string name="privacy_links_body">Сайт, чат и канал в Telegram и GitHub открываются только по нажатию — в браузере или в Telegram, со всеми их правилами.</string>
     <string name="title_ping_settings">Проверка пинга</string>
     <string name="title_pref_ping_method">Способ проверки</string>
     <string-array name="ping_method">
@@ -886,4 +880,58 @@
     <string name="theme_palette_navy">Тёмно-синяя</string>
     <string name="theme_palette_lavender">Лавандовая</string>
     <string name="theme_palette_brown">Коричневая</string>
+
+    <!-- Updates screen, background update and notifications (AppUpdateManager) -->
+    <string name="update_title">Обновления</string>
+    <string name="update_checking">Проверяем обновления…</string>
+    <string name="update_latest">У вас последняя версия</string>
+    <string name="update_current_version">ShrimpNG %1$s · Xray %2$s</string>
+    <string name="update_last_checked">Проверено %s</string>
+    <string name="update_never_checked">Ещё не проверялось</string>
+    <string name="update_check_failed">Не удалось проверить обновления</string>
+    <string name="update_check_failed_detail">Нет связи с ng.shrimp.fish. Попробуйте позже.</string>
+    <string name="update_available">Доступна версия %s</string>
+    <string name="update_available_meta">%1$s · %2$s</string>
+    <string name="update_critical">Важное обновление</string>
+    <string name="update_downloading">Загрузка… %d%%</string>
+    <string name="update_download_progress">%1$s из %2$s</string>
+    <string name="update_ready">Готово к установке</string>
+    <string name="update_ready_detail">Версия %s скачана и проверена</string>
+    <string name="update_installing">Устанавливаем…</string>
+    <string name="update_failed">Не удалось обновить</string>
+    <string name="update_failed_detail">%s. Попробуйте ещё раз или скачайте приложение с сайта.</string>
+    <string name="update_action_check">Проверить</string>
+    <string name="update_action_retry">Повторить</string>
+    <string name="update_action_download">Скачать и установить</string>
+    <string name="update_action_install">Установить</string>
+    <string name="update_action_open">Открыть</string>
+    <string name="update_action_site">Сайт</string>
+    <string name="update_group_options">Настройки</string>
+    <string name="update_group_history">История изменений</string>
+    <string name="update_auto_check">Проверять автоматически</string>
+    <string name="update_auto_check_summary">Раз в день</string>
+    <string name="update_auto_download">Скачивать заранее</string>
+    <string name="update_auto_download_summary">Чтобы обновление было готово сразу</string>
+    <string name="update_wifi_only">Только по Wi-Fi</string>
+    <string name="update_wifi_only_summary">Не тратить мобильный трафик на загрузку</string>
+    <string name="update_auto_install">Устанавливать автоматически</string>
+    <string name="update_auto_install_summary">Пока телефоном не пользуются, и только если подключение потом восстановится само. Иначе приложение спросит.</string>
+    <string name="update_auto_install_unavailable">Нужен Android 12 или новее. Приложение спросит перед каждым обновлением.</string>
+    <string name="update_beta">Бета-версии</string>
+    <string name="update_beta_summary">Получать новые версии раньше всех</string>
+    <string name="update_history_empty">История появится после первой проверки.</string>
+    <string name="update_install_permission_title">Разрешите установку обновлений</string>
+    <string name="update_install_permission_text">Android один раз спросит разрешение на установку приложений. Включите «Разрешить установку из этого источника», вернитесь и снова нажмите «Установить».</string>
+    <string name="update_install_permission_open">Открыть настройки</string>
+    <string name="update_notify_channel">Обновления приложения</string>
+    <string name="update_notify_available_title">Доступна ShrimpNG %s</string>
+    <string name="update_notify_ready_title">ShrimpNG %s готова к установке</string>
+    <string name="update_notify_text">Нажмите, чтобы посмотреть, что нового</string>
+    <string name="update_whats_new_title">Что нового в %s</string>
+    <string name="update_badge">Новая версия</string>
+    <string name="update_installed_mark">установлена</string>
+    <string name="update_unsupported">Эта сборка обновляется через F-Droid.</string>
+    <string name="update_reason_corrupt">Скачанный файл повреждён</string>
+    <string name="update_reason_network">Загрузка прервалась</string>
+    <string name="update_reason_key">Файл подписан не ключом ShrimpNG</string>
 </resources>

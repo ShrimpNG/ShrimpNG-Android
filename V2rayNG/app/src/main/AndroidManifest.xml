@@ -49,6 +49,8 @@
     <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- In-app updates only (AppUpdateManager): installing ShrimpNG's own newer APK. -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
     <application
         android:name=".AngApplication"
@@ -262,7 +264,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.CheckUpdateActivity"
+            android:name=".ui.UpdatesActivity"
             android:exported="false" />
         <activity
             android:name=".ui.BackupActivity"
@@ -334,6 +336,18 @@
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="${applicationId}.action.widget.click" />
                 <action android:name="${applicationId}.action.activity" />
+            </intent-filter>
+        </receiver>
+        <!-- The package installer's answer to an in-app update session. -->
+        <receiver
+            android:name=".receiver.UpdateInstallReceiver"
+            android:exported="false" />
+        <!-- Runs on the new version right after an update: brings the connection back. -->
+        <receiver
+            android:name=".receiver.PackageReplacedReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
             </intent-filter>
         </receiver>
         <receiver

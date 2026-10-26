@@ -16,6 +16,7 @@ import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.transition.TransitionManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.transition.MaterialFadeThrough
 import com.v2ray.ang.ui.widget.ExpressiveMotion
 import androidx.lifecycle.DefaultLifecycleObserver
@@ -28,6 +29,7 @@ import com.v2ray.ang.databinding.ActivityMainBinding
 import com.v2ray.ang.enums.PermissionType
 import com.v2ray.ang.extension.toast
 import com.v2ray.ang.extension.toastError
+import com.v2ray.ang.handler.AppUpdateManager
 import com.v2ray.ang.handler.AngConfigManager
 import com.v2ray.ang.handler.MmkvManager
 import com.v2ray.ang.handler.SettingsChangeManager
@@ -107,6 +109,17 @@ class MainActivity : HelperBaseActivity() {
         mainViewModel.reloadServerList()
 
         checkAndRequestPermission(PermissionType.POST_NOTIFICATIONS) {}
+        if (savedInstanceState == null) showWhatsNew()
+    }
+
+    /** Once, on the first start after an update installed from the Updates screen or in the background. */
+    private fun showWhatsNew() {
+        val (version, notes) = AppUpdateManager.takeWhatsNew(this) ?: return
+        MaterialAlertDialogBuilder(this)
+            .setTitle(getString(R.string.update_whats_new_title, version))
+            .setMessage(notes.joinToString("\n") { "•  $it" })
+            .setPositiveButton(android.R.string.ok, null)
+            .show()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

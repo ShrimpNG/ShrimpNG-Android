@@ -610,7 +610,7 @@
     <string name="settings_hub_per_app_proxy">Per-app proxy</string>
     <string name="settings_hub_user_assets">Rule files (geo data)</string>
     <string name="settings_hub_backup_restore">Backup &amp; restore</string>
-    <string name="settings_hub_check_update">Check for updates</string>
+    <string name="settings_hub_check_update">Updates</string>
     <string name="settings_hub_logcat">Logs</string>
     <string name="settings_hub_about">About</string>
     <string name="connection_runing_task_left">Number of running test tasks: %s</string>
@@ -624,12 +624,6 @@
     <string name="title_pref_fragment_enabled">Enable Fragment</string>
     <string name="title_pref_fragment_maxsplit">Fragment Max Split</string>
 
-    <string name="update_check_for_update">Check for update</string>
-    <string name="update_already_latest_version">Already on the latest version</string>
-    <string name="update_new_version_found">New version found: %s</string>
-    <string name="update_now">Update now</string>
-    <string name="update_check_pre_release">Check Pre-release</string>
-    <string name="update_checking_for_update">Checking for update…</string>
 
     <string name="title_policy_group_type">Policy group type</string>
     <string name="title_policy_group_subscription_id">From subscription group</string>
@@ -767,7 +761,7 @@
     <string name="about_feedback_summary">Telegram chat</string>
     <string name="about_site_summary">ng.shrimp.fish</string>
     <string name="about_privacy_summary">What the app does with your data</string>
-    <string name="privacy_banner">No analytics, ads, trackers or accounts. The ShrimpNG developers get nothing about you: the project runs no servers the app would report to. Below is every case where the app goes online by itself, and everything it has access to.</string>
+    <string name="privacy_banner">No analytics, ads, trackers or accounts. The ShrimpNG developers get nothing about you: the only server of ours the app goes to is ng.shrimp.fish, for updates, and it gets nothing but the request itself. Below is every case where the app goes online by itself, and everything it has access to.</string>
     <string name="privacy_none_title">What we don\'t collect</string>
     <string name="privacy_none_body">No usage statistics, crash reports, advertising IDs, or third-party SDKs that would send them. There are no Google services or Firebase in the app either. Which servers and sites you use is never sent anywhere.</string>
     <string name="privacy_subs_title">Subscription updates</string>
@@ -777,13 +771,13 @@
     <string name="privacy_dns_title">DNS</string>
     <string name="privacy_dns_body">With the VPN on, names of sites that go through the proxy are resolved with Cloudflare (1.1.1.1), also through the proxy.\nNames of sites in “direct” rules are resolved with Yandex DNS (77.88.8.8) by default — outside the VPN, so your ISP and Yandex see those lookups. Both are changed in the DNS settings.</string>
     <string name="privacy_downloads_title">Files and updates</string>
-    <string name="privacy_downloads_body">• Once a day, rule files (geosite, geoip) from GitHub, through the VPN if it is connected. Turned off on the Asset files screen.\n• The app list for per-app proxy — from GitHub, only when you tap import.\nGitHub sees the IP the request came from and nothing else: no device ID is added to these requests.</string>
+    <string name="privacy_downloads_body">• Once a day, rule files (geosite, geoip) from GitHub, through the VPN if it is connected. Turned off on the Asset files screen.\n• Once a day, the list of new versions from ng.shrimp.fish — and the new version itself, when you install it or allow downloading in advance. Through the VPN if it is connected. Turned off on the Updates screen.\n• The app list for per-app proxy — from GitHub, only when you tap import.\nGitHub and ng.shrimp.fish see the IP the request came from and nothing else: no device ID or app details are added to these requests.</string>
     <string name="privacy_permissions_title">Permissions</string>
-    <string name="privacy_permissions_body">• VPN — to route traffic through the server you chose.\n• Camera — only to scan QR codes. Frames are not saved or sent anywhere.\n• Location — only for the “Trusted Wi-Fi” rule: without it Android won\'t tell apps the network name. Neither your location nor the network name is sent anywhere. If you don\'t use the rule, it isn\'t requested.\n• App list — so you can choose which apps use the VPN. Stays on the device.\n• Clipboard — read only when you paste a key or open “Add” on the home screen.\n• Notifications — connection status and speed.</string>
+    <string name="privacy_permissions_body">• VPN — to route traffic through the server you chose.\n• Camera — only to scan QR codes. Frames are not saved or sent anywhere.\n• Location — only for the “Trusted Wi-Fi” rule: without it Android won\'t tell apps the network name. Neither your location nor the network name is sent anywhere. If you don\'t use the rule, it isn\'t requested.\n• App list — so you can choose which apps use the VPN. Stays on the device.\n• Clipboard — read only when you paste a key or open “Add” on the home screen.\n• Notifications — connection status and speed.\n• Installing apps — only to install ShrimpNG updates, and only once you allow it.</string>
     <string name="privacy_storage_title">What stays on the device</string>
     <string name="privacy_storage_body">Servers, keys, subscriptions, rules and settings are kept only in the app\'s own storage.\n• Connection history: the last 50 — time, length, server, subscription, address and that session\'s log at the chosen level. The level, and turning it off, are on the Logs screen. Behind the calculator disguise no history is kept and it is wiped on auto-lock. At the Debug level the connection config, keys included, goes into the log.\n• The firewall journal is off by default. When on, it records which app connected to which address and keeps that for 3 days. To show names instead of IPs it makes reverse DNS lookups outside the VPN, which your ISP sees.\n• Logs leave the device only if you share them. Backups go to a file or to your WebDAV — only when you ask.\nOne caveat: Android\'s system backup is enabled for the app. If backup to your Google account is on, the app\'s data, keys included, may end up in your Google Drive backup.</string>
     <string name="privacy_links_title">Links</string>
-    <string name="privacy_links_body">The website, the Telegram chat and channel (where “Check for updates” leads, too) and GitHub open only when you tap them — in your browser or in Telegram, under their own rules.</string>
+    <string name="privacy_links_body">The website, the Telegram chat and channel, and GitHub open only when you tap them — in your browser or in Telegram, under their own rules.</string>
     <string name="title_ping_settings">Latency test</string>
     <string name="title_pref_ping_method">Ping method</string>
     <string-array name="ping_method">
@@ -887,4 +881,58 @@
     <string name="theme_palette_navy">Navy blue</string>
     <string name="theme_palette_lavender">Lavender</string>
     <string name="theme_palette_brown">Brown</string>
+
+    <!-- Updates screen, background update and notifications (AppUpdateManager) -->
+    <string name="update_title">Updates</string>
+    <string name="update_checking">Checking for updates…</string>
+    <string name="update_latest">You have the latest version</string>
+    <string name="update_current_version">ShrimpNG %1$s · Xray %2$s</string>
+    <string name="update_last_checked">Checked %s</string>
+    <string name="update_never_checked">Not checked yet</string>
+    <string name="update_check_failed">Couldn\'t check for updates</string>
+    <string name="update_check_failed_detail">No connection to ng.shrimp.fish. Try again later.</string>
+    <string name="update_available">Version %s is available</string>
+    <string name="update_available_meta">%1$s · %2$s</string>
+    <string name="update_critical">Important update</string>
+    <string name="update_downloading">Downloading… %d%%</string>
+    <string name="update_download_progress">%1$s of %2$s</string>
+    <string name="update_ready">Ready to install</string>
+    <string name="update_ready_detail">Version %s is downloaded and checked</string>
+    <string name="update_installing">Installing…</string>
+    <string name="update_failed">Couldn\'t update</string>
+    <string name="update_failed_detail">%s. Try again, or download the app from the website.</string>
+    <string name="update_action_check">Check now</string>
+    <string name="update_action_retry">Try again</string>
+    <string name="update_action_download">Download and install</string>
+    <string name="update_action_install">Install</string>
+    <string name="update_action_open">Open</string>
+    <string name="update_action_site">Website</string>
+    <string name="update_group_options">Options</string>
+    <string name="update_group_history">Changelog</string>
+    <string name="update_auto_check">Check automatically</string>
+    <string name="update_auto_check_summary">Once a day</string>
+    <string name="update_auto_download">Download in advance</string>
+    <string name="update_auto_download_summary">So the update is ready when you are</string>
+    <string name="update_wifi_only">Only on Wi-Fi</string>
+    <string name="update_wifi_only_summary">Don\'t use mobile data for downloads</string>
+    <string name="update_auto_install">Install automatically</string>
+    <string name="update_auto_install_summary">While the phone is idle, and only when the connection can come back by itself afterwards. Otherwise the app asks first.</string>
+    <string name="update_auto_install_unavailable">Needs Android 12 or newer. The app asks before every update.</string>
+    <string name="update_beta">Beta versions</string>
+    <string name="update_beta_summary">Get new versions before everyone else</string>
+    <string name="update_history_empty">The changelog appears after the first check.</string>
+    <string name="update_install_permission_title">Allow installing updates</string>
+    <string name="update_install_permission_text">Android asks once for permission to install apps. Turn on “Allow from this source”, then come back and tap Install again.</string>
+    <string name="update_install_permission_open">Open settings</string>
+    <string name="update_notify_channel">App updates</string>
+    <string name="update_notify_available_title">ShrimpNG %s is available</string>
+    <string name="update_notify_ready_title">ShrimpNG %s is ready to install</string>
+    <string name="update_notify_text">Tap to see what\'s new</string>
+    <string name="update_whats_new_title">What\'s new in %s</string>
+    <string name="update_badge">New version</string>
+    <string name="update_installed_mark">installed</string>
+    <string name="update_unsupported">This build is updated through F-Droid.</string>
+    <string name="update_reason_corrupt">The downloaded file is damaged</string>
+    <string name="update_reason_network">The download was interrupted</string>
+    <string name="update_reason_key">The file is not signed by ShrimpNG</string>
 </resources>

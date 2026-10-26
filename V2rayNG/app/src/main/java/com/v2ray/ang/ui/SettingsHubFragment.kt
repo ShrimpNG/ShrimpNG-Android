@@ -5,10 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.v2ray.ang.AppConfig
 import com.v2ray.ang.R
 import com.v2ray.ang.databinding.FragmentSettingsHubBinding
-import com.v2ray.ang.util.Utils
+import com.v2ray.ang.handler.AppUpdateManager
 
 /**
  * Настройки: everything that used to live in the hamburger drawer, minus Подписки/Правила
@@ -45,9 +44,8 @@ class SettingsHubFragment : BaseFragment<FragmentSettingsHubBinding>() {
         binding.rowBackupRestore.setOnClickListener {
             ownerActivity.requestActivityLauncher.launch(Intent(ownerActivity, BackupActivity::class.java))
         }
-        // Until in-app updates exist, releases are announced in the Telegram channel.
         binding.rowCheckUpdate.setOnClickListener {
-            Utils.openUri(ownerActivity, AppConfig.TG_CHANNEL_URL)
+            startActivity(Intent(ownerActivity, UpdatesActivity::class.java))
         }
         binding.rowLogcat.setOnClickListener {
             startActivity(Intent(ownerActivity, LogsActivity::class.java))
@@ -55,5 +53,22 @@ class SettingsHubFragment : BaseFragment<FragmentSettingsHubBinding>() {
         binding.rowAbout.setOnClickListener {
             startActivity(Intent(ownerActivity, AboutActivity::class.java))
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        renderUpdateBadge()
+    }
+
+    // Tabs are shown and hidden, not resumed: the badge is refreshed on the way back too.
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+        if (!hidden) renderUpdateBadge()
+    }
+
+    private fun renderUpdateBadge() {
+        view ?: return
+        binding.tvUpdateBadge.visibility =
+            if (AppUpdateManager.availableUpdate(requireContext()) != null) View.VISIBLE else View.GONE
     }
 }
