@@ -891,6 +891,7 @@
     <string name="update_never_checked">Not checked yet</string>
     <string name="update_check_failed">Couldn\'t check for updates</string>
     <string name="update_check_failed_detail">No connection to ng.shrimp.fish. Try again later.</string>
+    <string name="update_check_failed_http">The update server answered with error %d. Try again later.</string>
     <string name="update_available">Version %s is available</string>
     <string name="update_available_meta">%1$s · %2$s</string>
     <string name="update_critical">Important update</string>

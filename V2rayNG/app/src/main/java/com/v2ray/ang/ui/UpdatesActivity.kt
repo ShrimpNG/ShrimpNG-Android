@@ -43,6 +43,7 @@ class UpdatesActivity : BaseActivity() {
 
     private var checking = false
     private var checkFailed = false
+    private var checkHttpCode = 0
     private var installing = false
     private var downloadJob: Job? = null
 
@@ -117,6 +118,7 @@ class UpdatesActivity : BaseActivity() {
             } catch (e: Exception) {
                 LogUtil.w(AppConfig.TAG, "AppUpdate: check failed: ${e.message}")
                 checkFailed = true
+                checkHttpCode = (e as? AppUpdateManager.HttpStatusException)?.code ?: 0
             } finally {
                 checking = false
                 render()
@@ -249,7 +251,11 @@ class UpdatesActivity : BaseActivity() {
                 binding.btnPrimary.setText(R.string.update_action_check)
             }
             checkFailed -> {
-                setStatus(getString(R.string.update_check_failed), getString(R.string.update_check_failed_detail))
+                setStatus(
+                    getString(R.string.update_check_failed),
+                    if (checkHttpCode > 0) getString(R.string.update_check_failed_http, checkHttpCode)
+                    else getString(R.string.update_check_failed_detail),
+                )
                 showSiteButton()
                 binding.btnPrimary.setText(R.string.update_action_retry)
                 binding.btnPrimary.setOnClickListener { check() }

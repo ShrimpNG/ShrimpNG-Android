@@ -890,6 +890,7 @@
     <string name="update_never_checked">Ещё не проверялось</string>
     <string name="update_check_failed">Не удалось проверить обновления</string>
     <string name="update_check_failed_detail">Нет связи с ng.shrimp.fish. Попробуйте позже.</string>
+    <string name="update_check_failed_http">Сервер обновлений ответил ошибкой %d. Попробуйте позже.</string>
     <string name="update_available">Доступна версия %s</string>
     <string name="update_available_meta">%1$s · %2$s</string>
     <string name="update_critical">Важное обновление</string>

@@ -127,7 +127,7 @@ object AppUpdateManager {
             HttpUtil.buildOkHttpClient(10_000, port, SettingsManager.getSocksUsername(), SettingsManager.getSocksPassword(), true)
                 .newCall(Request.Builder().url(url).header("Cache-Control", "no-cache").build())
                 .execute().use { response ->
-                    if (!response.isSuccessful) throw IOException("HTTP ${response.code}")
+                    if (!response.isSuccessful) throw HttpStatusException(response.code)
                     response.body?.string() ?: throw IOException("empty body")
                 }
         }
@@ -165,6 +165,9 @@ object AppUpdateManager {
     enum class Reason { NETWORK, CORRUPT, SIGNATURE, INSTALL }
 
     class UpdateException(val reason: Reason, message: String) : IOException(message)
+
+    /** The server answered, just not with the manifest: says something other than "no connection". */
+    class HttpStatusException(val code: Int) : IOException("HTTP $code")
 
     sealed class DownloadState {
         data object Idle : DownloadState()
